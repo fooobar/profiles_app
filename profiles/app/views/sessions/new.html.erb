@@ -1,0 +1,9 @@
+<h3>Login</h3>
+
+<%= form_tag("/login", method: "post") do %>
+	<%= label_tag(:email, "Email:") %>
+	<%= email_field(:user, :email) %>
+	<%= label_tag(:password, "Password:") %>
+	<%= password_field_tag(:password) %>
+	<%= submit_tag("Login") %>
+<% end %>
