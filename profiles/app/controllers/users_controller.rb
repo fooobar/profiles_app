@@ -2,9 +2,11 @@ class UsersController < ApplicationController
 	before_action :authorize, except: [:create, :new]
 	
 	def new_student
+		@user = User.new
 	end
 
 	def new_employer
+		@user = User.new
 	end
 
 	def create
@@ -29,7 +31,7 @@ class UsersController < ApplicationController
 			if @user.update(user_params)
 				redirect_to @user
 			else
-				render :action -> "edit"
+				render :action => "edit"
 			end
 	end
 
