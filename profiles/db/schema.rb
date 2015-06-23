@@ -11,10 +11,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623155128) do
+ActiveRecord::Schema.define(version: 20150623165747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "experiences", force: :cascade do |t|
+    t.string   "company_name",    null: false
+    t.string   "company_website"
+    t.string   "city"
+    t.string   "state"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "role",            null: false
+    t.string   "resp_1"
+    t.string   "resp_2"
+    t.string   "resp_3"
+    t.string   "resp_4"
+    t.string   "resp_5"
+    t.integer  "user_id",         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.string   "desc",       null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "jobs_skills", force: :cascade do |t|
+    t.integer "job_id",   null: false
+    t.integer "skill_id", null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.string   "desc",       null: false
+    t.string   "website"
+    t.string   "image_src"
+    t.integer  "user_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_skills", force: :cascade do |t|
+    t.integer "user_id",  null: false
+    t.integer "skill_id", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "f_name"

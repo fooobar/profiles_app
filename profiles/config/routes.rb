@@ -1,3 +1,14 @@
 Rails.application.routes.draw do
- resources :users
-end
+
+  root "welcome#index"
+
+  get     '/login' =>   'sessions#new'
+  post    '/login' =>   'sessions#create'
+  delete  '/logout' =>  'sessions#destroy'
+
+  resources :sessions, only: [ :new, :create, :destroy]
+
+  resources :users
+
+  get '/users/new/student' => 'users#new_student'
+  get '/users/new/employer' => 'users#new_employer'
