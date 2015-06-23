@@ -10,6 +10,7 @@
 User.destroy_all
 Skill.destroy_all
 Experience.destroy_all
+Project.destroy_all
 
 
 user_jeremy = User.create({
