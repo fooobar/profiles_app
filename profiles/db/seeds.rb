@@ -50,3 +50,37 @@ user_drew = User.create({
 	password: 'melville1',
 	user_type: 'student'
 	})
+
+skill_html = Skill.create({
+	name: "HTML5"
+	})
+
+skill_css = Skill.create({
+	name: "CSS3"
+	})
+
+skill_js = Skill.create({
+	name: "JavaScript"
+	})
+
+skill_rubyonrails = Skill.create({
+	name: "Ruby on Rails"
+	})
+
+skill_git = Skill.create({
+	name: "Github"
+	})
+
+skill_ajax = Skill.create({
+	name: "AJAX"
+	})
+
+skill_apis = Skill.create({
+	name: "APIs"
+	})
+
+skill_slack = Skill.create({
+	name: "Slack"
+	})
+
+
