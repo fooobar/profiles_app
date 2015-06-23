@@ -1,12 +1,20 @@
+<h1> Sign-up as a Student:</h1>
 <%= form_for @user do |f| %>
+
+<%= f.label "First Name" %>
+<%= f.text_field :f_name %><br>
+
+<%= f.label "Last Name" %>
+<%= f.text_field :l_name %><br>
 
 <%= f.label "Email" %>
 <%= f.text_field :email %><br>
 
 <%= f.label "Password" %>
-<%= f.text_field :password %><br>
+<%= f.password_field :password %><br>
 
+<%= hidden_field_tag :user_type, 'student'  %><br>
 
-<%= f.submit %>
+<%= f.submit 'New Student' %>
 
 <% end %>
