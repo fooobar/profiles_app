@@ -1,12 +1,17 @@
+<h1> Sign-up as a Employer:</h1>
 <%= form_for @user do |f| %>
+
+<%= f.label "Company Name" %>
+<%= f.text_field :org_name %><br>
 
 <%= f.label "Email" %>
 <%= f.text_field :email %><br>
 
 <%= f.label "Password" %>
-<%= f.text_field :password %><br>
+<%= f.password_field :password %><br>
 
+<%= hidden_field_tag :user_type, 'employer'  %><br>
 
-<%= f.submit %>
+<%= f.submit 'New Employer'%>
 
 <% end %>
