@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20150623180558) do
     t.integer "skill_id", null: false
   end
 
-  create_table "users", id: false, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "f_name"
     t.string   "l_name"
     t.string   "org_name"
