@@ -50,3 +50,57 @@ user_drew = User.create({
 	password: 'melville1',
 	user_type: 'student'
 	})
+
+##
+
+Project.create([
+	{
+		title: "Wikipedia",
+		desc: "A free encyclopedia built collaboratively using wiki software.",
+		website: "https://www.wikipedia.org/",
+		image_src: "http://publichistorycommons.org/wp-content/uploads/2014/11/wikipedia1.png",
+		user_id: user_jeremy.id
+	},
+	{
+		title: "Google",
+		desc: "Google is an American multinational technology company specializing in Internet-related services and products.",
+		website: "https://www.google.com/",
+		image_src: "http://i.forbesimg.com/media/lists/companies/google_416x416.jpg",
+		user_id: user_karlyce.id
+	},
+	{
+		title: "Youtube",
+		desc: "YouTube is a video-sharing website headquartered in San Bruno, California, United States.",
+		website: "https://www.youtube.com/",
+		image_src: "http://s.ytimg.com/yts/img/youtube_logo_stacked-vfl225ZTx.png",
+		user_id: user_drew.id
+	},
+	{
+		title: "Pornhub",
+		desc: "Pornhub, part of the Pornhub NETWORK campaign, is a pornographic video sharing website and the largest pornography site on the Internet.",
+		website: "http://www.pornhub.com/",
+		image_src: "http://www.theyucatantimes.com/wp-content/uploads/2014/07/pornhub-logo.jpg",
+		user_id: user_fernanda.id
+	},
+	{
+		title: "Github",
+		desc: "GitHub is a web-based Git repository hosting service, which offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features.",
+		website: "https://github.com/",
+		image_src: "https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png",
+		user_id: user_gordon.id
+	}
+])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
