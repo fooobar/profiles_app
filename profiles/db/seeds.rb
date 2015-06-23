@@ -8,6 +8,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all
+Skill.destroy_all
 
 
 user_jeremy = User.create({
