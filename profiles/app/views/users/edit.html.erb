@@ -1,16 +1,46 @@
-<%= form for @user do |f| %>
+<%= form_for @user do |f| %>
+<%= label_tag(:f_name, "First Name") %>
 <%= f.text_field :f_name %>
+<br>
+<%= label_tag(:l_name, "Last Name") %>
 <%= f.text_field :l_name %>
+<br>
+<%= label_tag(:org_name, "Organization Name") %>
 <%= f.text_field :org_name %>
+<br>
+<%= label_tag(:email, "Email Address") %>
 <%= f.text_field :email %>
+<br>
+<%= label_tag(:image_src, "Link to image") %>
 <%= f.text_field :image_src %>
+<br>
+<%= label_tag(:phone, "Phone Number") %>
 <%= f.text_field :phone %>
+<br>
+<%= label_tag(:city, "City") %>
 <%= f.text_field :city %>
+<br>
+<%= label_tag(:state, "State") %>
 <%= f.text_field :state %>
+<br>
+<%= label_tag(:website, "Website link") %>
 <%= f.text_field :website %>
+<br>
+<%= label_tag(:github, "Github link") %>
 <%= f.text_field :github %>
+<br>
+<%= label_tag(:twitter, "Twitter link") %>
 <%= f.text_field :twitter %>
+<br>
+<%= label_tag(:linkedin, "Linkedin") %>
 <%= f.text_field :linkedin %>
+<br>
+<%= label_tag(:behance, "Behance") %>
 <%= f.text_field :behance %>
+<br>
+<%= label_tag(:bio, "Biography") %>
 <%= f.text_field :bio %>
+<br>
 <%= f.submit %>
+
+<% end %>
