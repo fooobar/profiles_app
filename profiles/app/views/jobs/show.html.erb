@@ -1,0 +1,5 @@
+<h1><%= @job.title %></h1>
+<p><%= @job.desc %></p>
+<% @job.skills.each do |skill| %>
+	<span><%= skill.name %></span>
+<% end %>

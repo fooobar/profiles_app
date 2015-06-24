@@ -13,7 +13,7 @@
 <script id="jobs-template" type="x-tmpl-mustache">
 	{{#jobs}}
 		<h1>{{user_id}} is looking for a {{title}}</h1>
-		<p>{{desc}}</p>
+		<p>{{desc}}   <a href="/jobs/{{id}}">Read more</a></p> 
 		<span>
 				{{#skills}}
 					{{name}}
@@ -26,41 +26,39 @@
 
 <script>
 //the master list of jobs
-	var jobs = {jobs :<%=raw @jobs.to_json(:include => :skills) %>}
+	var jobsArray = {jobs :<%=raw @jobs.to_json(:include => :skills) %>}
 
 
-var matchSkill = function(job){
-	_.filter(job)
+var checkJob = function(job,skill){
+	var found = false;
+	for (var i = 0; i < job.skills.length; i++){
+		if (job.skills[i].name === skill){
+			found = true;
+		}
+	}
+	return found;
 }
 
-
 var showChecked = function(skill,jobs){ 
-	var jobList = jobs.jobs.filter(matchSkill(jobs.jobs));
-	console.log(jobList)
+	var jobs = jobs.jobs.filter(checkJob(jobs,skill));
 	
-
 }
 
 //rendering the filtered job list to the page
 var renderJobs = function(jobList){
 	$('#listing-container').text('')
 	var template = $('#jobs-template').html()
-	var render = Mustache.render(template, jobs)
+	var render = Mustache.render(template, jobList)
 	$('#listing-container').append(render)
 }
 
-renderJobs(jobs)
+renderJobs(jobsArray)
 
 
 $("[type=checkbox]").on('click',function(event){
 	showSkill = event.target.name
-	showChecked(showSkill, jobs)
+	showChecked(showSkill, jobsArray)
 });
-
-
-
-
-
 
 </script>
 
