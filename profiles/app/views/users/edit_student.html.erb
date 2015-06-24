@@ -1,0 +1,89 @@
+<!-- SIDE NAV -->
+
+<div class="profile-side-nav" data="<%=@user.id%>">
+
+<!-- Image -->
+
+	<div class="profile-image">
+		<img src="<%=@user.image_src%>">
+		<br>
+		<a class="edit-button" id="image-edit-button" href="">Edit Image</a>
+		<div class="hidden" id="profile-image-edit">
+			<%= form_for @user do |f| %>
+				<%= f.text_field :image_src %>
+				<%= f.submit 'Update', id: "image-update-button" %>
+			<% end %>
+		</div>
+	</div>
+
+<!-- Contact Links -->
+
+	<div class="profile-contact">
+	<% if @user.city%><h4><%=@user.city%><%end%><% if @user.state%>, <%=@user.state%><%end%></h4>
+		<ul>
+			<li><a href="mailto:<%=@user.email%>">Email Me</a></li>
+			<% if @user.website %><li><a href="<%=@user.website%>">My Website</a></li><%end%>
+			<% if @user.twitter %><li><a href="<%=@user.twitter%>">Tweet Me</a></li><%end%>
+			<% if @user.github %><li><a href="<%=@user.github%>">GitHub</a></li><%end%>
+			
+			<% if @user.linkedin %><li><a href="<%=@user.linkedin%>">LinkedIn</a></li><%end%>
+			<% if @user.behance%><li><a href="<%=@user.behance%>">Behance</a></li><%end%>
+		</ul>
+	</div>
+
+</div>
+
+<!-- MAIN AREA -->
+
+<div class="profile-main">
+
+<!-- User Basic Info -->
+
+	<div class="profile-header">
+		<h1><%= @user.f_name%> <%= @user.l_name%></h1>
+		<h2><%= @user.role%> </h2>
+		<h3><%=@user.bio%></h3>
+	</div>
+
+	<!-- Skills -->
+
+	<div class="profile-skills">
+		<h2>Skills</h2>
+		<ul>
+			<% @user.skills.each do |skill|%>
+				<li><%=skill.name%></li>
+			<%end%>
+		</ul>
+	</div>
+
+	<!-- Projects -->
+
+	<div class="profile-projects">
+		<h2>Projects</h2>
+		<% @user.projects.each do |project| %>
+			<div class="project">
+				<img class="project-image" src="<%=project.image_src%>">
+				<h3><%= project.title%></h3>
+				<p><%= project.desc%></p>
+				<a href="<%=project.website%>">Click to Learn More</a>
+			</div>
+		<%end%>
+	</div>
+
+	<!-- Work Experience -->
+
+	<div class="profile-experiences">
+		<h2>Experience</h2>
+		<% @user.experiences.each do |exp|%>
+			<div class="experience">
+				<h3><%=exp.role%></h3>
+				<h4><%=exp.company_name%></h4>
+				<h5><%=exp.start_date%> &mdash; <%=exp.end_date%> | <%=exp.city%>, <%=exp.state%></h5>
+				<p><%= exp.blurb%></p>
+			</div>
+		<%end%>
+	</div>
+
+
+
+</div>
