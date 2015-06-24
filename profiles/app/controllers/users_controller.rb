@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 			if @user.user_type === "student"
 				render :edit_student
 			else 
-				render :edit_employer
+				render :show_employer
 			end
 		else
 			if @user.user_type === "student"
