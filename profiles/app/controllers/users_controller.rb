@@ -20,13 +20,26 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user= User.find(params[:id])
+		@user = User.find(params[:id])
+		if current_user === @user
+			if @user.user_type === "student"
+				render :edit_student
+			else
+				render :edit_employer
+			end
+		else 
+			if @user.user_type === "student"
+				render :show_student
+			else
+				render :show_employer
+			end
+		end
 	end
 
-	def edit
-		@user = User.find(params[:id])
-		render :edit_student
-	end
+	# def edit
+	# 	@user = User.find(params[:id])
+	# 	render :edit_student
+	# end
 
 	def update
 		user = User.find(params[:id])
