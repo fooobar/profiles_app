@@ -17,4 +17,8 @@ Rails.application.routes.draw do
   post '/skills' => 'sessions#new'
   post '/experiences' => 'experiences#new'
 
+  patch '/projects' => 'projects#update'
+  patch '/projects' => 'projects#update'
+  patch '/projects' => 'projects#update'
+
 end

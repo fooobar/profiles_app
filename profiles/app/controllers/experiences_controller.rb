@@ -8,6 +8,9 @@ class ExperiencesController < ApplicationController
 		end
 	end
 
+	def update
+	end
+
 
 	private
 		def experience_params

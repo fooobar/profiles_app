@@ -7,7 +7,9 @@ class ProjectsController < ApplicationController
 		else
 			flash[:alert] = "Unable to save project"
 		end
+	end
 
+	def update
 	end
 
 	private
