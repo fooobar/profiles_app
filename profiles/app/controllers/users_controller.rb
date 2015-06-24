@@ -24,13 +24,12 @@ class UsersController < ApplicationController
 		if current_user === @user
 			if @user.user_type === "student"
 				render :edit_student
-			else
+			else 
 				render :edit_employer
 			end
-		else 
 			if @user.user_type === "student"
 				render :show_student
-			else
+			else 
 				render :show_employer
 			end
 		end
