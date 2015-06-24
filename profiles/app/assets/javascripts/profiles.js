@@ -25,16 +25,18 @@ var renderImageForm = function(e) {
 
 // Update Image
 
-var updateImage = function() {
+var updateImage = function(e) {
+	e.preventDefault()
 	$.ajax({
+		context: this,
 		url: '/users/'+UserId,
 		type: 'patch',
 		data: {
 			'user[image_src]': $('#user_image_src').val()
 		}
 	}).done(function(resp) {
-		$(this).show()
-		$(this).parent().children('.hidden').hide()	
+		$('.image-edit-button').show()
+		$('#profile-image-edit').hide()	
 		$('#profile-image').attr('src', resp['image_src'])
 	})	
 }
