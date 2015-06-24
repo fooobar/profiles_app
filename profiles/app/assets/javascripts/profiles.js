@@ -7,7 +7,7 @@
 $(document).ready(function() {
 	UserId = $('.profile-side-nav').attr('data')
 	$('#profile-image-edit-button').on("click", renderImageEdit)
-	$('#profile-image-update-button').on("click", updateImage)
+	$('#image-update-button').on("click", updateImage)
 })
 
 
@@ -25,7 +25,7 @@ var updateImage = function(e) {
 		url: '/users/'+UserId,
 		type: 'patch',
 		data: {
-			image_src: $('#user_image_src').val()
+			'user[image_src]': $('#user_image_src').val()
 		}
 	}).done(function(resp) {
 		$('#profile-image-edit').hide()
