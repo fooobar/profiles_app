@@ -9,6 +9,9 @@ class SkillsController < ApplicationController
 		end
 	end
 
+	def update
+	end
+
 	private
 		def skill_params
 			params.require(:skill).permit(:name)
