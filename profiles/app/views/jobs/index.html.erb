@@ -1,0 +1,71 @@
+
+<div class = "filter-container">
+<span>Filter this list by skill</span>
+	<form name="skill-list">
+		<% @skills.each do |skill| %>
+		<label for="<%= skill.name %>"><%= skill.name %></label>
+		<input type="checkbox" name="<%= skill.name %>" value="<%= skill.id %>">
+		<br>
+		<% end %>
+	</form>
+</div>
+<div id="listing-container"></div>
+<script id="jobs-template" type="x-tmpl-mustache">
+	{{#jobs}}
+		<h1>{{user_id}} is looking for a {{title}}</h1>
+		<p>{{desc}}</p>
+		<span>
+				{{#skills}}
+					{{name}}
+				{{/skills}}
+		</span>
+
+	{{/jobs}}
+</script>
+
+
+<script>
+//the master list of jobs
+	var jobs = {jobs :<%=raw @jobs.to_json(:include => :skills) %>}
+
+
+var matchSkill = function(jobs){
+	var found = false;
+	for (var i = 0; i < jobs.jobs.skills.length; i++){
+		if (jobs.jobs[i].skills.name === "AJAX"){
+			found = true;
+		}
+	}
+	return found;
+}
+
+var showChecked = function(skill,jobs){ 
+	var jobList = jobs.jobs.filter(matchSkill(jobs));
+	console.log(jobList)
+
+}
+
+//rendering the filtered job list to the page
+var renderJobs = function(jobList){
+	$('#listing-container').text('')
+	var template = $('#jobs-template').html()
+	var render = Mustache.render(template, jobs)
+	$('#listing-container').append(render)
+}
+
+renderJobs(jobs)
+
+
+$("[type=checkbox]").on('click',function(event){
+	showSkill = event.target.name
+	showChecked(showSkill, jobs)
+});
+
+
+
+
+
+
+</script>
+
+
