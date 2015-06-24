@@ -143,11 +143,7 @@ Experience.create([
         start_date: "2011/15/5",
         end_date: "2014/12/01",
         role: "VP of engineering",
-        resp_1: "Be a thought leader",
-        resp_2: "Create value",
-        resp_3: "synergize profit centers",
-        resp_4: "Manage budget of 200,000 per year",
-        resp_5: "Be a boss",
+        blurb: "Be a thought leader",
         user_id: user_jeremy.id
 
     },
@@ -159,11 +155,7 @@ Experience.create([
         start_date: "2009/11/4",
         end_date: "2011/12/2",
         role: "Personal Assistant",
-        resp_1: "Order lunch",
-        resp_2: "Manage calendar",
-        resp_3: "Answer email",
-        resp_4: "Pay tickets",
-        resp_5: "schedule meetings",
+        blurb: "Order lunch",
         user_id: user_jeremy.id
     },
     {
@@ -174,11 +166,7 @@ Experience.create([
         start_date: "2002/12/6",
         end_date: "2004/5/9",
         role: "QA Tester",
-        resp_1: "Sort products to be tested",
-        resp_2: "Test functionality and durability of products",
-        resp_3: "Record test data",
-        resp_4: "Identify and report safety issues",
-        resp_5: "",
+        blurb: "Sort products to be tested",
         user_id: user_jeremy.id
     },
     {
@@ -189,11 +177,7 @@ Experience.create([
         start_date: "2002/12/6",
         end_date: "2004/5/9",
         role: "QA Tester",
-        resp_1: "Sort products to be tested",
-        resp_2: "Test functionality and durability of products",
-        resp_3: "Record test data",
-        resp_4: "Identify and report safety issues",
-        resp_5: "",
+        blurb: "Sort products to be tested",
         user_id: user_jeremy.id
     },
     {
@@ -204,11 +188,7 @@ Experience.create([
         start_date: "2000/3/4" ,
         end_date: "2000/6/12",
         role: "air conditioner Salesperson",
-        resp_1: "Maintain inventory of air conditioners",
-        resp_2: "Help customers identify their air conditioner needs",
-        resp_3: "Order air conditioners",
-        resp_4: "Recycle defective conditioners",
-        resp_5: "",
+        blurb: "Maintain inventory of air conditioners",
         user_id: user_jeremy.id
     },
         {
@@ -219,11 +199,7 @@ Experience.create([
         start_date: "2011/15/5",
         end_date: "2014/12/01",
         role: "VP of engineering",
-        resp_1: "Be a thought leader",
-        resp_2: "Create value",
-        resp_3: "synergize profit centers",
-        resp_4: "Manage budget of 200,000 per year",
-        resp_5: "Be a boss",
+        blurb: "Be a thought leader",
         user_id: user_karlyce.id
 
     },
@@ -235,11 +211,7 @@ Experience.create([
         start_date: "2009/11/4",
         end_date: "2011/12/2",
         role: "Personal Assistant",
-        resp_1: "Order lunch",
-        resp_2: "Manage calendar",
-        resp_3: "Answer email",
-        resp_4: "Pay tickets",
-        resp_5: "schedule meetings",
+        blurb: "Order lunch",
         user_id: user_karlyce.id
     },
     {
@@ -250,11 +222,7 @@ Experience.create([
         start_date: "2002/12/6",
         end_date: "2004/5/9",
         role: "QA Tester",
-        resp_1: "Sort products to be tested",
-        resp_2: "Test functionality and durability of products",
-        resp_3: "Record test data",
-        resp_4: "Identify and report safety issues",
-        resp_5: "",
+        blurb: "Sort products to be tested",
         user_id: user_karlyce.id
     },
     {
@@ -265,11 +233,7 @@ Experience.create([
         start_date: "2002/12/6",
         end_date: "2004/5/9",
         role: "QA Tester",
-        resp_1: "Sort products to be tested",
-        resp_2: "Test functionality and durability of products",
-        resp_3: "Record test data",
-        resp_4: "Identify and report safety issues",
-        resp_5: "",
+        blurb: "Sort products to be tested",
         user_id: user_karlyce.id
     },
     {
@@ -280,11 +244,7 @@ Experience.create([
         start_date: "2000/3/4" ,
         end_date: "2000/6/12",
         role: "air conditioner Salesperson",
-        resp_1: "Maintain inventory of air conditioners",
-        resp_2: "Help customers identify their air conditioner needs",
-        resp_3: "Order air conditioners",
-        resp_4: "Recycle defective conditioners",
-        resp_5: "",
+        blurb: "Maintain inventory of air conditioners",
         user_id: user_karlyce.id
     },
     {
@@ -295,11 +255,7 @@ Experience.create([
         start_date: "2011/15/5",
         end_date: "2014/12/01",
         role: "VP of engineering",
-        resp_1: "Be a thought leader",
-        resp_2: "Create value",
-        resp_3: "synergize profit centers",
-        resp_4: "Manage budget of 200,000 per year",
-        resp_5: "Be a boss",
+        blurb: "Be a thought leader",
         user_id: user_fernanda.id
 
     },
@@ -311,11 +267,7 @@ Experience.create([
         start_date: "2009/11/4",
         end_date: "2011/12/2",
         role: "Personal Assistant",
-        resp_1: "Order lunch",
-        resp_2: "Manage calendar",
-        resp_3: "Answer email",
-        resp_4: "Pay tickets",
-        resp_5: "schedule meetings",
+        blurb: "Order lunch",
         user_id: user_fernanda.id
     },
     {
@@ -326,11 +278,7 @@ Experience.create([
         start_date: "2002/12/6",
         end_date: "2004/5/9",
         role: "QA Tester",
-        resp_1: "Sort products to be tested",
-        resp_2: "Test functionality and durability of products",
-        resp_3: "Record test data",
-        resp_4: "Identify and report safety issues",
-        resp_5: "",
+        blurb: "Sort products to be tested",
         user_id: user_fernanda.id
     },
     {
@@ -341,11 +289,7 @@ Experience.create([
         start_date: "2002/12/6",
         end_date: "2004/5/9",
         role: "QA Tester",
-        resp_1: "Sort products to be tested",
-        resp_2: "Test functionality and durability of products",
-        resp_3: "Record test data",
-        resp_4: "Identify and report safety issues",
-        resp_5: "",
+        blurb: "Sort products to be tested",
         user_id: user_fernanda.id
     },
     {
@@ -356,11 +300,7 @@ Experience.create([
         start_date: "2000/3/4" ,
         end_date: "2000/6/12",
         role: "air conditioner Salesperson",
-        resp_1: "Maintain inventory of air conditioners",
-        resp_2: "Help customers identify their air conditioner needs",
-        resp_3: "Order air conditioners",
-        resp_4: "Recycle defective conditioners",
-        resp_5: "",
+        blurb: "Maintain inventory of air conditioners",
         user_id: user_fernanda.id
     },
                 {
@@ -371,11 +311,7 @@ Experience.create([
         start_date: "2011/15/5",
         end_date: "2014/12/01",
         role: "VP of engineering",
-        resp_1: "Be a thought leader",
-        resp_2: "Create value",
-        resp_3: "synergize profit centers",
-        resp_4: "Manage budget of 200,000 per year",
-        resp_5: "Be a boss",
+        blurb: "Be a thought leader",
         user_id: user_fernanda.id
 
     },
@@ -387,11 +323,7 @@ Experience.create([
         start_date: "2009/11/4",
         end_date: "2011/12/2",
         role: "Personal Assistant",
-        resp_1: "Order lunch",
-        resp_2: "Manage calendar",
-        resp_3: "Answer email",
-        resp_4: "Pay tickets",
-        resp_5: "schedule meetings",
+        blurb: "Order lunch",
         user_id: user_fernanda.id
     },
     {
@@ -402,11 +334,7 @@ Experience.create([
         start_date: "2002/12/6",
         end_date: "2004/5/9",
         role: "QA Tester",
-        resp_1: "Sort products to be tested",
-        resp_2: "Test functionality and durability of products",
-        resp_3: "Record test data",
-        resp_4: "Identify and report safety issues",
-        resp_5: "",
+        blurb: "Sort products to be tested",
         user_id: user_drew.id
     },
     {
@@ -417,11 +345,7 @@ Experience.create([
         start_date: "2002/12/6",
         end_date: "2004/5/9",
         role: "QA Tester",
-        resp_1: "Sort products to be tested",
-        resp_2: "Test functionality and durability of products",
-        resp_3: "Record test data",
-        resp_4: "Identify and report safety issues",
-        resp_5: "",
+        blurb: "Sort products to be tested",
         user_id: user_fernanda.id
     },
     {
@@ -432,11 +356,7 @@ Experience.create([
         start_date: "2000/3/4" ,
         end_date: "2000/6/12",
         role: "air conditioner Salesperson",
-        resp_1: "Maintain inventory of air conditioners",
-        resp_2: "Help customers identify their air conditioner needs",
-        resp_3: "Order air conditioners",
-        resp_4: "Recycle defective conditioners",
-        resp_5: "",
+        blurb: "Maintain inventory of air conditioners",
         user_id: user_drew.id
     },
     {
@@ -447,11 +367,7 @@ Experience.create([
         start_date: "2011/15/5",
         end_date: "2014/12/01",
         role: "VP of engineering",
-        resp_1: "Be a thought leader",
-        resp_2: "Create value",
-        resp_3: "synergize profit centers",
-        resp_4: "Manage budget of 200,000 per year",
-        resp_5: "Be a boss",
+        blurb: "Be a thought leader",
         user_id: user_fernanda.id
 
     },
@@ -463,11 +379,7 @@ Experience.create([
         start_date: "2009/11/4",
         end_date: "2011/12/2",
         role: "Personal Assistant",
-        resp_1: "Order lunch",
-        resp_2: "Manage calendar",
-        resp_3: "Answer email",
-        resp_4: "Pay tickets",
-        resp_5: "schedule meetings",
+        blurb: "Order lunch",
         user_id: user_drew.id
     },
     {
@@ -478,11 +390,7 @@ Experience.create([
         start_date: "2002/12/6",
         end_date: "2004/5/9",
         role: "QA Tester",
-        resp_1: "Sort products to be tested",
-        resp_2: "Test functionality and durability of products",
-        resp_3: "Record test data",
-        resp_4: "Identify and report safety issues",
-        resp_5: "",
+        blurb: "Sort products to be tested",
         user_id: user_fernanda.id
     },
     {
@@ -493,11 +401,7 @@ Experience.create([
         start_date: "2002/12/6",
         end_date: "2004/5/9",
         role: "QA Tester",
-        resp_1: "Sort products to be tested",
-        resp_2: "Test functionality and durability of products",
-        resp_3: "Record test data",
-        resp_4: "Identify and report safety issues",
-        resp_5: "",
+        blurb: "Sort products to be tested",
         user_id: user_gordon.id
     },
     {
@@ -508,11 +412,7 @@ Experience.create([
         start_date: "2000/3/4" ,
         end_date: "2000/6/12",
         role: "air conditioner Salesperson",
-        resp_1: "Maintain inventory of air conditioners",
-        resp_2: "Help customers identify their air conditioner needs",
-        resp_3: "Order air conditioners",
-        resp_4: "Recycle defective conditioners",
-        resp_5: "",
+        blurb: "Maintain inventory of air conditioners",
         user_id: user_gordon.id
     },
                 {
@@ -523,11 +423,7 @@ Experience.create([
         start_date: "2011/15/5",
         end_date: "2014/12/01",
         role: "VP of engineering",
-        resp_1: "Be a thought leader",
-        resp_2: "Create value",
-        resp_3: "synergize profit centers",
-        resp_4: "Manage budget of 200,000 per year",
-        resp_5: "Be a boss",
+        blurb: "Be a thought leader",
         user_id: user_gordon.id
 
     },
@@ -539,11 +435,7 @@ Experience.create([
         start_date: "2009/11/4",
         end_date: "2011/12/2",
         role: "Personal Assistant",
-        resp_1: "Order lunch",
-        resp_2: "Manage calendar",
-        resp_3: "Answer email",
-        resp_4: "Pay tickets",
-        resp_5: "schedule meetings",
+        blurb: "Order lunch",
         user_id: user_gordon.id
     },
     {
@@ -554,11 +446,7 @@ Experience.create([
         start_date: "2002/12/6",
         end_date: "2004/5/9",
         role: "QA Tester",
-        resp_1: "Sort products to be tested",
-        resp_2: "Test functionality and durability of products",
-        resp_3: "Record test data",
-        resp_4: "Identify and report safety issues",
-        resp_5: "",
+        blurb: "Sort products to be tested",
         user_id: user_gordon.id
     },
     {
@@ -569,11 +457,7 @@ Experience.create([
         start_date: "2002/12/6",
         end_date: "2004/5/9",
         role: "QA Tester",
-        resp_1: "Sort products to be tested",
-        resp_2: "Test functionality and durability of products",
-        resp_3: "Record test data",
-        resp_4: "Identify and report safety issues",
-        resp_5: "",
+        blurb: "Sort products to be tested",
         user_id: user_drew.id
     },
     {
@@ -584,11 +468,7 @@ Experience.create([
         start_date: "2000/3/4" ,
         end_date: "2000/6/12",
         role: "air conditioner Salesperson",
-        resp_1: "Maintain inventory of air conditioners",
-        resp_2: "Help customers identify their air conditioner needs",
-        resp_3: "Order air conditioners",
-        resp_4: "Recycle defective conditioners",
-        resp_5: "",
+        blurb: "Maintain inventory of air conditioners",
         user_id: user_drew.id
     },
 ])
