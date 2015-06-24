@@ -112,10 +112,10 @@ Project.create([
         user_id: user_drew.id
     },
     {
-        title: "Facebook",
-        desc: "Facebook, is a social-media experience allowing you to keep up with all of the meaningless events in lives of people you don't like.",
-        website: "http://www.facebook.com/",
-        image_src: "https://www.facebook.com/images/fb_icon_325x325.png",
+        title: "Pornhub",
+        desc: "Pornhub, part of the Pornhub NETWORK campaign, is a pornographic video sharing website and the largest pornography site on the Internet."
+        website: "http://www.pornhub.com/",
+        image_src: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Logo_of_Pornhub.png",
         user_id: user_fernanda.id
     },
     {
