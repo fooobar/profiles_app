@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+/* PROFILE PAGES STUDENT*/
+
+body {
+	width: 100%;
+}
+
+.profile-side-nav {
+	width: 25%;
+	float: left;
+}
+
+.profile-main {
+	width: 75%;
+	float: right;
+}
+
+.experience {
+	background-color: #E6E6E6;
+	margin-bottom: 10px;
+	border: solid 1px black;
+}
