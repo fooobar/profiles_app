@@ -90,7 +90,7 @@
 		<h2>Skills</h2>
 		<ul>
 			<% @user.skills.each do |skill|%>
-				<li><%=skill.name%></li>
+				<li><%=skill.name%></li><span><a class="delete-button" id="profile-skill-delete-button" href="">Delete</a></span>
 			<%end%>
 		</ul>
 		<!-- edit form -->
@@ -102,7 +102,7 @@
 	<div class="profile-projects">
 		<h2>Projects</h2>
 		<% @user.projects.each do |project| %>
-			<div class="project">
+			<div class="project" data="<%=project.id%>">
 				<img class="project-image" src="<%=project.image_src%>">
 				<h3><%= project.title%></h3>
 				<p><%= project.desc%></p>
@@ -110,7 +110,8 @@
 			</div>
 			<!-- edit form -->
 			<div class="hidden" id="profile-project-edit">
-				<%= form_for @user.projects do |f| %>
+			<%binding.pry%>
+				<%= form_for project do |f| %>
 					<%= f.text_field :title %>
 					<%= f.text_field :desc %>
 					<%= f.text_field :website %>
@@ -147,7 +148,6 @@
 			</div>
 		<%end%>
 	</div>
-
 
 
 </div>
