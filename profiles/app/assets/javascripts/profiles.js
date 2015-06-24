@@ -8,6 +8,7 @@ $(document).ready(function() {
 	UserId = $('.profile-side-nav').attr('data')
 	$('#profile-image-edit-button').on("click", renderImageEdit)
 	$('#profile-image-update-button').on("click", updateImage)
+	$('.job-desc-more').on("click", showMoreJobDesc)
 })
 
 
@@ -37,5 +38,12 @@ var updateImage = function(e) {
 
 // Updating Profile Contact
 
+
+// Show Employer Profile
+var showMoreJobDesc = function(){
+	e.preventDefault()
+
+
+}
 
 
