@@ -10,6 +10,8 @@ class ProjectsController < ApplicationController
 	end
 
 	def update
+		@project = Project.find(params[:id])
+		@user = User.find(params[:user_id])
 	end
 
 	private
