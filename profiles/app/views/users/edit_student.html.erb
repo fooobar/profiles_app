@@ -7,12 +7,12 @@
 	<div class="profile-image">
 		<img id="profile-image" src="<%=@user.image_src%>">
 		<br>
-		<a class="edit-button" id="profile-image-edit-button" href="">Edit Image</a>
+		<a class="image-edit-button" id="profile-image-edit-button" href="">Edit Image</a>
 		<!-- edit form -->
 		<div class="hidden" id="profile-image-edit">
 			<%= form_for @user do |f| %>
 				<%= f.text_field :image_src %>
-				<%= f.submit 'Update', id: "image-update-button" %>
+				<%= f.submit 'Update', class: "image-update-button" %>
 			<% end %>
 		</div>
 	</div>
@@ -54,7 +54,7 @@
 				<br>
 				<%= f.text_field :behance %>
 				<br>
-				<%= f.submit 'Update', id: "contact-update-button" %>
+				<%= f.submit 'Update', class: "contact-update-button" %>
 			<% end %>
 		</div>
 	</div>
@@ -68,6 +68,7 @@
 <!-- User Basic Info -->
 
 	<div class="profile-header">
+		<a class="edit-button" id="profile-header-edit-button" href="">Edit</a>
 		<h1><%= @user.f_name%> <%= @user.l_name%></h1>
 		<h2><%= @user.role%> </h2>
 		<h3><%=@user.bio%></h3>
@@ -78,7 +79,7 @@
 				<%= f.text_field :l_name %>
 				<%= f.text_field :role %>
 				<%= f.text_field :bio %>
-				<%= f.submit 'Update', id: "header-update-button" %>
+				<%= f.submit 'Update', class: "header-update-button" %>
 			<% end %>
 		</div>
 
@@ -87,10 +88,11 @@
 	<!-- Skills -->
 
 	<div class="profile-skills">
+		<a class="edit-button" id="profile-skills-edit-button" href="">Edit</a>
 		<h2>Skills</h2>
 		<ul>
 			<% @user.skills.each do |skill|%>
-				<li><%=skill.name%></li><span><a class="delete-button" id="profile-skill-delete-button" href="">Delete</a></span>
+				<li><%=skill.name%></li><span><a class="delete-button hidden" id="profile-skill-delete-button" href="">Delete</a></span>
 			<%end%>
 		</ul>
 		<!-- edit form -->
@@ -103,21 +105,24 @@
 		<h2>Projects</h2>
 		<% @user.projects.each do |project| %>
 			<div class="project" data="<%=project.id%>">
+				<a class="edit-button" id="profile-project<%=project.id%>-edit-button" href="">Edit</a>
 				<img class="project-image" src="<%=project.image_src%>">
 				<h3><%= project.title%></h3>
 				<p><%= project.desc%></p>
 				<a href="<%=project.website%>">Click to Learn More</a>
+				<!-- edit form -->
+				<div class="hidden" id="profile-project-edit">
+					<form method="POST" action="/users/<%=@user.id%>/projects/<%=project.id%>">
+						<input type="hidden" name="_method" value="PATCH">
+						<input name="authenticity_token" type="hidden" value="token_value">
+						<input type="text" name="title" value="<%=project.title%>">
+						<input type="text" name="desc" value="<%=project.desc%>">
+						<input type="text" name="website" value="<%=project.website%>">
+						<input type="submit" value="Update" class="project-update-button">
+					</form>
+				</div>
 			</div>
-			<!-- edit form -->
-			<div class="hidden" id="profile-project-edit">
-			<%binding.pry%>
-				<%= form_for project do |f| %>
-					<%= f.text_field :title %>
-					<%= f.text_field :desc %>
-					<%= f.text_field :website %>
-					<%= f.submit 'Update', id: "project-update-button" %>
-				<% end %>
-			</div>
+			
 		<%end%>
 		
 	</div>
@@ -128,6 +133,7 @@
 		<h2>Experience</h2>
 		<% @user.experiences.each do |exp|%>
 			<div class="experience" data="<%=exp.id%>">
+				<a class="edit-button" id="profile-experience-edit-button" href="">Edit</a>
 				<h3><%=exp.role%></h3>
 				<h4><%=exp.company_name%></h4>
 				<h5><%=exp.start_date%> &mdash; <%=exp.end_date%> | <%=exp.city%>, <%=exp.state%></h5>
@@ -135,16 +141,7 @@
 			</div>
 			<!-- edit form -->
 			<div class="hidden" id="profile-experience-edit">
-				<%= form_for @user.experiences do |f| %>
-					<%= f.text_field :role %>
-					<%= f.text_field :company_name %>
-					<%= f.date_field :start_date %>
-					<%= f.date_field :end_date %>
-					<%= f.text_field :city %>
-					<%= f.text_field :state %>
-					<%= f.text_field :blurb %>
-					<%= f.submit 'Update', id: "experience-update-button" %>
-				<% end %>
+				
 			</div>
 		<%end%>
 	</div>

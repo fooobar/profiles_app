@@ -1,41 +1,30 @@
-// Current User ID
-
-
 
 // Event Handlers
 
 $(document).ready(function() {
 	UserId = $('.profile-side-nav').attr('data')
-	$('#profile-image-edit-button').on("click", renderImageEdit)
-	$('#profile-image-update-button').on("click", updateImage)
+	$('.edit-button').on("click", renderForm)
+	$('.image-edit-button').on("click", renderImageForm)
+	$('.image-update-button').on("click", updateImage)
 })
 
 
-// Updating Profile Image
+// Rendering Forms
 
-var renderImageEdit = function(e) {
+var renderForm = function(e) {
 	e.preventDefault()
-	$('#profile-image-edit-button').hide()
-	$('#profile-image-edit').show()
+	$(this).parent().children().hide()
+	$(this).parent().children('.hidden').show()
 }
 
-var updateImage = function(e) {
+var renderImageForm = function(e) {
 	e.preventDefault()
-	$.ajax({
-		url: '/users/'+UserId,
-		type: 'patch',
-		data: {
-			image_src: $('#user_image_src').val()
-		}
-	}).done(function(resp) {
-		$('#profile-image-edit').hide()
-		$('#profile-image-edit-button').show()	
-		console.log(resp)
-
-	})	
+	$(this).hide()
+	$(this).parent().children('.hidden').show()
 }
 
-// Updating Profile Contact
+
+
 
 
 
