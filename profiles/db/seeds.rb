@@ -7,6 +7,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+require 'ffaker'
+
 User.destroy_all
 Skill.destroy_all
 Experience.destroy_all
@@ -53,6 +55,7 @@ user_drew = User.create({
 	password: 'melville1',
 	user_type: 'student'
 	})
+
 
 skill_html = Skill.create({
 	name: "HTML5"
@@ -109,12 +112,12 @@ Project.create([
         user_id: user_drew.id
     },
     {
-      title: "Facebook",
-      desc: "Facebook, is a social-media experience allowing you to keep up with all of the meaningless events in lives of people you don't like.",
-      website: "http://www.facebook.com/",
-      image_src: "https://www.facebook.com/images/fb_icon_325x325.png",
-      user_id: user_fernanda.id
-  	},
+        title: "Facebook",
+        desc: "Facebook, is a social-media experience allowing you to keep up with all of the meaningless events in lives of people you don't like.",
+        website: "http://www.facebook.com/",
+        image_src: "https://www.facebook.com/images/fb_icon_325x325.png",
+        user_id: user_fernanda.id
+    },
     {
         title: "Github",
         desc: "GitHub is a web-based Git repository hosting service, which offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features.",
@@ -405,27 +408,28 @@ skills = Skill.all
 @skills_arr = []
 
 skills.each do |skill|
-    @skills_arr.push(skill)
+	@skills_arr.push(skill)
 end
 
 users = User.all
 jobs = Job.all
 
 users.each do |user|
-    user.skills << @skills_arr.sample
-    user.skills << @skills_arr.sample
-    user.skills << @skills_arr.sample
-    user.skills << @skills_arr.sample
-    user.skills << @skills_arr.sample
-    user.skills << @skills_arr.sample
-    user.skills << @skills_arr.sample
-    user.skills << @skills_arr.sample
+	user.skills << @skills_arr.sample
+	user.skills << @skills_arr.sample
+	user.skills << @skills_arr.sample
+	user.skills << @skills_arr.sample
+	user.skills << @skills_arr.sample
+	user.skills << @skills_arr.sample
+	user.skills << @skills_arr.sample
+	user.skills << @skills_arr.sample
 end
 
 jobs.each do |job|
-    job.skills << @skills_arr.sample
-    job.skills << @skills_arr.sample
-    job.skills << @skills_arr.sample
-    job.skills << @skills_arr.sample
-    job.skills << @skills_arr.sample
+	job.skills << @skills_arr.sample
+	job.skills << @skills_arr.sample
+	job.skills << @skills_arr.sample
+	job.skills << @skills_arr.sample
+	job.skills << @skills_arr.sample
 end
+
