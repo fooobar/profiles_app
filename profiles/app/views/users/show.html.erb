@@ -1,1 +1,46 @@
-<h1>Hello <%= @user.f_name%> <%= @user.l_name%></h1>
+<div class="profile-side-nav">
+	<div class="profile-image">
+		<img src="<%=@user.image_src%>">
+	</div>
+	<div class="profile-contact">
+	<% if @user.city%><h4><%=@user.city%><%end%><% if @user.state%>, <%=@user.state%><%end%></h4>
+		<ul>
+			<li><a href="mailto:<%=@user.email%>">Email Me</a></li>
+			<% if @user.website %><li><a href="<%=@user.website%>">My Website</a></li><%end%>
+			<% if @user.twitter %><li><a href="<%=@user.twitter%>">Tweet Me</a></li><%end%>
+			<% if @user.github %><li><a href="<%=@user.github%>">GitHub</a></li><%end%>
+			
+			<% if @user.linkedin %><li><a href="<%=@user.linkedin%>">LinkedIn</a></li><%end%>
+			<% if @user.behance%><li><a href="<%=@user.behance%>">Behance</a></li><%end%>
+		</ul>
+	</div>
+</div>
+<div class="profile-main">
+	<div class="profile-header">
+		<h1><%= @user.f_name%> <%= @user.l_name%></h1>
+		<h2></h2>
+		<h3><%=@user.bio%></h3>
+	</div>
+	<div class="profile-skills">
+		<h2>Skills</h2>
+		<ul>
+			<% @user.skills.each do |skill|%>
+				<li><%=skill.name%></li>
+			<%end%>
+		</ul>
+	</div>
+	<div class="profile-experiences">
+		<h2>Experience</h2>
+		<% @user.experiences.each do |exp|%>
+			<div class="experience">
+				<h3><%=exp.role%></h3>
+				<h4><%=exp.company_name%></h4>
+				<h5><%=exp.start_date%> &mdash; <%=exp.end_date%> | <%=exp.city%>, <%=exp.state%></h5>
+		<%end%>
+
+
+
+	</div>
+
+</div>
+
