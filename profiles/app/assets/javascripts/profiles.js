@@ -21,6 +21,20 @@ var renderImageEdit = function(e) {
 	$('#profile-image-edit').show()
 }
 
+var updateImage = function(e) {
+	e.preventDefault()
+	$.ajax({
+		url: '/users/'+UserId,
+		type: 'patch',
+		data: {
+			'user[image_src]': $('#user_image_src').val()
+		}
+	}).done(function(resp) {
+		$('#profile-image-edit').hide()
+		$('#profile-image-edit-button').show()	
+		$('#profile-image').attr('src', resp['image_src'])
+	})	
+}
 
 // Updating Profile Contact
 
@@ -31,5 +45,7 @@ var showMoreJobDesc = function(){
 
 
 }
+
+
 
 
