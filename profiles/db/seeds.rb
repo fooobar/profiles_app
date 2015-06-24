@@ -624,3 +624,4 @@ jobs.each do |job|
 	job.skills << @skills_arr.sample
 	job.skills << @skills_arr.sample
 end
+
