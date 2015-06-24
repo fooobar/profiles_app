@@ -3,11 +3,11 @@
 
 $(document).ready(function() {
 	UserId = $('.profile-side-nav').attr('data')
-	$('.jobDescPreview a').on("click", showMoreJobDesc)
 	$('.edit-button').on("click", renderForm)
-	$('.image-edit-button').on("click", renderImageForm)
+	$('.image-edit-button').on=("click", renderImageForm)
 	$('.image-update-button').on("click", updateImage)
-
+	$('.jobDescPreview a').on("click", moreJobDesc)
+	$('.jobDescAll a').on("click", lessJobDesc)
 })
 
 
@@ -46,7 +46,7 @@ var updateImage = function(e) {
 
 
 // Show Employer Profile
-var showMoreJobDesc = function(event){
+var moreJobDesc = function(event){
 	event.preventDefault()
 	console.log(event.siblingElement)
 	$(event.target.parentElement).addClass("hidden");
@@ -55,4 +55,9 @@ var showMoreJobDesc = function(event){
 
 
 
-
+var lessJobDesc = function(event){
+	event.preventDefault()
+	console.log(event.siblingElement)
+	$(event.target.parentElement).addClass("hidden");
+	$(event.target.parentElement).prev('.jobDescPreview').removeClass("hidden");
+}
