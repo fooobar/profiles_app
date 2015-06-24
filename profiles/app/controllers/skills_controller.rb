@@ -10,6 +10,8 @@ class SkillsController < ApplicationController
 	end
 
 	def update
+		@user = User.find(params[:user_id])
+		@skill = Skill.find(params[:id])
 	end
 
 	private

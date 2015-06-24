@@ -110,7 +110,7 @@
 			</div>
 			<!-- edit form -->
 			<div class="hidden" id="profile-project-edit">
-				<%= form_for @user.projects do |f| %>
+				<%= form_for project, url: "/users/#{@user.id}/projects/#{project.id}", html: {method: :patch} do |f| %>
 					<%= f.text_field :title %>
 					<%= f.text_field :desc %>
 					<%= f.text_field :website %>
@@ -134,7 +134,7 @@
 			</div>
 			<!-- edit form -->
 			<div class="hidden" id="profile-experience-edit">
-				<%= form_for @user.experiences do |f| %>
+				<%= form_for exp, url: "/users/#{@user.id}/experiences/#{exp.id}", html: {method: :patch} do |f| %>
 					<%= f.text_field :role %>
 					<%= f.text_field :company_name %>
 					<%= f.date_field :start_date %>
