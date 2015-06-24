@@ -23,13 +23,14 @@ body {
 }
 
 .profile-side-nav {
-	width: 25%;
+	width: 20%;
 	float: left;
 }
 
 .profile-main {
+	margin-left: 10px;
 	width: 75%;
-	float: right;
+	float: left;
 }
 
 .experience {
