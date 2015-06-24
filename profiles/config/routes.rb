@@ -8,17 +8,9 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [ :new, :create, :destroy]
 
-  resources :users
+  resources :users, :projects, :skills, :experiences
 
   get '/users/new/student' => 'users#new_student'
   get '/users/new/employer' => 'users#new_employer'
-
-  post '/projects' => 'projects#new'
-  post '/skills' => 'sessions#new'
-  post '/experiences' => 'experiences#new'
-
-  patch '/projects' => 'projects#update'
-  patch '/projects' => 'projects#update'
-  patch '/projects' => 'projects#update'
 
 end

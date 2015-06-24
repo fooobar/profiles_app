@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 			else
 				render :edit_employer
 			end
-		else 
+		else
 			if @user.user_type === "student"
 				render :show_student
 			else
@@ -42,7 +42,6 @@ class UsersController < ApplicationController
 	# end
 
 	def update
-		binding.pry
 		user = User.find(params[:id])
 		user.update(user_params)
 		render json: user
