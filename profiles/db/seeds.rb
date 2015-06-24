@@ -136,18 +136,6 @@ end
 
 Experience.create([
     {
-        company_name: "RobCo",
-        company_website: "http://www.robco.com/",
-        city: "Toronto",
-        state: "",
-        start_date: "2011/15/5",
-        end_date: "2014/12/01",
-        role: "VP of engineering",
-        blurb: "Be a thought leader",
-        user_id: user_jeremy.id
-
-    },
-    {
         company_name: "BobCo" ,
         company_website: "http://www.bobco.com/",
         city: "",
@@ -190,18 +178,6 @@ Experience.create([
         role: "air conditioner Salesperson",
         blurb: "Maintain inventory of air conditioners",
         user_id: user_jeremy.id
-    },
-        {
-        company_name: "RobCo",
-        company_website: "http://www.robco.com/",
-        city: "Toronto",
-        state: "",
-        start_date: "2011/15/5",
-        end_date: "2014/12/01",
-        role: "VP of engineering",
-        blurb: "Be a thought leader",
-        user_id: user_karlyce.id
-
     },
     {
         company_name: "BobCo" ,
@@ -248,18 +224,6 @@ Experience.create([
         user_id: user_karlyce.id
     },
     {
-        company_name: "RobCo",
-        company_website: "http://www.robco.com/",
-        city: "Toronto",
-        state: "",
-        start_date: "2011/15/5",
-        end_date: "2014/12/01",
-        role: "VP of engineering",
-        blurb: "Be a thought leader",
-        user_id: user_fernanda.id
-
-    },
-    {
         company_name: "BobCo" ,
         company_website: "http://www.bobco.com/",
         city: "",
@@ -302,18 +266,6 @@ Experience.create([
         role: "air conditioner Salesperson",
         blurb: "Maintain inventory of air conditioners",
         user_id: user_fernanda.id
-    },
-                {
-        company_name: "RobCo",
-        company_website: "http://www.robco.com/",
-        city: "Toronto",
-        state: "",
-        start_date: "2011/15/5",
-        end_date: "2014/12/01",
-        role: "VP of engineering",
-        blurb: "Be a thought leader",
-        user_id: user_fernanda.id
-
     },
     {
         company_name: "BobCo" ,
@@ -360,18 +312,6 @@ Experience.create([
         user_id: user_drew.id
     },
     {
-        company_name: "RobCo",
-        company_website: "http://www.robco.com/",
-        city: "Toronto",
-        state: "",
-        start_date: "2011/15/5",
-        end_date: "2014/12/01",
-        role: "VP of engineering",
-        blurb: "Be a thought leader",
-        user_id: user_fernanda.id
-
-    },
-    {
         company_name: "BobCo" ,
         company_website: "http://www.bobco.com/",
         city: "",
@@ -414,18 +354,6 @@ Experience.create([
         role: "air conditioner Salesperson",
         blurb: "Maintain inventory of air conditioners",
         user_id: user_gordon.id
-    },
-                {
-        company_name: "RobCo",
-        company_website: "http://www.robco.com/",
-        city: "Toronto",
-        state: "",
-        start_date: "2011/15/5",
-        end_date: "2014/12/01",
-        role: "VP of engineering",
-        blurb: "Be a thought leader",
-        user_id: user_gordon.id
-
     },
     {
         company_name: "BobCo" ,
