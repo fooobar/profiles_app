@@ -1,7 +1,15 @@
+<!-- SIDE NAV -->
+
 <div class="profile-side-nav">
+
+<!-- Image -->
+
 	<div class="profile-image">
 		<img src="<%=@user.image_src%>">
 	</div>
+
+<!-- Contact Links -->
+
 	<div class="profile-contact">
 	<% if @user.city%><h4><%=@user.city%><%end%><% if @user.state%>, <%=@user.state%><%end%></h4>
 		<ul>
@@ -14,13 +22,23 @@
 			<% if @user.behance%><li><a href="<%=@user.behance%>">Behance</a></li><%end%>
 		</ul>
 	</div>
+
 </div>
+
+<!-- MAIN AREA -->
+
 <div class="profile-main">
+
+<!-- User Basic Info -->
+
 	<div class="profile-header">
 		<h1><%= @user.f_name%> <%= @user.l_name%></h1>
 		<h2></h2>
 		<h3><%=@user.bio%></h3>
 	</div>
+
+	<!-- Skills -->
+
 	<div class="profile-skills">
 		<h2>Skills</h2>
 		<ul>
@@ -29,6 +47,9 @@
 			<%end%>
 		</ul>
 	</div>
+
+	<!-- Work Experience -->
+
 	<div class="profile-experiences">
 		<h2>Experience</h2>
 		<% @user.experiences.each do |exp|%>
