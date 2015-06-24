@@ -7,8 +7,9 @@
 $(document).ready(function() {
 	UserId = $('.profile-side-nav').attr('data')
 	$('#profile-image-edit-button').on("click", renderImageEdit)
-	$('#profile-image-update-button').on("click", updateImage)
+	$('#image-update-button').on("click", updateImage)
 	$('.job-desc-more').on("click", showMoreJobDesc)
+
 })
 
 
@@ -20,21 +21,6 @@ var renderImageEdit = function(e) {
 	$('#profile-image-edit').show()
 }
 
-var updateImage = function(e) {
-	e.preventDefault()
-	$.ajax({
-		url: '/users/'+UserId,
-		type: 'patch',
-		data: {
-			image_src: $('#user_image_src').val()
-		}
-	}).done(function(resp) {
-		$('#profile-image-edit').hide()
-		$('#profile-image-edit-button').show()	
-		console.log(resp)
-
-	})	
-}
 
 // Updating Profile Contact
 
