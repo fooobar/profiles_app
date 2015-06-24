@@ -112,10 +112,10 @@ Project.create([
         user_id: user_drew.id
     },
     {
-        title: "Pornhub",
-        desc: "Pornhub, part of the Pornhub NETWORK campaign, is a pornographic video sharing website and the largest pornography site on the Internet.",
-        website: "http://www.pornhub.com/",
-        image_src: "http://www.theyucatantimes.com/wp-content/uploads/2014/07/pornhub-logo.jpg",
+        title: "Facebook",
+        desc: "Facebook, is a social-media experience allowing you to keep up with all of the meaningless events in lives of people you don't like.",
+        website: "http://www.facebook.com/",
+        image_src: "https://www.facebook.com/images/fb_icon_325x325.png",
         user_id: user_fernanda.id
     },
     {
@@ -136,5 +136,35 @@ emps = [e1, e2, e3]
 20.times do 
     Job.create(title: FFaker::Lorem.words(3).join(' '), desc: FFaker::Lorem.paragraph, user_id: emps.sample.id)
 end
+
+skills = Skill.all
+@skills_arr = []
+
+skills.each do |skill|
+	@skills_arr.push(skill)
+end
+
+users = User.all
+jobs = Job.all
+
+users.each do |user|
+	user.skills << @skills_arr.sample
+	user.skills << @skills_arr.sample
+	user.skills << @skills_arr.sample
+	user.skills << @skills_arr.sample
+	user.skills << @skills_arr.sample
+	user.skills << @skills_arr.sample
+	user.skills << @skills_arr.sample
+	user.skills << @skills_arr.sample
+end
+
+jobs.each do |job|
+	job.skills << @skills_arr.sample
+	job.skills << @skills_arr.sample
+	job.skills << @skills_arr.sample
+	job.skills << @skills_arr.sample
+	job.skills << @skills_arr.sample
+end
+
 
 
