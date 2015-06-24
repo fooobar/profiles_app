@@ -10,6 +10,7 @@
 User.destroy_all
 Skill.destroy_all
 Experience.destroy_all
+Project.destroy_all
 
 
 user_jeremy = User.create({
@@ -108,12 +109,12 @@ Project.create([
         user_id: user_drew.id
     },
     {
-        title: "Pornhub",
-        desc: "Pornhub, part of the Pornhub NETWORK campaign, is a pornographic video sharing website and the largest pornography site on the Internet.",
-        website: "http://www.pornhub.com/",
-        image_src: "http://www.theyucatantimes.com/wp-content/uploads/2014/07/pornhub-logo.jpg",
-        user_id: user_fernanda.id
-    },
+      title: "Facebook",
+      desc: "Facebook, is a social-media experience allowing you to keep up with all of the meaningless events in lives of people you don't like.",
+      website: "http://www.facebook.com/",
+      image_src: "https://www.facebook.com/images/fb_icon_325x325.png",
+      user_id: user_fernanda.id
+  	},
     {
         title: "Github",
         desc: "GitHub is a web-based Git repository hosting service, which offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features.",
@@ -131,4 +132,492 @@ emps = [e1, e2, e3]
 
 20.times do 
     Job.create(title: FFaker::Lorem.words(3).join(' '), desc: FFaker::Lorem.paragraph, user_id: emps.sample.id)
+end
+
+Experience.create([
+    {
+        company_name: "RobCo",
+        company_website: "http://www.robco.com/",
+        city: "Toronto",
+        state: "",
+        start_date: "2011/15/5",
+        end_date: "2014/12/01",
+        role: "VP of engineering",
+        resp_1: "Be a thought leader",
+        resp_2: "Create value",
+        resp_3: "synergize profit centers",
+        resp_4: "Manage budget of 200,000 per year",
+        resp_5: "Be a boss",
+        user_id: user_jeremy.id
+
+    },
+    {
+        company_name: "BobCo" ,
+        company_website: "http://www.bobco.com/",
+        city: "",
+        state: "Oregon",
+        start_date: "2009/11/4",
+        end_date: "2011/12/2",
+        role: "Personal Assistant",
+        resp_1: "Order lunch",
+        resp_2: "Manage calendar",
+        resp_3: "Answer email",
+        resp_4: "Pay tickets",
+        resp_5: "schedule meetings",
+        user_id: user_jeremy.id
+    },
+    {
+        company_name: "RonCo",
+        company_website: "https://www.ronco.com/",
+        city: "Chicago",
+        state: "IL",
+        start_date: "2002/12/6",
+        end_date: "2004/5/9",
+        role: "QA Tester",
+        resp_1: "Sort products to be tested",
+        resp_2: "Test functionality and durability of products",
+        resp_3: "Record test data",
+        resp_4: "Identify and report safety issues",
+        resp_5: "",
+        user_id: user_jeremy.id
+    },
+    {
+        company_name: "RonCo",
+        company_website: "https://www.ronco.com/",
+        city: "Chicago",
+        state: "IL",
+        start_date: "2002/12/6",
+        end_date: "2004/5/9",
+        role: "QA Tester",
+        resp_1: "Sort products to be tested",
+        resp_2: "Test functionality and durability of products",
+        resp_3: "Record test data",
+        resp_4: "Identify and report safety issues",
+        resp_5: "",
+        user_id: user_jeremy.id
+    },
+    {
+        company_name: "PhilCo",
+        company_website: "http://www.philco-intl.com/",
+        city: "Houston" ,
+        state: "TX" ,
+        start_date: "2000/3/4" ,
+        end_date: "2000/6/12",
+        role: "air conditioner Salesperson",
+        resp_1: "Maintain inventory of air conditioners",
+        resp_2: "Help customers identify their air conditioner needs",
+        resp_3: "Order air conditioners",
+        resp_4: "Recycle defective conditioners",
+        resp_5: "",
+        user_id: user_jeremy.id
+    },
+        {
+        company_name: "RobCo",
+        company_website: "http://www.robco.com/",
+        city: "Toronto",
+        state: "",
+        start_date: "2011/15/5",
+        end_date: "2014/12/01",
+        role: "VP of engineering",
+        resp_1: "Be a thought leader",
+        resp_2: "Create value",
+        resp_3: "synergize profit centers",
+        resp_4: "Manage budget of 200,000 per year",
+        resp_5: "Be a boss",
+        user_id: user_karlyce.id
+
+    },
+    {
+        company_name: "BobCo" ,
+        company_website: "http://www.bobco.com/",
+        city: "",
+        state: "Oregon",
+        start_date: "2009/11/4",
+        end_date: "2011/12/2",
+        role: "Personal Assistant",
+        resp_1: "Order lunch",
+        resp_2: "Manage calendar",
+        resp_3: "Answer email",
+        resp_4: "Pay tickets",
+        resp_5: "schedule meetings",
+        user_id: user_karlyce.id
+    },
+    {
+        company_name: "RonCo",
+        company_website: "https://www.ronco.com/",
+        city: "Chicago",
+        state: "IL",
+        start_date: "2002/12/6",
+        end_date: "2004/5/9",
+        role: "QA Tester",
+        resp_1: "Sort products to be tested",
+        resp_2: "Test functionality and durability of products",
+        resp_3: "Record test data",
+        resp_4: "Identify and report safety issues",
+        resp_5: "",
+        user_id: user_karlyce.id
+    },
+    {
+        company_name: "RonCo",
+        company_website: "https://www.ronco.com/",
+        city: "Chicago",
+        state: "IL",
+        start_date: "2002/12/6",
+        end_date: "2004/5/9",
+        role: "QA Tester",
+        resp_1: "Sort products to be tested",
+        resp_2: "Test functionality and durability of products",
+        resp_3: "Record test data",
+        resp_4: "Identify and report safety issues",
+        resp_5: "",
+        user_id: user_karlyce.id
+    },
+    {
+        company_name: "PhilCo",
+        company_website: "http://www.philco-intl.com/",
+        city: "Houston" ,
+        state: "TX" ,
+        start_date: "2000/3/4" ,
+        end_date: "2000/6/12",
+        role: "air conditioner Salesperson",
+        resp_1: "Maintain inventory of air conditioners",
+        resp_2: "Help customers identify their air conditioner needs",
+        resp_3: "Order air conditioners",
+        resp_4: "Recycle defective conditioners",
+        resp_5: "",
+        user_id: user_karlyce.id
+    },
+    {
+        company_name: "RobCo",
+        company_website: "http://www.robco.com/",
+        city: "Toronto",
+        state: "",
+        start_date: "2011/15/5",
+        end_date: "2014/12/01",
+        role: "VP of engineering",
+        resp_1: "Be a thought leader",
+        resp_2: "Create value",
+        resp_3: "synergize profit centers",
+        resp_4: "Manage budget of 200,000 per year",
+        resp_5: "Be a boss",
+        user_id: user_fernanda.id
+
+    },
+    {
+        company_name: "BobCo" ,
+        company_website: "http://www.bobco.com/",
+        city: "",
+        state: "Oregon",
+        start_date: "2009/11/4",
+        end_date: "2011/12/2",
+        role: "Personal Assistant",
+        resp_1: "Order lunch",
+        resp_2: "Manage calendar",
+        resp_3: "Answer email",
+        resp_4: "Pay tickets",
+        resp_5: "schedule meetings",
+        user_id: user_fernanda.id
+    },
+    {
+        company_name: "RonCo",
+        company_website: "https://www.ronco.com/",
+        city: "Chicago",
+        state: "IL",
+        start_date: "2002/12/6",
+        end_date: "2004/5/9",
+        role: "QA Tester",
+        resp_1: "Sort products to be tested",
+        resp_2: "Test functionality and durability of products",
+        resp_3: "Record test data",
+        resp_4: "Identify and report safety issues",
+        resp_5: "",
+        user_id: user_fernanda.id
+    },
+    {
+        company_name: "RonCo",
+        company_website: "https://www.ronco.com/",
+        city: "Chicago",
+        state: "IL",
+        start_date: "2002/12/6",
+        end_date: "2004/5/9",
+        role: "QA Tester",
+        resp_1: "Sort products to be tested",
+        resp_2: "Test functionality and durability of products",
+        resp_3: "Record test data",
+        resp_4: "Identify and report safety issues",
+        resp_5: "",
+        user_id: user_fernanda.id
+    },
+    {
+        company_name: "PhilCo",
+        company_website: "http://www.philco-intl.com/",
+        city: "Houston" ,
+        state: "TX" ,
+        start_date: "2000/3/4" ,
+        end_date: "2000/6/12",
+        role: "air conditioner Salesperson",
+        resp_1: "Maintain inventory of air conditioners",
+        resp_2: "Help customers identify their air conditioner needs",
+        resp_3: "Order air conditioners",
+        resp_4: "Recycle defective conditioners",
+        resp_5: "",
+        user_id: user_fernanda.id
+    },
+                {
+        company_name: "RobCo",
+        company_website: "http://www.robco.com/",
+        city: "Toronto",
+        state: "",
+        start_date: "2011/15/5",
+        end_date: "2014/12/01",
+        role: "VP of engineering",
+        resp_1: "Be a thought leader",
+        resp_2: "Create value",
+        resp_3: "synergize profit centers",
+        resp_4: "Manage budget of 200,000 per year",
+        resp_5: "Be a boss",
+        user_id: user_fernanda.id
+
+    },
+    {
+        company_name: "BobCo" ,
+        company_website: "http://www.bobco.com/",
+        city: "",
+        state: "Oregon",
+        start_date: "2009/11/4",
+        end_date: "2011/12/2",
+        role: "Personal Assistant",
+        resp_1: "Order lunch",
+        resp_2: "Manage calendar",
+        resp_3: "Answer email",
+        resp_4: "Pay tickets",
+        resp_5: "schedule meetings",
+        user_id: user_fernanda.id
+    },
+    {
+        company_name: "RonCo",
+        company_website: "https://www.ronco.com/",
+        city: "Chicago",
+        state: "IL",
+        start_date: "2002/12/6",
+        end_date: "2004/5/9",
+        role: "QA Tester",
+        resp_1: "Sort products to be tested",
+        resp_2: "Test functionality and durability of products",
+        resp_3: "Record test data",
+        resp_4: "Identify and report safety issues",
+        resp_5: "",
+        user_id: user_drew.id
+    },
+    {
+        company_name: "RonCo",
+        company_website: "https://www.ronco.com/",
+        city: "Chicago",
+        state: "IL",
+        start_date: "2002/12/6",
+        end_date: "2004/5/9",
+        role: "QA Tester",
+        resp_1: "Sort products to be tested",
+        resp_2: "Test functionality and durability of products",
+        resp_3: "Record test data",
+        resp_4: "Identify and report safety issues",
+        resp_5: "",
+        user_id: user_fernanda.id
+    },
+    {
+        company_name: "PhilCo",
+        company_website: "http://www.philco-intl.com/",
+        city: "Houston" ,
+        state: "TX" ,
+        start_date: "2000/3/4" ,
+        end_date: "2000/6/12",
+        role: "air conditioner Salesperson",
+        resp_1: "Maintain inventory of air conditioners",
+        resp_2: "Help customers identify their air conditioner needs",
+        resp_3: "Order air conditioners",
+        resp_4: "Recycle defective conditioners",
+        resp_5: "",
+        user_id: user_drew.id
+    },
+    {
+        company_name: "RobCo",
+        company_website: "http://www.robco.com/",
+        city: "Toronto",
+        state: "",
+        start_date: "2011/15/5",
+        end_date: "2014/12/01",
+        role: "VP of engineering",
+        resp_1: "Be a thought leader",
+        resp_2: "Create value",
+        resp_3: "synergize profit centers",
+        resp_4: "Manage budget of 200,000 per year",
+        resp_5: "Be a boss",
+        user_id: user_fernanda.id
+
+    },
+    {
+        company_name: "BobCo" ,
+        company_website: "http://www.bobco.com/",
+        city: "",
+        state: "Oregon",
+        start_date: "2009/11/4",
+        end_date: "2011/12/2",
+        role: "Personal Assistant",
+        resp_1: "Order lunch",
+        resp_2: "Manage calendar",
+        resp_3: "Answer email",
+        resp_4: "Pay tickets",
+        resp_5: "schedule meetings",
+        user_id: user_drew.id
+    },
+    {
+        company_name: "RonCo",
+        company_website: "https://www.ronco.com/",
+        city: "Chicago",
+        state: "IL",
+        start_date: "2002/12/6",
+        end_date: "2004/5/9",
+        role: "QA Tester",
+        resp_1: "Sort products to be tested",
+        resp_2: "Test functionality and durability of products",
+        resp_3: "Record test data",
+        resp_4: "Identify and report safety issues",
+        resp_5: "",
+        user_id: user_fernanda.id
+    },
+    {
+        company_name: "RonCo",
+        company_website: "https://www.ronco.com/",
+        city: "Chicago",
+        state: "IL",
+        start_date: "2002/12/6",
+        end_date: "2004/5/9",
+        role: "QA Tester",
+        resp_1: "Sort products to be tested",
+        resp_2: "Test functionality and durability of products",
+        resp_3: "Record test data",
+        resp_4: "Identify and report safety issues",
+        resp_5: "",
+        user_id: user_gordon.id
+    },
+    {
+        company_name: "PhilCo",
+        company_website: "http://www.philco-intl.com/",
+        city: "Houston" ,
+        state: "TX" ,
+        start_date: "2000/3/4" ,
+        end_date: "2000/6/12",
+        role: "air conditioner Salesperson",
+        resp_1: "Maintain inventory of air conditioners",
+        resp_2: "Help customers identify their air conditioner needs",
+        resp_3: "Order air conditioners",
+        resp_4: "Recycle defective conditioners",
+        resp_5: "",
+        user_id: user_gordon.id
+    },
+                {
+        company_name: "RobCo",
+        company_website: "http://www.robco.com/",
+        city: "Toronto",
+        state: "",
+        start_date: "2011/15/5",
+        end_date: "2014/12/01",
+        role: "VP of engineering",
+        resp_1: "Be a thought leader",
+        resp_2: "Create value",
+        resp_3: "synergize profit centers",
+        resp_4: "Manage budget of 200,000 per year",
+        resp_5: "Be a boss",
+        user_id: user_gordon.id
+
+    },
+    {
+        company_name: "BobCo" ,
+        company_website: "http://www.bobco.com/",
+        city: "",
+        state: "Oregon",
+        start_date: "2009/11/4",
+        end_date: "2011/12/2",
+        role: "Personal Assistant",
+        resp_1: "Order lunch",
+        resp_2: "Manage calendar",
+        resp_3: "Answer email",
+        resp_4: "Pay tickets",
+        resp_5: "schedule meetings",
+        user_id: user_gordon.id
+    },
+    {
+        company_name: "RonCo",
+        company_website: "https://www.ronco.com/",
+        city: "Chicago",
+        state: "IL",
+        start_date: "2002/12/6",
+        end_date: "2004/5/9",
+        role: "QA Tester",
+        resp_1: "Sort products to be tested",
+        resp_2: "Test functionality and durability of products",
+        resp_3: "Record test data",
+        resp_4: "Identify and report safety issues",
+        resp_5: "",
+        user_id: user_gordon.id
+    },
+    {
+        company_name: "RonCo",
+        company_website: "https://www.ronco.com/",
+        city: "Chicago",
+        state: "IL",
+        start_date: "2002/12/6",
+        end_date: "2004/5/9",
+        role: "QA Tester",
+        resp_1: "Sort products to be tested",
+        resp_2: "Test functionality and durability of products",
+        resp_3: "Record test data",
+        resp_4: "Identify and report safety issues",
+        resp_5: "",
+        user_id: user_drew.id
+    },
+    {
+        company_name: "PhilCo",
+        company_website: "http://www.philco-intl.com/",
+        city: "Houston" ,
+        state: "TX" ,
+        start_date: "2000/3/4" ,
+        end_date: "2000/6/12",
+        role: "air conditioner Salesperson",
+        resp_1: "Maintain inventory of air conditioners",
+        resp_2: "Help customers identify their air conditioner needs",
+        resp_3: "Order air conditioners",
+        resp_4: "Recycle defective conditioners",
+        resp_5: "",
+        user_id: user_drew.id
+    },
+])
+
+skills = Skill.all
+@skills_arr = []
+
+skills.each do |skill|
+    @skills_arr.push(skill)
+end
+
+users = User.all
+jobs = Job.all
+
+users.each do |user|
+    user.skills << @skills_arr.sample
+    user.skills << @skills_arr.sample
+    user.skills << @skills_arr.sample
+    user.skills << @skills_arr.sample
+    user.skills << @skills_arr.sample
+    user.skills << @skills_arr.sample
+    user.skills << @skills_arr.sample
+    user.skills << @skills_arr.sample
+end
+
+jobs.each do |job|
+    job.skills << @skills_arr.sample
+    job.skills << @skills_arr.sample
+    job.skills << @skills_arr.sample
+    job.skills << @skills_arr.sample
+    job.skills << @skills_arr.sample
 end
