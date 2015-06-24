@@ -21,7 +21,19 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		(@user === current_user) ? ((@user.user_type === 'student') ? render :edit_student : render :edit_employer) : ((@user.user_type === 'student') ? render :show_student : render :show_employer)
+		if @user === User.find(params[:id])
+			if @user.user_type === "student"
+				render :edit_student
+			else
+				render :edit_employer
+			end
+		else 
+			if @user.user_type === "student"
+				render :show_student
+			else
+				render :edit_employer
+			end
+		end
 	end
 
 	# def edit
