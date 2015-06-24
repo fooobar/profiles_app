@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require mustache
-//
+//= require underscore
 //= require job_board
 
 

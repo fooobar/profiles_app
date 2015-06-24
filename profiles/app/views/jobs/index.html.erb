@@ -29,19 +29,15 @@
 	var jobs = {jobs :<%=raw @jobs.to_json(:include => :skills) %>}
 
 
-var matchSkill = function(jobs){
-	var found = false;
-	for (var i = 0; i < jobs.jobs.skills.length; i++){
-		if (jobs.jobs[i].skills.name === "AJAX"){
-			found = true;
-		}
-	}
-	return found;
+var matchSkill = function(job){
+	_.filter(job)
 }
 
+
 var showChecked = function(skill,jobs){ 
-	var jobList = jobs.jobs.filter(matchSkill(jobs));
+	var jobList = jobs.jobs.filter(matchSkill(jobs.jobs));
 	console.log(jobList)
+	
 
 }
 
