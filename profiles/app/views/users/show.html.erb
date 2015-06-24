@@ -33,7 +33,7 @@
 
 	<div class="profile-header">
 		<h1><%= @user.f_name%> <%= @user.l_name%></h1>
-		<h2></h2>
+		<h2><%= @user.role%> </h2>
 		<h3><%=@user.bio%></h3>
 	</div>
 
@@ -48,6 +48,20 @@
 		</ul>
 	</div>
 
+	<!-- Projects -->
+
+	<div class="profile-projects">
+		<h2>Projects</h2>
+		<% @user.projects.each do |project| %>
+			<div class="project">
+				<img class="project-image" src="<%=project.image_src%>">
+				<h3><%= project.title%></h3>
+				<p><%= project.desc%></p>
+				<a href="<%=project.website%>">Click to Learn More</a>
+			</div>
+		<%end%>
+	</div>
+
 	<!-- Work Experience -->
 
 	<div class="profile-experiences">
@@ -57,11 +71,12 @@
 				<h3><%=exp.role%></h3>
 				<h4><%=exp.company_name%></h4>
 				<h5><%=exp.start_date%> &mdash; <%=exp.end_date%> | <%=exp.city%>, <%=exp.state%></h5>
+				<p><%= exp.blurb%></p>
+			</div>
 		<%end%>
-
-
-
 	</div>
+
+
 
 </div>
 
