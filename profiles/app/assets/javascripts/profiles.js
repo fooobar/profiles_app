@@ -30,8 +30,7 @@ var updateImage = function(e) {
 	}).done(function(resp) {
 		$('#profile-image-edit').hide()
 		$('#profile-image-edit-button').show()	
-		console.log(resp)
-
+		$('#profile-image').attr('src', resp['image_src'])
 	})	
 }
 
