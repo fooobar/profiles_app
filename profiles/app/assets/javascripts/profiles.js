@@ -6,8 +6,8 @@
 
 $(document).ready(function() {
 	UserId = $('.profile-side-nav').attr('data')
-	$('#image-edit-button').on("click", renderImageEdit)
-	$('#image-update-button').on("click", updateImage)
+	$('#profile-image-edit-button').on("click", renderImageEdit)
+	$('#profile-image-update-button').on("click", updateImage)
 })
 
 
@@ -15,7 +15,7 @@ $(document).ready(function() {
 
 var renderImageEdit = function(e) {
 	e.preventDefault()
-	$('#image-edit-button').hide()
+	$('#profile-image-edit-button').hide()
 	$('#profile-image-edit').show()
 }
 
@@ -29,10 +29,13 @@ var updateImage = function(e) {
 		}
 	}).done(function(resp) {
 		$('#profile-image-edit').hide()
-		$('#image-edit-button').show()	
+		$('#profile-image-edit-button').show()	
 		console.log(resp)
 
-	})
-	
+	})	
 }
+
+// Updating Profile Contact
+
+
 

@@ -33,7 +33,7 @@ body {
 	float: left;
 }
 
-.experience {
+.experience, .profile-contact {
 	background-color: #E6E6E6;
 	margin-bottom: 10px;
 	border: solid 1px black;
@@ -42,3 +42,9 @@ body {
 .hidden {
 	display: none;
 }
+
+#profile-image {
+	max-width: 200px
+}
+
+

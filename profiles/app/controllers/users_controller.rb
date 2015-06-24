@@ -29,12 +29,9 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		@user = User.find(params[:id])
-		if @user.update(user_params)
-			render json: @user
-		else 
-			flash[:alert] = "Unable to update user"
-		end
+		user = User.find(params[:id])
+		user.update(user_params)
+		render json: user
 	end
 
 	def index
