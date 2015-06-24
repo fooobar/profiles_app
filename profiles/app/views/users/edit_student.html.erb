@@ -110,19 +110,15 @@
 				<h3><%= project.title%></h3>
 				<p><%= project.desc%></p>
 				<a href="<%=project.website%>">Click to Learn More</a>
-				<!-- edit form -->
-				<div class="hidden" id="profile-project-edit">
-					<form method="POST" action="/users/<%=@user.id%>/projects/<%=project.id%>">
-						<input type="hidden" name="_method" value="PATCH">
-						<input name="authenticity_token" type="hidden" value="token_value">
-						<input type="text" name="title" value="<%=project.title%>">
-						<input type="text" name="desc" value="<%=project.desc%>">
-						<input type="text" name="website" value="<%=project.website%>">
-						<input type="submit" value="Update" class="project-update-button">
-					</form>
-				</div>
+			<!-- edit form -->
+			<div class="hidden" id="profile-project-edit">
+				<%= form_for project, url: "/users/#{@user.id}/projects/#{project.id}", html: {method: :patch} do |f| %>
+					<%= f.text_field :title %>
+					<%= f.text_field :desc %>
+					<%= f.text_field :website %>
+					<%= f.submit 'Update', class: "project-update-button" %>
+				<% end %>
 			</div>
-			
 		<%end%>
 		
 	</div>
@@ -141,7 +137,16 @@
 			</div>
 			<!-- edit form -->
 			<div class="hidden" id="profile-experience-edit">
-				
+				<%= form_for exp, url: "/users/#{@user.id}/experiences/#{exp.id}", html: {method: :patch} do |f| %>
+					<%= f.text_field :role %>
+					<%= f.text_field :company_name %>
+					<%= f.date_field :start_date %>
+					<%= f.date_field :end_date %>
+					<%= f.text_field :city %>
+					<%= f.text_field :state %>
+					<%= f.text_field :blurb %>
+					<%= f.submit 'Update', class: "experience-update-button" %>
+				<% end %>
 			</div>
 		<%end%>
 	</div>

@@ -8,6 +8,11 @@ class ExperiencesController < ApplicationController
 		end
 	end
 
+	def update
+		@user = User.find(params[:user_id])
+		@experience = Experience.find(params[:id])
+	end
+
 
 	private
 		def experience_params

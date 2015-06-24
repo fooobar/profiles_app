@@ -23,7 +23,30 @@ var renderImageForm = function(e) {
 	$(this).parent().children('.hidden').show()
 }
 
+// Update Image
 
+var updateImage = function() {
+	$.ajax({
+		url: '/users/'+UserId,
+		type: 'patch',
+		data: {
+			'user[image_src]': $('#user_image_src').val()
+		}
+	}).done(function(resp) {
+		$(this).show()
+		$(this).parent().children('.hidden').hide()	
+		$('#profile-image').attr('src', resp['image_src'])
+	})	
+}
+
+
+
+// Show Employer Profile
+var showMoreJobDesc = function(){
+	e.preventDefault()
+
+
+}
 
 
 

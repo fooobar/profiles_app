@@ -25,15 +25,17 @@ body {
 .profile-side-nav {
 	width: 20%;
 	float: left;
+	height: 100%;
+
 }
 
 .profile-main {
-	margin-left: 10px;
+	margin-left: 30px;
 	width: 75%;
 	float: left;
 }
 
-.experience, .profile-contact {
+.experience, .profile-contact, .job {
 	background-color: #E6E6E6;
 	margin-bottom: 10px;
 	border: solid 1px black;

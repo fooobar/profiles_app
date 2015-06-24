@@ -7,7 +7,11 @@ class ProjectsController < ApplicationController
 		else
 			flash[:alert] = "Unable to save project"
 		end
+	end
 
+	def update
+		@project = Project.find(params[:id])
+		@user = User.find(params[:user_id])
 	end
 
 	private

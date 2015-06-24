@@ -33,25 +33,23 @@
 	<!-- User Basic Info -->
 	<div class="profile-header">
 		<h1><%= @user.org_name%></h1>
-		<h2><%= @user.bio%> </h2>
+		<% if @user.bio%><h2><%= @user.bio%> </h2><%end%>
 	</div>
 
 
 	<!-- Jobs -->
 
-	<div class="profile-experiences">
-		<h2>Experience</h2>
-		<% @user.experiences.each do |exp|%>
-			<div class="experience">
-				<h3><%=exp.role%></h3>
-				<h4><%=exp.company_name%></h4>
-				<h5><%=exp.start_date%> &mdash; <%=exp.end_date%> | <%=exp.city%>, <%=exp.state%></h5>
-				<p><%= exp.blurb%></p>
+	<div class="profile-jobs">
+		<h2>Jobs you are offering</h2>
+		<% @user.jobs.each do |job|%>
+			<div class="job">
+				<h3><%=job.title%></h3>
+				<h5>Created at: <%=job.created_at%></h5>
+				<p><%=job.desc[0..100]%>... <a class="job-desc-more" href="">More</a></p>
+				
 			</div>
 		<%end%>
 	</div>
 
-
-
 </div>
-
+<!-- END MAIN AREA -->

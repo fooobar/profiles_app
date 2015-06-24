@@ -1,0 +1,55 @@
+<!-- SIDE NAV -->
+
+<div class="profile-side-nav">
+
+	<!-- Image -->
+
+	<div class="profile-image">
+		<img src="<%=@user.image_src%>">
+	</div>
+
+	<!-- Contact Links -->
+	<div class="profile-contact">
+	<% if @user.city%><h4><%=@user.city%><%end%>
+	<% if @user.state%>, <%=@user.state%><%end%></h4>
+		<ul>
+			<li><a href="mailto:<%=@user.email%>">Email Me</a></li>
+			<% if @user.website %><li><a href="<%=@user.website%>">My Website</a></li><%end%>
+			<% if @user.twitter %><li><a href="<%=@user.twitter%>">Tweet Me</a></li><%end%>
+			<% if @user.github %><li><a href="<%=@user.github%>">GitHub</a></li><%end%>
+			
+			<% if @user.linkedin %><li><a href="<%=@user.linkedin%>">LinkedIn</a></li><%end%>
+			<% if @user.behance%><li><a href="<%=@user.behance%>">Behance</a></li><%end%>
+		</ul>
+	</div>
+
+</div>
+<!-- END OF SIDE NAV -->
+
+
+<!-- MAIN AREA -->
+<div class="profile-main">
+
+	<!-- User Basic Info -->
+	<div class="profile-header">
+		<h1><%= @user.org_name%></h1>
+		<% if @user.bio%><h2><%= @user.bio%> </h2><%end%>
+	</div>
+
+
+	<!-- Jobs -->
+
+	<div class="profile-jobs">
+		<h2>Jobs you are offering</h2>
+		<% @user.jobs.each do |job|%>
+			<div class="job">
+				<h3><%=job.title%></h3>
+				<h5>Created at: <%=job.created_at%></h5>
+				<p><%=job.desc[0..100]%>... <a class="job-desc-more" href="">More</a></p>
+				
+			</div>
+		<%end%>
+	</div>
+
+</div>
+<!-- END MAIN AREA -->
