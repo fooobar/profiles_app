@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
 
 	def destroy
 		Project.destroy(params[:id])
-		'project destroyed'
+		render json: {message: 'success'}
 	end
 
 

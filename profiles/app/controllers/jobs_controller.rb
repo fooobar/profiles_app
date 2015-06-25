@@ -19,7 +19,7 @@ class JobsController < ApplicationController
 
 	def destroy
 		Job.destroy(params[:id])
-		render json: {message:'Job destroyed'}
+		render json: {message: 'success'}
 	end
 
 	def index

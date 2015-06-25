@@ -26,7 +26,7 @@ class ExperiencesController < ApplicationController
 
 	def destroy
 		Experience.destroy(params[:id])
-		"experience destroyed"
+		render json: {message: 'success'}
 	end
 
 	private
