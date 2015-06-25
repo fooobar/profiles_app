@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [ :new, :create, :destroy]
 
   resources :users do
-  	resources  :projects, :skills, :experiences
+  	resources  :projects, :skills, :experiences, :jobs
   end
   
   get '/users/new/student' => 'users#new_student'
