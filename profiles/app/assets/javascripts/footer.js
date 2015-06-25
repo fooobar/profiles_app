@@ -1,2 +1,2 @@
 //= require jobBoard
-//= require studentBoard
+//= require userBoard

@@ -1,10 +1,10 @@
 <h1>Job Candidates</h1>
 <div class = "filter-container">
-<span>Filter candidate by skill</span>
+<span>Filter candidates by skill</span>
 	<form name="skill-list">
 		<% @skills.each do |skill| %>
 		<label for="<%= skill.name %>"><%= skill.name %></label>
-		<input type="checkbox" name="<%= skill.name %>" value="<%= skill.id %>">
+		<input type="checkbox" name="<%= skill.param %>" value="<%= skill.id %>">
 		<br>
 		<% end %>
 	</form>
@@ -12,8 +12,9 @@
 <div id="listing-container"></div>
 <script id="users-template" type="x-tmpl-mustache">
 	{{#users}}
-			<div class="{{#skills}} {{name}} {{/skills}}">
-				<h2>{{f_name}} {{l_name}}</h2>
+			<div class="user{{#skills}} {{param}}{{/skills}}">
+				<h2>{{f_name}} {{l_name}}
+				</h2>
 				<h3>Candidates Skills:
 					<span>
 							{{#skills}}
@@ -22,7 +23,7 @@
 					</span>
 				</h3>
 				<!-- css needed to trim the blurb -->
-				<p class="blurb">{{bio}}</p><a href="/users/{{id}}">Read More</a>
+				<a href="/users/{{id}}">Candidates Profile</a>
 				<br>
 				</div>
 	{{/users}}
