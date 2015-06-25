@@ -3,12 +3,12 @@
 <div class="profile-side-nav">
 
 	<!-- Image -->
-
 	<div class="profile-image">
 		<img src="<%=@user.image_src%>">
 	</div>
+	<!-- End Image -->
 
-	<!-- Contact Links -->
+	<!-- User Contact Links -->
 	<div class="profile-contact">
 	<% if @user.city%><h4><%=@user.city%><%end%>
 	<% if @user.state%>, <%=@user.state%><%end%></h4>
@@ -22,6 +22,7 @@
 			<% if @user.behance%><li><a href="<%=@user.behance%>">Behance</a></li><%end%>
 		</ul>
 	</div>
+	<!-- End User Contact Links -->
 
 </div>
 <!-- END OF SIDE NAV -->
@@ -37,8 +38,7 @@
 	</div>
 
 
-	<!-- Jobs -->
-
+	<!-- Start Jobs Posted -->
 	<div class="profile-jobs">
 		<h2>Jobs you are offering</h2>
 		<% @user.jobs.each do |job|%>
@@ -50,6 +50,7 @@
 			</div>
 		<%end%>
 	</div>
+	<!-- End Jobs Posted -->
 
 </div>
 <!-- END MAIN AREA -->
