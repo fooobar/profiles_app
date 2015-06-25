@@ -15,6 +15,8 @@ $(document).ready(function() {
 	// add job
 	$('.add-job-button').on("click", showAddJob)
 	$('.add-job-form-button').on("click", addJob)
+	// delete - jobs
+	$('.profile-jobs').on("click", '.profile-job-delete-button', deleteJob)
 })
 
 
@@ -123,5 +125,20 @@ var addJob = function(event){
 // delete requeste .remove()
 // users/id/jobs/id 
 
+// delete a job
 
+var deleteJob = function(event){
+	event.preventDefault();
+	console.log(event)
+	$.ajax({
+		context: this,
+		url: $(this).parent().attr('action'),
+		type: 'delete',
+		dataType: 'json',
+		data: $(this).parent().serialize()
+	}).done(function(data) {
+		console.log(this)
+
+	})
+}
 		
