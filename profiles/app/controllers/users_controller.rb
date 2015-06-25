@@ -21,7 +21,6 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		binding.pry
 		@user = User.find(params[:id])
 		if current_user === @user
 			if @user.user_type === "student"
