@@ -6,9 +6,6 @@ $(document).ready(function() {
 	$('.edit-button').on("click", renderForm)
 	$('.image-edit-button').on("click", renderImageForm)
 	$('.image-update-button').on("click", updateImage)
-
-	$('.jobDescPreview a').on("click", moreJobDesc)
-	$('.jobDescAll a').on("click", lessJobDesc)
 })
 
 
@@ -25,6 +22,7 @@ var renderImageForm = function(e) {
 	$(this).hide()
 	$(this).parent().children('.hidden').show()
 }
+
 
 // Update Image
 
@@ -46,17 +44,3 @@ var updateImage = function(e) {
 
 
 
-// Show Employer Profile
-var moreJobDesc = function(event){
-	event.preventDefault()
-	console.log(event.siblingElement)
-	$(event.target.parentElement).addClass("hidden");
-	$(event.target.parentElement).next('.jobDescAll').removeClass("hidden");
-}
-
-var lessJobDesc = function(event){
-	event.preventDefault()
-	console.log(event.siblingElement)
-	$(event.target.parentElement).addClass("hidden");
-	$(event.target.parentElement).prev('.jobDescPreview').removeClass("hidden");
-}
