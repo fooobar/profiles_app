@@ -1,15 +1,18 @@
 // Event Handlers
 
 $(document).ready(function() {
+
 	// show page
 	$('.job-desc-preview a').on("click", moreJobDesc)
 	$('.job-desc-all a').on("click", lessJobDesc)
 	// edit page - jobs
 	$('.profile-job-edit-button').on("click", editJob)
 	$('.job-update-button').on("click", updateJob)
-	// edit page - name and bio company
-	$('#profile-header-edit-button').on("click", updateName)
+	// edit header - name and bio company
+	$('.profile-header-edit-button').on("click", editHeader)
+	$('.header-update-button').on("click", updateName)
 })
+
 
 // Show Employer Profile - more description
 var moreJobDesc = function(event){
@@ -27,6 +30,8 @@ var lessJobDesc = function(event){
 	$(event.target.parentElement).prev('.job-desc-preview').removeClass("hidden");
 }
 
+// Update Job
+
 // Edit Job button shows form
 var editJob = function(e) {
 	e.preventDefault()
@@ -34,7 +39,6 @@ var editJob = function(e) {
 	$(this).siblings('.job-info').hide();
 }
 
-// Update Job hides form shows updated text
 var updateJob = function(event){
 	event.preventDefault();
 	$.ajax({
@@ -52,3 +56,33 @@ var updateJob = function(event){
 	
 	})	
 }	
+
+
+// updating header
+
+var editHeader = function(event){
+	event.preventDefault()
+	$(this).parent().hide();
+	$(this).parent().siblings('#profile-header-edit').show();
+}
+
+
+var updateName = function(event){
+	event.preventDefault();
+	
+	$.ajax({
+		context: this,
+		url: '/users/'+UserId,
+		type: 'patch',
+		data: $(this).parent().serialize()
+	}).done(function(resp) {
+		// update the text to reflect the changes
+		$(this).parent().parent().parent().find($('.profile-info')).find($('h1')).text(resp["org_name"])
+		$(this).parent().parent().parent().find($('.profile-info')).find($('h2')).text(resp["bio"])
+		// hide form show text
+		$(this).parent().parent().parent().find($('.profile-info')).show();
+		$(this).parent().parent().parent().find($('#profile-header-edit')).hide();		
+	
+	})
+
+}
