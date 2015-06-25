@@ -26,6 +26,7 @@ body {
 	width: 20%;
 	float: left;
 	height: 100%;
+	min-width: 200px;
 
 }
 
@@ -35,7 +36,7 @@ body {
 	float: left;
 }
 
-.experience, .profile-contact, .job {
+.experience, .profile-contact, .job , .add-job {
 	background-color: #E6E6E6;
 	margin-bottom: 10px;
 	border: solid 1px black;
@@ -45,7 +46,13 @@ body {
 	display: none;
 }
 
-#profile-image {
+
+.edit-form, .delete-button {
+	display: none;
+}
+
+
+.profile-image {
 	max-width: 200px
 }
 

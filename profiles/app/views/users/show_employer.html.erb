@@ -4,7 +4,7 @@
 
 	<!-- Image -->
 	<div class="profile-image">
-		<img src="<%=@user.image_src%>">
+		<img style="width: 200px" src="<%=@user.image_src%>">
 	</div>
 	<!-- End Image -->
 
@@ -45,8 +45,8 @@
 			<div class="job">
 				<h3><%=job.title%></h3>
 				<h5>Created at: <%=job.created_at%></h5>
-				<p class="jobDescPreview"><%=job.desc.truncate_words(20)%>... <a href="">More</a></p>
-				<p class="jobDescAll hidden"><%=job.desc%> <a href="">Less</a></p>
+				<p class="job-desc-preview"><%=job.desc.truncate_words(20)%>... <a href="">More</a></p>
+				<p class="job-desc-all hidden"><%=job.desc%> <a href="">Less</a></p>
 			</div>
 		<%end%>
 	</div>

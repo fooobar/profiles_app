@@ -1,10 +1,10 @@
 <!-- SIDE NAV -->
 
-<div class="profile-side-nav">
+<div class="profile-side-nav" data="<%=@user.id%>">
 
 	<!-- Image -->
-	<div class="profile-image">
-		<img src="<%=@user.image_src%>">
+	<div class="profile-image-div">
+		<img class="profile-image" src="<%=@user.image_src%>">
 		<br>
 		<a class="image-edit-button" id="profile-image-edit-button" href="">Edit Image</a>
 		<!-- hidden edit form -->
@@ -68,9 +68,12 @@
 
 	<!-- User Basic Info -->
 	<div class="profile-header">
-		<a class="edit-button" id="profile-header-edit-button" href="">Edit</a>
-		<h1><%= @user.org_name%></h1>
-		<% if @user.bio%><h2><%= @user.bio%> </h2><%end%>
+		<div class="profile-info">
+			<a class="profile-header-edit-button" href="">Edit</a>
+			<h1><%= @user.org_name%></h1>
+			<% if @user.bio%>
+			<h2><%= @user.bio%> </h2><%end%>
+		</div>
 		<!-- edit form -->
 		<div class="hidden" id="profile-header-edit">
 			<%= form_for @user do |f| %>
@@ -85,6 +88,21 @@
 	<!-- Start Jobs Posted -->
 	<div class="profile-jobs">
 		<h3>Jobs you are offering:</h3>
+		<div class="add-job">
+			<a class="add-job-button" href="#">Add Job</a>
+			<div class="add-job-form hidden">
+				<%= form_for @job, url: "/users/#{@user.id}/jobs/", html: {method: :post} do |f| %>
+					<%= f.label :title, "Job Title"%>
+					<%= f.text_field :title %><br>
+					<%= f.label :desc, "Job Description"%>
+					<%= f.text_field :desc %><br>
+					<%= f.submit 'Update', class: "add-job-form-button" %>
+				<% end %>
+			</div>
+		</div>
+		
+		<div class="profile-new-job"></div>
+
 		<% @sorted_jobs.each do |job|%>
 			<div class="job" data="<%=job.id%>">
 				<a class="profile-job-edit-button" href="#">Edit</a>
@@ -95,14 +113,19 @@
 					<p class="job-desc-all hidden"><%=job.desc%> <a href="">Less</a></p>
 				</div>
 			<!-- edit form -->
-			<div class="hidden profile-job-edit">
+				<div class="hidden profile-job-edit">
 					<%= form_for job, url: "/users/#{@user.id}/jobs/#{job.id}", html: {method: :patch} do |f| %>
 						<%= f.text_field :title %>
 						<%= f.text_field :desc %>
 						<%= f.submit 'Update', class: "job-update-button" %>
 					<% end %>
 				</div>
+				<br>
+				<%= form_for job, url: "/users/#{@user.id}/jobs/#{job.id}", html: {method: :delete} do |f| %>
+				<%= f.submit 'Delete', class: "profile-job-delete-button" %>
+					<% end %>
 			</div>
+
 		<%end%>
 	</div>
 	<!-- End Jobs Posted -->
@@ -110,3 +133,24 @@
 </div>
 <!-- END MAIN AREA -->
 
+
+<script type="x-mustache" id="new-job-template">
+<div class="job">
+	<a class="profile-job-edit-button" href="#">Edit</a>
+	<div class="job-info">
+		<h3>{{title}}</h3>
+		<h5>Created at: {{created_at}}></h5>
+		<p class="job-desc-preview">{{desc}}</p>
+	</div>
+	<!-- edit form -->
+	<div class="hidden profile-job-edit">
+		<form class="edit_job" id="edit_job_{{id}}" action="/users/{{user_id}}/jobs/{{id}}" method="post">
+			<input type="hidden" name="_method" value="patch">
+			<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
+			<input type="text" value={{title}} name="job[title]" id="job_title">
+			<input type="text" value={{desc}} name="job[desc]" id="job_desc">
+			<input type="submit" name="commit" value="Update" class="job-update-button">
+		</form>
+	</div>
+</div>
+</script>

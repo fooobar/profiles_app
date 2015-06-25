@@ -9,6 +9,7 @@ class JobsController < ApplicationController
 
 	def create
 		job = Job.new(job_params)
+		job.user_id = params[:user_id]
 		if job.save
 			render json: job
 		else
@@ -16,7 +17,10 @@ class JobsController < ApplicationController
 		end
 	end
 
-
+	def destroy
+		Job.destroy(params[:id])
+		render json: {message: 'success'}
+	end
 
 	def index
 		@jobs = Job.all
