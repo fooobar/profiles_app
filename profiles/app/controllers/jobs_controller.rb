@@ -17,7 +17,7 @@ class JobsController < ApplicationController
 		end
 	end
 
-	def delete
+	def destroy
 		Job.destroy(params[:id])
 		'Job destroyed'
 	end
