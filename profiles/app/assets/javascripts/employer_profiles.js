@@ -87,7 +87,8 @@ var updateName = function(event){
 		$(this).parent().parent().parent().find($('.profile-info')).find($('h2')).text(resp["bio"])
 		// hide form show text
 		$(this).parent().parent().parent().find($('.profile-info')).show();
-		$(this).parent().parent().parent().find($('#profile-header-edit')).hide();		
+		$(this).parent().parent().parent().find($('#profile-header-edit')).hide();	
+		$(this).parents().find($('body')).find($('.current-user-header')).text(resp["org_name"])
 	})
 }
 
@@ -134,11 +135,9 @@ var deleteJob = function(event){
 		context: this,
 		url: $(this).parent().attr('action'),
 		type: 'delete',
-		dataType: 'json',
 		data: $(this).parent().serialize()
 	}).done(function(data) {
-		console.log(this)
-
+		$(this).parent().parent().remove()
 	})
 }
 		
