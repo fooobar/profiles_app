@@ -4,7 +4,32 @@ class JobsController < ApplicationController
 		job = Job.find(params[:id])
 		# update the job
 		job.update(job_params)
-		render json: job
+
+		skill = Skill.new
+		skill.name = params[:skill]
+		skills = Skill.all
+		job = Job.find(params[:id])
+		exists = false
+		job_has_skill = false
+		Job.skills.each do |job_skill|
+			if job_skill.name == skill.name
+				job_has_skill = true
+			end
+		end
+		if job_has_skill
+			render json: job
+		else
+			skills.each do |existing_skill|
+				if existing_skill.name == skill.name
+					exists = true
+				end
+			end
+			unless exists
+				skill.save #THIS MIGHT NEED TO BE FIXED IF THE JOB IS ONLY GETTING THE CACHED SKILL NOT THE SAVED ONE
+				job.skills.push(skill)
+				render json: job
+			end
+		end
 	end
 
 	def create
@@ -15,6 +40,7 @@ class JobsController < ApplicationController
 		else
 			"Error message"
 		end
+
 	end
 
 	def destroy
