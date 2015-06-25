@@ -24,7 +24,7 @@ class ExperiencesController < ApplicationController
 		end
 	end
 
-	def delete
+	def destroy
 		Experience.destroy(params[:id])
 		"experience destroyed"
 	end
