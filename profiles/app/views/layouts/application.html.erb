@@ -10,11 +10,7 @@
 <body>
 
 <div id="header">
-	<%= @current_user ? ('Hello ' + @current_user.f_name) : ''%>
-	<% if @current_user%>
-		<br>
 		<a id="logout" href="/logout">Log Out</a>
-	<% end %>
 </div>
 
 <%= yield %>

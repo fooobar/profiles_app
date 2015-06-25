@@ -33,7 +33,6 @@ var editJob = function(e) {
 }
 
 var updateJob = function(event){
-	console.log("update");
 	event.preventDefault();
 	$.ajax({
 		context: this,
@@ -41,9 +40,10 @@ var updateJob = function(event){
 		type: 'patch',
 		data: $(this).parent().serialize()
 	}).done(function(resp) {
-		$(this).siblings('.profile-job-edit').hide();
-		$(this).siblings('.job-info').show();
-		// $('#profile-image').attr('src', resp['image_src'])
+		$(this).parent().parent().hide();
+		$(this).parent().parent().siblings('.job-info').show();
+		console.log(resp)
+		$('.job-info').replaceWith($('.job-info'), resp)
 		// update the text to reflect the changes
 	})	
 }	
