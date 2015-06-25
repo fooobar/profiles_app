@@ -29,6 +29,7 @@ class JobsController < ApplicationController
 				job.skills.push(skill)
 				render json: job
 			end
+			render json: job
 		end
 	end
 
