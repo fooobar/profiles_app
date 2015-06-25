@@ -7,6 +7,17 @@ class JobsController < ApplicationController
 		render json: job
 	end
 
+	def create
+		job = Job.new(job_params)
+		if job.save
+			render json: job
+		else
+			"Error message"
+		end
+	end
+
+
+
 	def index
 		@jobs = Job.all
 		@skills = Skill.all
