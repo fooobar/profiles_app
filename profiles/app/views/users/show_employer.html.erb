@@ -45,7 +45,7 @@
 			<div class="job">
 				<h3><%=job.title%></h3>
 				<h5>Created at: <%=job.created_at%></h5>
-				<p class="jobDescPreview"><%=job.desc[0..100]%>... <a href="">More</a></p>
+				<p class="jobDescPreview"><%=job.desc.truncate_words(20)%>... <a href="">More</a></p>
 				<p class="jobDescAll hidden"><%=job.desc%> <a href="">Less</a></p>
 			</div>
 		<%end%>
