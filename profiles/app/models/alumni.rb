@@ -1,0 +1,2 @@
+class Alumni < User
+end 
