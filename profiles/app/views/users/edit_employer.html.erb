@@ -3,12 +3,21 @@
 <div class="profile-side-nav">
 
 	<!-- Image -->
-
 	<div class="profile-image">
 		<img src="<%=@user.image_src%>">
+		<br>
+		<a class="image-edit-button" id="profile-image-edit-button" href="">Edit Image</a>
+		<!-- hidden edit form -->
+		<div class="hidden" id="profile-image-edit">
+			<%= form_for @user do |f| %>
+				<%= f.text_field :image_src %>
+				<%= f.submit 'Update', class: "image-update-button" %>
+			<% end %>
+		</div>
 	</div>
+	<!-- End Image -->
 
-	<!-- Contact Links -->
+	<!-- User Contact Links -->
 	<div class="profile-contact">
 	<% if @user.city%><h4><%=@user.city%><%end%>
 	<% if @user.state%>, <%=@user.state%><%end%></h4>
@@ -21,7 +30,34 @@
 			<% if @user.linkedin %><li><a href="<%=@user.linkedin%>">LinkedIn</a></li><%end%>
 			<% if @user.behance%><li><a href="<%=@user.behance%>">Behance</a></li><%end%>
 		</ul>
+		<!-- edit form -->
+		<div class="hidden" id="profile-contact-edit">
+			<%= form_for @user do |f| %>
+				<%= label_tag(:website, "Website link") %>
+				<br>
+				<%= f.text_field :website %>
+				<br>
+				<%= label_tag(:twitter, "Twitter link") %>
+				<br>
+				<%= f.text_field :twitter %>
+				<br>
+				<%= label_tag(:github, "Github link") %>
+				<br>
+				<%= f.text_field :github %>
+				<br>
+				<%= label_tag(:linkedin, "Linkedin") %>
+				<br>
+				<%= f.text_field :linkedin %>
+				<br>
+				<%= label_tag(:behance, "Behance") %>
+				<br>
+				<%= f.text_field :behance %>
+				<br>
+				<%= f.submit 'Update', class: "contact-update-button" %>
+			<% end %>
+		</div>
 	</div>
+	<!-- End User Contact Links -->
 
 </div>
 <!-- END OF SIDE NAV -->
@@ -32,24 +68,45 @@
 
 	<!-- User Basic Info -->
 	<div class="profile-header">
+		<a class="edit-button" id="profile-header-edit-button" href="">Edit</a>
 		<h1><%= @user.org_name%></h1>
 		<% if @user.bio%><h2><%= @user.bio%> </h2><%end%>
+		<!-- edit form -->
+		<div class="hidden" id="profile-header-edit">
+			<%= form_for @user do |f| %>
+				<%= f.text_field :org_name %>
+				<%= f.text_field :bio %>
+				<%= f.submit 'Update', class: "header-update-button" %>
+			<% end %>
+		</div>
+
 	</div>
 
-
-	<!-- Jobs -->
-
+	<!-- Start Jobs Posted -->
 	<div class="profile-jobs">
-		<h2>Jobs you are offering</h2>
+		<h3>Jobs you are offering</h3>
 		<% @user.jobs.each do |job|%>
-			<div class="job">
-				<h3><%=job.title%></h3>
-				<h5>Created at: <%=job.created_at%></h5>
-				<p><%=job.desc[0..100]%>... <a class="job-desc-more" href="">More</a></p>
-				
+			<div class="job" data="<%=job.id%>">
+				<a class="profile-job-edit-button" href="#">Edit</a>
+				<div class="job-info">
+					<h3><%=job.title%></h3>
+					<h5>Created at: <%=job.created_at%></h5>
+					<p class="job-desc-preview"><%=job.desc.truncate_words(20)%> <a href="">More</a></p>
+					<p class="job-desc-all hidden"><%=job.desc%> <a href="">Less</a></p>
+				</div>
+			<!-- edit form -->
+			<div class="hidden profile-job-edit">
+					<%= form_for job, url: "/users/#{@user.id}/jobs/#{job.id}", html: {method: :patch} do |f| %>
+						<%= f.text_field :title %>
+						<%= f.text_field :desc %>
+						<%= f.submit 'Update', class: "job-update-button" %>
+					<% end %>
+				</div>
 			</div>
 		<%end%>
 	</div>
+	<!-- End Jobs Posted -->
 
 </div>
 <!-- END MAIN AREA -->
+
