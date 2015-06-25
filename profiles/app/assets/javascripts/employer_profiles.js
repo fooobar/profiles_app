@@ -6,8 +6,8 @@ $(document).ready(function() {
 	$('.job-desc-preview a').on("click", moreJobDesc)
 	$('.job-desc-all a').on("click", lessJobDesc)
 	// edit page - jobs
-	$('.profile-job-edit-button').on("click", showUpdateJob)
-	$('.job-update-button').on("click", updateJob)
+	$('.profile-jobs').on("click", '.profile-job-edit-button', showUpdateJob)
+	$('.profile-jobs').on("click", '.job-update-button', updateJob)
 	// edit header - name and bio company
 	$('.profile-header-edit-button').on("click", editHeader)
 	$('.header-update-button').on("click", updateName)
@@ -103,9 +103,25 @@ var addJob = function(event){
 		context: this,
 		url: $(this).parent().attr('action'),
 		type: 'post',
+		dataType: 'json',
 		data: $(this).parent().serialize()
-	}).done(function(resp) {
+	}).done(function(data) {
 		$(this).parent().parent().hide();
 		$(this).parent().parent().parent().find($('.add-job-button')).show()
+		console.log(data)
+		var template = $('#new-job-template').html();
+		var output = Mustache.render(template, data);
+		$('.profile-new-job').prepend(output);
+		// clear form values
+		$(this).parent().find($('#job_title')).val('');
+		$(this).parent().find($('#job_desc')).val('');
+
 	})
 }
+
+
+// delete requeste .remove()
+// users/id/jobs/id 
+
+
+		
