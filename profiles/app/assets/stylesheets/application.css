@@ -45,6 +45,13 @@ body {
 	display: none;
 }
 
+<<<<<<< HEAD
+.edit-form, .delete-button {
+	display: none;
+}
+
+=======
+>>>>>>> 38063d3d5d799c8db4f8b48a465ec7bafb8dbd4d
 .profile-image {
 	max-width: 200px
 }
