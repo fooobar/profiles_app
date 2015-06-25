@@ -9,6 +9,7 @@ class JobsController < ApplicationController
 
 	def create
 		job = Job.new(job_params)
+		job.user_id = params[:user_id]
 		if job.save
 			render json: job
 		else

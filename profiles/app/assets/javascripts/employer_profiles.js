@@ -99,15 +99,13 @@ var showAddJob = function(event) {
 
 var addJob = function(event){
 	event.preventDefault();
-	
 	$.ajax({
 		context: this,
 		url: $(this).parent().attr('action'),
 		type: 'post',
 		data: $(this).parent().serialize()
 	}).done(function(resp) {
-		// update the text to reflect the changes
-		debugger
+		$(this).parent().parent().hide();
+		$(this).parent().parent().parent().find($('.add-job-button')).show()
 	})
-
 }

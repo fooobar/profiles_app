@@ -96,6 +96,7 @@
 					<%= f.text_field :title %><br>
 					<%= f.label :desc, "Job Description"%>
 					<%= f.text_field :desc %><br>
+					<%= f.hidden_field :user_id%>
 					<%= f.submit 'Update', class: "add-job-form-button" %>
 				<% end %>
 			</div>
