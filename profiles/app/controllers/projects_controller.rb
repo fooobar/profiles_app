@@ -17,13 +17,19 @@ class ProjectsController < ApplicationController
 
 	def create
 		project = Project.new(project_params)
+		project.user_id = params[:user_id]
 		if project.save
 			render json: project
 		else
 			"Error message"
 		end
 	end
-	
+
+	def delete
+		Project.destroy(params[:id])
+		'project destroyed'
+	end
+
 
 	private
 		def project_params

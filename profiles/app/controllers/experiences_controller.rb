@@ -16,11 +16,17 @@ class ExperiencesController < ApplicationController
 
 	def create
 		experience = Experience.new(experience_params)
+		experience.user_id = params[:user_id]
 		if experience.save
 			render json: experience
 		else
 			"Error message"
 		end
+	end
+
+	def delete
+		Experience.destroy(params[:id])
+		"experience destroyed"
 	end
 
 	private
