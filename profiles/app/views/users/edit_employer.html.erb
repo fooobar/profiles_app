@@ -128,8 +128,14 @@
 						<%= f.text_field :title %><br>
 						<%= f.label :desc, "Job Description"%>
 						<%= f.text_field :desc %><br>
-						<%= f.label :skill, "Job Skills"%>
-						<%= f.text_field :skill%><br>
+						<p>Skills Required:</p>
+						<ul>
+							<%job.skills.each do |skill|%> 
+							<li><%=skill.name%></li>
+							<% end%>
+						</ul>	
+						<%= f.label :skills, "Add Skill"%>
+						<%= f.text_field :skills, :value => ""%><br>
 						<%= f.submit 'Update', class: "job-update-button" %>
 					<% end %>
 				</div>
