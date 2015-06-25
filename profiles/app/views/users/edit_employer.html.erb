@@ -90,7 +90,17 @@
 		<h3>Jobs you are offering:</h3>
 		<div class="add-job">
 			<a class="add-job-button" href="#">Add Job</a>
+			<div class="add-job-form hidden">
+				<%= form_for @job, url: "/users/#{@user.id}/jobs/", html: {method: :post} do |f| %>
+					<%= f.label :title, "Job Title"%>
+					<%= f.text_field :title %><br>
+					<%= f.label :desc, "Job Description"%>
+					<%= f.text_field :desc %><br>
+					<%= f.submit 'Update', class: "add-job-form-button" %>
+				<% end %>
+			</div>
 		</div>
+		
 		<% @sorted_jobs.each do |job|%>
 			<div class="job" data="<%=job.id%>">
 				<a class="profile-job-edit-button" href="#">Edit</a>
