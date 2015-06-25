@@ -1,4 +1,3 @@
-
 <div class = "filter-container">
 <span>Filter this list by skill</span>
 	<form name="skill-list">
@@ -12,54 +11,59 @@
 <div id="listing-container"></div>
 <script id="jobs-template" type="x-tmpl-mustache">
 	{{#jobs}}
-		<h1>{{user_id}} is looking for a {{title}}</h1>
-		<p>{{desc}}   <a href="/jobs/{{id}}">Read more</a></p> 
-		<span>
-				{{#skills}}
-					{{name}}
-				{{/skills}}
-		</span>
-
+			<div class="{{#skills}}{{name}}{{/skills}}">
+				<h1>{{title}}</h1>
+				<h3>Required Skills:
+					<span>
+							{{#skills}}
+								{{name}}
+							{{/skills}}
+					</span>
+				</h3>
+				//css to hide the blurb
+				<p class="blurb">{{desc}}</p><a href="/jobs/{{id}}">Read More</a>
+				<br>
+				</div>
 	{{/jobs}}
 </script>
 
-
 <script>
-//the master list of jobs
-	var jobsArray = {jobs :<%=raw @jobs.to_json(:include => :skills) %>}
+//json list of jobs
+var jobs = {jobs :<%=raw @jobs.to_json(:include => :skills) %>}
 
-
-var checkJob = function(job,skill){
-	var found = false;
-	for (var i = 0; i < job.skills.length; i++){
-		if (job.skills[i].name === skill){
-			found = true;
+// select all the checkboxes on the page and check their status
+//Hide the unchecked and show the checked
+//if none are checked show all jobs
+var showChecked = function(){
+	checkbox = $('input[type=checkbox]')
+	if ($( "input:checked" ).length !== 0){
+		for (var i = 0; i < checkbox.length; i++){
+			if (checkbox[i].checked == false){
+				$('.'+checkbox[i].name).hide()
+			} else {
+				$('.'+checkbox[i].name).show()
+			}
+		} 
+	} else {
+		for (var i = 0; i < checkbox.length; i++){
+			$('.'+checkbox[i].name).show()
 		}
 	}
-	return found;
-}
+}	
 
-var showChecked = function(skill,jobs){ 
-	var jobs = jobs.jobs.filter(checkJob(jobs,skill));
-	
-}
-
-//rendering the filtered job list to the page
+//rendering the job list to the page
 var renderJobs = function(jobList){
 	$('#listing-container').text('')
 	var template = $('#jobs-template').html()
-	var render = Mustache.render(template, jobList)
+	var render = Mustache.render(template, jobs)
 	$('#listing-container').append(render)
 }
 
-renderJobs(jobsArray)
+renderJobs(jobs)
 
-
-$("[type=checkbox]").on('click',function(event){
+//When a checkbox is changed, the page updates
+$("input[type=checkbox]").on('change',function(event){
 	showSkill = event.target.name
-	showChecked(showSkill, jobsArray)
+	showChecked()
 });
-
 </script>
-
-
