@@ -415,21 +415,10 @@ users = User.all
 jobs = Job.all
 
 users.each do |user|
-	user.skills << @skills_arr.sample
-	user.skills << @skills_arr.sample
-	user.skills << @skills_arr.sample
-	user.skills << @skills_arr.sample
-	user.skills << @skills_arr.sample
-	user.skills << @skills_arr.sample
-	user.skills << @skills_arr.sample
-	user.skills << @skills_arr.sample
+	user.skills = @skills_arr.sample(4).uniq
 end
 
 jobs.each do |job|
-	job.skills << @skills_arr.sample
-	job.skills << @skills_arr.sample
-	job.skills << @skills_arr.sample
-	job.skills << @skills_arr.sample
-	job.skills << @skills_arr.sample
+    job.skills = @skills_arr.sample(4).uniq
 end
 
