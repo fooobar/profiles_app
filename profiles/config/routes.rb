@@ -4,12 +4,13 @@ Rails.application.routes.draw do
 
   get     '/login' =>   'sessions#new'
   post    '/login' =>   'sessions#create'
-  delete  '/logout' =>  'sessions#destroy'
+  get  '/logout' =>  'sessions#destroy'
 
   resources :sessions, only: [ :new, :create, :destroy]
+  resources :jobs
 
   resources :users do
-  	resources  :projects, :skills, :experiences
+  	resources  :projects, :skills, :experiences, :jobs
   end
   
   get '/users/new/student' => 'users#new_student'

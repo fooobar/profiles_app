@@ -17,14 +17,17 @@ class UsersController < ApplicationController
 			else
 				render :new_student
 			end
+		@current_user = current_user
 	end
 
 	def show
 		@user = User.find(params[:id])
+		@job = Job.new
 		if current_user === @user
 			if @user.user_type === "student"
 				render :edit_student
 			else 
+				@sorted_jobs = @user.jobs.order(updated_at: :desc)
 				render :edit_employer
 			end
 		else
@@ -34,6 +37,8 @@ class UsersController < ApplicationController
 				render :show_employer
 			end
 		end
+		@current_user = current_user
+
 	end
 
 	# def edit
@@ -49,6 +54,7 @@ class UsersController < ApplicationController
 
 	def index
 		@users = User.all
+		@current_user = current_user
 	end
 
 	private 

@@ -1,0 +1,35 @@
+<h1>Job Board</h1>
+<div class = "filter-container">
+<span>Filter this list by skill</span>
+	<form name="skill-list">
+		<% @skills.each do |skill| %>
+		<label for="<%= skill.name %>"><%= skill.name %></label>
+		<input type="checkbox" name="<%= skill.name %>" value="<%= skill.id %>">
+		<br>
+		<% end %>
+	</form>
+</div>
+<div id="listing-container"></div>
+<script id="jobs-template" type="x-tmpl-mustache">
+	{{#jobs}}
+			<div class="{{#skills}} {{name}} {{/skills}}">
+				<h2>{{title}}</h2>
+				<h3>Required Skills:
+					<span>
+							{{#skills}}
+								{{name}}
+							{{/skills}}
+					</span>
+				</h3>
+				<!-- css needed to trim the blurb -->
+				<p class="blurb">{{desc}}</p><a href="/jobs/{{id}}">Read More</a>
+				<br>
+				</div>
+	{{/jobs}}
+</script>
+
+<script>
+	var jobs = {jobs :<%=raw @jobs.to_json(:include => :skills)%>}
+</script>
+
+<%= javascript_include_tag("footer") %>

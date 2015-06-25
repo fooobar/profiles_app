@@ -35,7 +35,7 @@ body {
 	float: left;
 }
 
-.experience, .profile-contact, .job {
+.experience, .profile-contact, .job , .add-job {
 	background-color: #E6E6E6;
 	margin-bottom: 10px;
 	border: solid 1px black;
@@ -45,10 +45,13 @@ body {
 	display: none;
 }
 
+<<<<<<< HEAD
 .edit-form, .delete-button {
 	display: none;
 }
 
+=======
+>>>>>>> 38063d3d5d799c8db4f8b48a465ec7bafb8dbd4d
 .profile-image {
 	max-width: 200px
 }
