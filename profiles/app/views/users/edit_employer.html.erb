@@ -84,8 +84,8 @@
 
 	<!-- Start Jobs Posted -->
 	<div class="profile-jobs">
-		<h3>Jobs you are offering</h3>
-		<% @user.jobs.each do |job|%>
+		<h3>Jobs you are offering:</h3>
+		<% @sorted_jobs.each do |job|%>
 			<div class="job" data="<%=job.id%>">
 				<a class="profile-job-edit-button" href="#">Edit</a>
 				<div class="job-info">
