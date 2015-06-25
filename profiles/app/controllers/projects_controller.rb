@@ -10,8 +10,9 @@ class ProjectsController < ApplicationController
 	end
 
 	def update
-		@project = Project.find(params[:id])
-		@user = User.find(params[:user_id])
+		project = Project.find(params[:id])
+		project.update(project_params)
+		render json: project
 	end
 
 	private

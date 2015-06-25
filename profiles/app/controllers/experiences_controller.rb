@@ -9,10 +9,19 @@ class ExperiencesController < ApplicationController
 	end
 
 	def update
-		@user = User.find(params[:user_id])
-		@experience = Experience.find(params[:id])
+		experience = Experience.find(params[:id])
+		experience.update(experience_params)
+		render json: experience
 	end
 
+	def create
+		experience = Experience.new(experience_params)
+		if experience.save
+			render json: experience
+		else
+			"Error message"
+		end
+	end
 
 	private
 		def experience_params
