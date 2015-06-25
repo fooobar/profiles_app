@@ -111,12 +111,25 @@
 					<h5>Created at: <%=job.created_at%></h5>
 					<p class="job-desc-preview"><%=job.desc.truncate_words(20)%> <a href="">More</a></p>
 					<p class="job-desc-all hidden"><%=job.desc%> <a href="">Less</a></p>
+					<div class="job-skills">
+						<p>Skills Required:</p>
+						<ul>
+							<%job.skills.each do |skill|%> 
+							<li><%=skill.name%></li>
+							<% end%>
+						</ul>	
+
+					</div>
 				</div>
 			<!-- edit form -->
 				<div class="hidden profile-job-edit">
 					<%= form_for job, url: "/users/#{@user.id}/jobs/#{job.id}", html: {method: :patch} do |f| %>
-						<%= f.text_field :title %>
-						<%= f.text_field :desc %>
+						<%= f.label :title, "Job Title"%>
+						<%= f.text_field :title %><br>
+						<%= f.label :desc, "Job Description"%>
+						<%= f.text_field :desc %><br>
+						<%= f.label :skill, "Job Skills"%>
+						<%= f.text_field :skill%><br>
 						<%= f.submit 'Update', class: "job-update-button" %>
 					<% end %>
 				</div>
