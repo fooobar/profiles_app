@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
     !current_user.nil?
   end
 
+
   # Allows us to check for a logged in user
   def authorize
     redirect_to '/login' unless current_user

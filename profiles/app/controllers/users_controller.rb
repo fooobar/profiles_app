@@ -17,9 +17,11 @@ class UsersController < ApplicationController
 			else
 				render :new_student
 			end
+		@current_user = current_user
 	end
 
 	def show
+		binding.pry
 		@user = User.find(params[:id])
 		if current_user === @user
 			if @user.user_type === "student"
@@ -34,6 +36,8 @@ class UsersController < ApplicationController
 				render :show_employer
 			end
 		end
+		@current_user = current_user
+
 	end
 
 	# def edit
@@ -49,6 +53,7 @@ class UsersController < ApplicationController
 
 	def index
 		@users = User.all
+		@current_user = current_user
 	end
 
 	private 
