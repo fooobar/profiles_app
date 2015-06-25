@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [ :new, :create, :destroy]
   resources :jobs
+  resources :skills
 
   resources :users do
   	resources  :projects, :skills, :experiences, :jobs

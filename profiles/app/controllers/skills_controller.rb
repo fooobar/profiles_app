@@ -14,9 +14,17 @@ class SkillsController < ApplicationController
 		@skill = Skill.find(params[:id])
 	end
 
+	def index
+		@users = User.all
+		@skills = Skill.all
+	end
+
+	def show
+		@user = User.find(params[:id])
+	end
+
 	private
 		def skill_params
 			params.require(:skill).permit(:name)
 		end
-	end
 end
