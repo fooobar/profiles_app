@@ -45,7 +45,11 @@ body {
 	display: none;
 }
 
-#profile-image {
+.edit-form, .delete-button {
+	display: none;
+}
+
+.profile-image {
 	max-width: 200px
 }
 
