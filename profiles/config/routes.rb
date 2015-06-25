@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [ :new, :create, :destroy]
 
-  resources :users
+  resources :user, :jobs
 
   get '/users/new/student' => 'users#new_student'
   get '/users/new/employer' => 'users#new_employer'
