@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 			if @user.user_type === "student"
 				render :edit_student
 			else 
+				@sorted_jobs = @user.jobs.order(updated_at: :desc)
 				render :edit_employer
 			end
 		else
