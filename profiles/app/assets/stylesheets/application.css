@@ -35,7 +35,7 @@ body {
 	float: left;
 }
 
-.experience, .profile-contact, .job {
+.experience, .profile-contact, .job , .add-job {
 	background-color: #E6E6E6;
 	margin-bottom: 10px;
 	border: solid 1px black;
@@ -45,7 +45,7 @@ body {
 	display: none;
 }
 
-#profile-image {
+.profile-image {
 	max-width: 200px
 }
 
