@@ -1,4 +1,7 @@
-<div class="profile-content">
+<div class="profile-content" style="
+	background-image: url(<%=@user.background%>); 
+	background-repeat: no-repeat; 
+	background-color: <%=@user.color%>">
 	<!-- SIDE NAV -->
 
 	<div class="profile-side-nav" data="<%=@user.id%>">
@@ -22,7 +25,8 @@
 		<!-- Contact Links -->
 
 		<div class="profile-contact">
-		<a class="edit-button" id="profile-contact-edit-button" href="">Edit</a>
+			<h4>Your Contact Info </h4>
+			<a class="edit-button" id="profile-contact-edit-button" href="">Edit</a>
 		<% if @user.city%><h4><%=@user.city%><%end%><% if @user.state%>, <%=@user.state%><%end%></h4>
 			<ul>
 				<li><a href="mailto:<%=@user.email%>">Email Me</a></li>
@@ -59,6 +63,21 @@
 				<% end %>
 				</div>
 			</div>
+			<div class="profile-options">
+				<h4>Your Preferences </h4>
+				<%= form_for @user do |f| %>
+					<%= label_tag(:background, "Background Image") %>
+					<br>
+					<%= f.text_field :background %>
+					<br>
+					<%= label_tag(:color, " or Background Color") %>
+					<br>
+					<%= f.text_field :color %>
+					<br>
+					<%= f.submit 'Update', class: "prefs-update-button" %>
+				<% end %>
+
+			</div>
 		</div>
 		<!-- End User Contact Links -->
 
@@ -91,7 +110,6 @@
 
 		<!-- Start Jobs Posted -->
 		<div class="profile-jobs">
-			<h3>Jobs you are offering:</h3>
 			<div class="add-job">
 				<a class="add-job-button" href="#">Add Job</a>
 				<div class="add-job-form hidden">
@@ -104,9 +122,10 @@
 						<%= f.text_field :skills, :value => ""%><br>
 						<%= f.submit 'Create Job', class: "add-job-form-button" %>
 					<% end %>
+					<a class="add-job-cancel-button" href="#">Cancel</a>
 				</div>
 			</div>
-			
+			<h3>Jobs you are offering:</h3>
 			<div class="profile-new-job"></div>
 
 			<% @sorted_jobs.each do |job|%>
@@ -115,7 +134,13 @@
 					<div class="job-info">
 						<h3><%=job.title%></h3>
 						<h5>Created at: <%=job.created_at%></h5>
-						<p class="job-desc-preview"><%=job.desc.truncate_words(20)%> <a href="">More</a></p>
+						<p class="job-desc-preview">
+							<% if job.desc.split.size > 20%>
+								<%=job.desc.truncate_words(20)%><a href="">More</a></p>
+							<%else%>
+								<%= job.desc%> 
+							<%end%> 
+							
 						<p class="job-desc-all hidden"><%=job.desc%> <a href="">Less</a></p>
 						<div class="job-skills">
 							<p>Skills Required:</p>
@@ -169,12 +194,14 @@
 		<h5>Created at: {{created_at}}></h5>
 		<p class="job-desc-preview">{{desc}}</p>
 		{{/job}}
-		<p>Skills Required:</p>
+		{{#skill}}
+			{{#name}}
+			<p>Skills Required:</p>
 			<ul>
-			{{#skill}}
 				<li>{{name}}</li>
-				{{/skill}}
-			</ul>	
+			</ul>
+			{{/name}}
+		{{/skill}}
 	</div>		
 	<!-- edit form -->
 	
@@ -183,17 +210,18 @@
 		<form class="edit_job" id="edit_job_{{id}}" action="/users/{{user_id}}/jobs/{{id}}" method="post">
 			<input type="hidden" name="_method" value="patch">
 			<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
-			<input type="text" value={{title}} name="job[title]" id="job_title">
-			<input type="text" value={{desc}} name="job[desc]" id="job_desc">
+			<input type="text" value="{{title}}" name="job[title]" id="job_title">
+			<input type="text" value="{{desc}}" name="job[desc]" id="job_desc">
 			<input type="submit" name="commit" value="Update" class="job-update-button">
 		</form>
 	</div>		
-<br>
-<form class="edit_job" id="edit_job_{{id}}" action="/users/{{user_id}}/jobs/{{id}}" method="post">
-			<input type="hidden" name="_method" value="delete">
-			<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
-			<input type="submit" name="commit" value="Delete" class="profile-job-delete-button">
-</form>
+	<br>
+	<form class="edit_job" id="edit_job_{{id}}" action="/users/{{user_id}}/jobs/{{id}}" method="post">
+				<input type="hidden" name="_method" value="delete">
+				<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
+				<input type="submit" name="commit" value="Delete" class="profile-job-delete-button">
+				
+	</form>
 {{/job}}
-</div>
 </script>
+</div>
