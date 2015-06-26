@@ -14,6 +14,9 @@ $(document).ready(function() {
 	// add job
 	$('.add-job-button').on("click", showAddJob)
 	$('.add-job-form-button').on("click", addJob)
+	//cancel button add job
+	$('.add-job-cancel-button').on("click", hideAddJob)
+	
 	// delete - jobs
 	$('.profile-jobs').on("click", '.profile-job-delete-button', deleteJob)
 })
@@ -32,37 +35,6 @@ var lessJobDesc = function(event){
 	$(event.target.parentElement).addClass("hidden");
 	$(event.target.parentElement).prev('.job-desc-preview').removeClass("hidden");
 }
-
-// Edit Job
-
-// Edit Job button shows form
-var showUpdateJob = function(e) {
-	e.preventDefault()
-	$(this).siblings('.profile-job-edit').show();
-	$(this).siblings('.job-info').hide();
-}
-
-var updateJob = function(event){
-	event.preventDefault();
-	$.ajax({
-		context: this,
-		url: $(this).parent().attr('action'),
-		type: 'patch',
-		data: $(this).parent().serialize()
-	}).done(function(resp) {
-		debugger
-		// update the text to reflect the changes
-		$(this).parent().parent().parent().find($('.job-info')).find($('h3')).text(resp["job"]["title"])
-		$(this).parent().parent().parent().find($('.job-info')).find($('.profile-job-edit-button')).text(resp["job"]["desc"])
-		// adding skill
-		$(this).parent().parent().parent().find($('.job-info')).find($('.job-skills')).find($('ul')).append('<li>' + resp["skill"]["name"] + '</li>')
-		// hide form show text
-		$(this).parent().parent().hide();
-		$(this).parent().parent().siblings('.job-info').show();		
-	
-	})	
-}	
-
 
 // updating header
 
@@ -93,11 +65,50 @@ var updateName = function(event){
 }
 
 
+
+// Edit Job
+
+// Edit Job button shows form
+var showUpdateJob = function(e) {
+	e.preventDefault()
+	$(this).siblings('.profile-job-edit').show();
+	$(this).siblings('.job-info').hide();
+}
+
+var updateJob = function(event){
+	event.preventDefault();
+	$.ajax({
+		context: this,
+		url: $(this).parent().attr('action'),
+		type: 'patch',
+		data: $(this).parent().serialize()
+	}).done(function(resp) {
+		// update the text to reflect the changes
+		$(this).parent().parent().parent().find($('.job-info')).find($('h3')).text(resp["job"]["title"])
+		$(this).parent().parent().parent().find($('.job-info')).find($('.job-desc-preview')).text(resp["job"]["desc"])
+		// adding skill
+		$(this).parent().parent().parent().find($('.job-info')).find($('.job-skills')).find($('ul')).append('<li>' + resp["skill"]["name"] + '</li>')
+		// hide form show text
+		$(this).parent().parent().hide();
+		$(this).parent().parent().siblings('.job-info').show();		
+	
+	})	
+}	
+
+
+
 // Create a Job
 var showAddJob = function(event) {
 	event.preventDefault();
 	$(this).hide();
 	$(this).parent().find($('.add-job-form')).show();
+}
+
+var hideAddJob = function(event) {
+	event.preventDefault();
+	$(this).parent().parent().find('.add-job-button').show()
+	$(this).parent().hide();
+
 }
 
 var addJob = function(event){
@@ -111,7 +122,6 @@ var addJob = function(event){
 	}).done(function(data) {
 		$(this).parent().parent().hide();
 		$(this).parent().parent().parent().find($('.add-job-button')).show()
-		console.log(data)
 		var template = $('#new-job-template').html();
 		var output = Mustache.render(template, data);
 		$('.profile-new-job').prepend(output);
@@ -123,9 +133,6 @@ var addJob = function(event){
 	})
 }
 
-
-// delete requeste .remove()
-// users/id/jobs/id 
 
 // delete a job
 
