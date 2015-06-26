@@ -9,10 +9,10 @@
 		<% end %>
 	</form>
 </div>
-<div id="listing-container"></div>
-<script id="jobs-template" type="x-tmpl-mustache">
+<div id="listings"></div>
+<script id="template" type="x-tmpl-mustache">
 	{{#jobs}}
-			<div class="positions{{#skills}} {{param}}{{/skills}}">
+			<div class="tags{{#skills}} {{param}}{{/skills}}">
 				<h2>{{title}}</h2>
 				<h3>Required Skills:
 					<span>

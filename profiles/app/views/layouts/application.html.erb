@@ -2,13 +2,11 @@
 <html>
 <head>
   <title>Profiles</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  
   <meta charset="UTF-8">
 </head>
 
-<body class="<%= controller_name %> <%= action_name %>">
+<body>
 <div id="header">
 	<div class="current-user-header">
 		<% if @current_user%>
@@ -26,6 +24,8 @@
 
 
 <%= yield %>
-
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 </body>
 </html>
