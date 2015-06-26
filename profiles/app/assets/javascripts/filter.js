@@ -37,3 +37,4 @@ $("input[type=checkbox]").on('change',function(event){
 	}).done(console.log('sent!'))
 	showChecked()
 });
+

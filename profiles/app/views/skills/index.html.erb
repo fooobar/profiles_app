@@ -1,5 +1,5 @@
 <h1>Job Candidates</h1>
-<div class = "filter-container">
+<div class = "filter-container profile-side-nav">
 <span>Filter candidates by skill</span>
 	<form name="skill-list">
 		<% @skills.each do |skill| %>
@@ -9,6 +9,7 @@
 		<% end %>
 	</form>
 </div>
+<div class="profile-main">
 <div id="listings"></div>
 <script id="template" type="x-tmpl-mustache">
 	{{#users}}
@@ -28,7 +29,7 @@
 				</div>
 	{{/users}}
 </script>
-
+</div>
 <script>
 	var data = {users :<%=raw @users.to_json(:include => :skills)%>}
 </script>
