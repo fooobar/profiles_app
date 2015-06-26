@@ -47,6 +47,7 @@ class UsersController < ApplicationController
 			if @user.user_type === "student"
 				render :show_student
 			else 
+				@show_user = User.find(params[:id])
 				render :show_employer
 			end
 		end

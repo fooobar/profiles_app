@@ -20,7 +20,8 @@ user_jeremy = User.create({
 	l_name: 'Bell',
 	email: 'jeremyianbell@gmail.com', 
 	password: 'melville1', 
-    user_type: 'student'
+    user_type: 'student',
+    background: 'chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/backgrounds/99443a0a-22c6-46bc-8e37-b5ccacbd1496.jpg'
 	})
 
 user_karlyce = User.create({
