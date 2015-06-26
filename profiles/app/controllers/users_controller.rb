@@ -27,27 +27,31 @@ class UsersController < ApplicationController
 		@experience = Experience.new
 		if current_user === @user
 			if @user.user_type === "student"
-				@user.clicked += 1
-				@user.save
 				@sorted_experiences = @user.experiences.order(end_date: :desc)
 				render :edit_student
+				return
 			elsif @user.user_type === "employer"
-				@user.clicked += 1
-				@user.save
 				@sorted_jobs = @user.jobs.order(updated_at: :desc)
 				render :edit_employer
+				return 
 			else 
 				@students = User.where(:user_type => "student")
 				@employers = User.where(:user_type => "employer")
 				@skills = Skill.all
 				@projects = Project.all
 				render :edit_outcomes
+				return
 			end
 		else
+			@user.clicked += 1
+			@user.save
 			if @user.user_type === "student"
 				render :show_student
+				return
 			else 
+				@show_user = User.find(params[:id])
 				render :show_employer
+				return
 			end
 		end
 		@current_user = current_user

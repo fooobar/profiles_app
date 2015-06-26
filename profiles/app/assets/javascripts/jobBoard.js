@@ -4,28 +4,29 @@
 var showCheckedJobs = function(){
 	checkbox = $('input[type=checkbox]')
 	if ($( "input:checked" ).length !== 0){
-			$(".positions").hide();
+			$(".tags").hide();
 			var checkboxes = $("input[type=checkbox]:checked")
 			var classes = checkboxes.map(function(i, checkbox) {
 			return checkbox.name
 			}).get();
 				$('.'+classes.join(',.')).show();
 	} else {
-			$(".positions").show();
+			$(".tags").show();
 	}
 }
 
 //rendering the job list to the page
-var renderUsersEmployers = function(dataList){
-	$('#listing-container').text('')
-	var template = $('#jobs-template').html()
+var renderData = function(dataList){
+	$('#listings').text('')
+	var template = $('#template').html()
 	var render = Mustache.render(template, dataList)
-	$('#listing-container').append(render)
+	$('#listings').append(render)
   $('.truncate').succinct({ size: 150 });
 
 }
 
-renderUsersEmployers(data)
+renderData(data)
+
 
 //When a checkbox is changed, the page updates
 $("input[type=checkbox]").on('change',function(event){

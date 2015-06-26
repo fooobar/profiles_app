@@ -172,5 +172,3 @@ var updatePrefs = function(event){
 		$(this).parents().find($('.profile-content')).css('background-color', resp["color"] )		
 	})
 }
-
-		
