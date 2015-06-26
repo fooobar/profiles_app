@@ -108,6 +108,7 @@ class JobsController < ApplicationController
 	def index
 		@jobs = Job.all
 		@skills = Skill.all
+		@current_user = current_user
 	end
 
 	def show
