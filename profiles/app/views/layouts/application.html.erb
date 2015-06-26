@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Profiles</title>
-  
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <meta charset="UTF-8">
 </head>
 
@@ -11,10 +11,13 @@
 		<% if @current_user%>
 			<% if @current_user.user_type == "student" || @current_user.user_type == "outcomes"%>
 				<img class="nav-bar-picture" src="<%=@current_user.image_src%>"><a href="/users/<%=@current_user.id%>">Hello <%= @current_user.f_name%></a>
+				<a href="/jobs"> | Job Boards</a>
 			<% else %>
 				<img class="nav-bar-picture" src="<%=@current_user.image_src%>"><a href="/users/<%=@current_user.id%>">Hello <%=@current_user.org_name%></a>
 			<% end %>
 		<% else %>
+		<div> Logo placeholder
+		<a href="/login">Log in</a></div>
 		<% end %>
 	<% if @current_user%>
 		<a id="logout" href="/logout">Log Out</a>
@@ -23,7 +26,7 @@
 
 
 <%= yield %>
-<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </body>
