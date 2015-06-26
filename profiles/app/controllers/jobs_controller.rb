@@ -11,6 +11,7 @@ class JobsController < ApplicationController
 			user = User.find(params[:user_id])
 			exists = false
 			job_has_skill = false
+			user_has_skill = false
 			job.skills.each do |job_skill|
 				if job_skill.name == skill.name
 					job_has_skill = true
