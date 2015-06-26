@@ -99,15 +99,23 @@
 	<!-- Skills -->
 
 	<div class="profile-skills">
-		<a class="skills-edit-button" id="profile-skills-edit-button" href="">Edit</a>
 		<h2>Skills</h2>
 		<ul>
 			<% @user.skills.each do |skill|%>
-				<li><%=skill.name%></li><span><a class="delete-button" href="">Delete</a></span>
+				<li><%=skill.name%></li>
 			<%end%>
 		</ul>
+		<a class="skill-add-button" id="profile-skills-edit-button" href="">Add Skill</a>
 		<!-- edit form -->
-		
+		<div class="add-form" id="profile-skills-edit">
+			<%= form_for @user do |f| %>
+				<%= label_tag(:skills, "Skill") %>
+				<br>
+				<%= f.text_field :skills, :value => "" %>
+				<br>
+				<%= f.submit 'Update', class: "skill-update-button" %>
+			<% end %>
+		</div>
 	</div>
 
 	<!-- Projects -->
