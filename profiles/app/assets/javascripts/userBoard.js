@@ -13,17 +13,16 @@ var showChecked = function(){
 
 //rendering the job list to the page
 var renderUsers = function(userList){
-	$('#listing-container').text('')
+	$('#listing-container-jeremy').text('')
 	var template = $('#users-template').html()
 	var render = Mustache.render(template, userList)
-	$('#listing-container').append(render)
+	$('#listing-container-jeremy').append(render)
 }
 
 renderUsers(users)
 
 //When a checkbox is changed, the page updates
 $("input[type=checkbox]").on('change',function(event){
-	showSkill = event.target.name
 	showChecked()
 });
 }

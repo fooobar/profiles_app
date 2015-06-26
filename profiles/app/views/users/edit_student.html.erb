@@ -5,14 +5,13 @@
 <!-- Image -->
 
 	<div class="profile-image">
-		<img class="profile-image" src="<%=@user.image_src%>">
+		<%= image_tag @user.avatar.url(:medium) %>
 		<br>
 		<a class="image-edit-button" id="profile-image-edit-button" href="">Edit Image</a>
 		<!-- edit form -->
 		<div class="edit-form" id="profile-image-edit">
-			<%= form_for @user do |f| %>
-				<%= f.text_field :image_src %>
-				<%= f.submit 'Update', class: "image-update-button" %>
+			<%= form_for @user, :url => users_path, :html => { :multipart => true } do |form| %>
+			<%= form.file_field :avatar %>
 			<% end %>
 		</div>
 	</div>
@@ -111,6 +110,22 @@
 	</div>
 
 	<!-- Projects -->
+
+	<!-- Image -->
+
+	<div class="profile-resume">
+		<%= image_tag @user.resume.url(:medium) %>
+		<br>
+		<%= form_for @user, :url => users_path, :html => { :multipart => true } do |form| %>
+		<%= form.file_field :avatar %>
+		<% end %>
+		<!-- edit form -->
+		<div class="edit-form" id="profile-image-edit">
+			<%= form_for @user, :url => users_path, :html => { :multipart => true } do |form| %>
+		<%= form.file_field :avatar %>
+		<% end %>
+		</div>
+	</div>
 
 	<div class="profile-projects">
 		<h2>Projects</h2>

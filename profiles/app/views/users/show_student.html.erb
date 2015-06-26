@@ -5,7 +5,7 @@
 <!-- Image -->
 
 	<div class="profile-image">
-		<img src="<%=@user.image_src%>">
+		<%= image_tag @user.avatar.url(:medium) %>
 	</div>
 
 <!-- Contact Links -->

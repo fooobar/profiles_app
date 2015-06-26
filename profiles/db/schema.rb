@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150626172221) do
+ActiveRecord::Schema.define(version: 20150626185603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 20150626172221) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "clicked",    default: 0
     t.string   "param"
+    t.integer  "clicked",    default: 0
   end
 
   create_table "skills_users", force: :cascade do |t|
@@ -74,10 +74,10 @@ ActiveRecord::Schema.define(version: 20150626172221) do
     t.string   "f_name"
     t.string   "l_name"
     t.string   "org_name"
-    t.string   "email",                                                                                           null: false
-    t.string   "password_digest",                                                                                 null: false
-    t.string   "user_type",                                                                                       null: false
-    t.string   "image_src",       default: "https://www.leanstartupmachine.com/images/default_profile_photo.png"
+    t.string   "email",                                                                                               null: false
+    t.string   "password_digest",                                                                                     null: false
+    t.string   "user_type",                                                                                           null: false
+    t.string   "image_src",           default: "https://www.leanstartupmachine.com/images/default_profile_photo.png"
     t.string   "phone"
     t.string   "city"
     t.string   "state"
@@ -90,9 +90,17 @@ ActiveRecord::Schema.define(version: 20150626172221) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
-    t.integer  "clicked",         default: 0
+    t.integer  "clicked",             default: 0
     t.string   "background"
     t.string   "color"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
   end
 
 end
