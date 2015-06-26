@@ -47,7 +47,7 @@ body {
 }
 
 
-.edit-form, .delete-button {
+.edit-form, .delete-button, .add-form {
 	display: none;
 }
 

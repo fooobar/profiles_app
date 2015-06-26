@@ -3,22 +3,31 @@
 
 $(document).ready(function() {
 	UserId = $('.profile-side-nav').attr('data')
-	$('.edit-button').on("click", renderForm)
-	$('.skills-edit-button').on("click", renderSkillsForm)
-	$('.image-edit-button').on("click", renderImageForm)
-	$('.image-update-button').on("click", updateImage)
-	$('.contact-update-button').on("click", updateContact)
-	$('.project-update-button').on("click", updateProject)
-	$('.experience-update-button').on("click", updateExperience)
+	$(document).on("click", '.edit-button', renderEditForm)
+	$(document).on("click", '.add-button', renderAddForm)
+	$(document).on("click", '.skills-edit-button', renderSkillsForm)
+	$(document).on("click", '.image-edit-button', renderImageForm)
+	$(document).on("click", '.image-update-button', updateImage)
+	$(document).on("click", '.contact-update-button', updateContact)
+	$(document).on("click", '.project-update-button', updateProject)
+	$(document).on("click", '.project-create-button', addProject)
+	$(document).on("click", '.experience-update-button', updateExperience)
+	$(document).on("click", '.experience-create-button', addExperience)
 })
 
 
 // Rendering Forms
 
-var renderForm = function(e) {
+var renderEditForm = function(e) {
 	e.preventDefault()
 	$(this).parent().children().hide()
 	$(this).parent().children('.edit-form').show()
+}
+
+var renderAddForm = function(e) {
+	e.preventDefault()
+	$(this).parent().children().hide()
+	$(this).parent().children('.add-form').show()
 }
 
 var renderImageForm = function(e) {
@@ -120,9 +129,31 @@ var updateProject = function(e){
 
 // Add Project
 
+var addProject = function(e){
+	e.preventDefault();
+	$.ajax({
+		context: this,
+		url: '/users/'+UserId+'/projects',
+		type: 'post',
+		data: $(this).parent().serialize()
+	}).done(function(resp) {
+		// update the text to reflect the changes
+		
+		// mustache here
+		var template = $('#new-project-template').html();
+		var output = Mustache.render(template, resp)
+		$('.new-project').prepend(output);
+
+		// hide/show form/edit
+		$(this).parents('.add-project').children().show();
+		$(this).parents('.add-project').find('.add-form').hide();		
+	})
+}
 
 
 // Delete Project
+
+
 
 
 
@@ -140,7 +171,7 @@ var updateExperience = function(e) {
 		$(this).parents('.experience').find('a').attr('href', resp["website"])
 		$(this).parents('.experience').find('h3').text(resp["role"])
 		$(this).parents('.experience').find('h4').text(resp["company_name"])
-		$(this).parents('.experience').find('h5').text(resp["start_date"]+" &mdash; "+resp["end_date"]+" | "+resp["city"]+", "+resp["state"])
+		$(this).parents('.experience').find('h5').html(resp["start_date"]+" &mdash; "+resp["end_date"]+" | "+resp["city"]+", "+resp["state"])
 		$(this).parents('.experience').find('p').text(resp["blurb"])
 		// hide/show form/edit
 		$(this).parents('.experience').children().show();
@@ -149,8 +180,28 @@ var updateExperience = function(e) {
 }
 
 
-
 // Add Experience
+
+var addExperience = function(e){
+	e.preventDefault();
+	$.ajax({
+		context: this,
+		url: '/users/'+UserId+'/experiences',
+		type: 'post',
+		data: $(this).parent().serialize()
+	}).done(function(resp) {
+		// update the text to reflect the changes
+		
+		// mustache here
+		var template = $('#new-experience-template').html();
+		var output = Mustache.render(template, resp)
+		$('.new-experience').prepend(output);
+
+		// hide/show form/edit
+		$(this).parents('.add-experience').children().show();
+		$(this).parents('.add-experience').find('.add-form').hide();		
+	})
+}
 
 
 
