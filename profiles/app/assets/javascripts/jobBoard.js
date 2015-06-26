@@ -22,6 +22,8 @@ var renderUsers = function(dataList){
 	var template = $('#jobs-template').html()
 	var render = Mustache.render(template, dataList)
 	$('#listing-container').append(render)
+  $('.truncate').succinct({ size: 150 });
+
 }
 
 renderUsers(data)

@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require mustache
-//= require sugar
+//= require jQuery_succinct.js
 // require_tree .
 
 
