@@ -45,27 +45,39 @@ class JobsController < ApplicationController
 		job.user_id = params[:user_id]
 		user = User.find(params[:user_id])
 		job.save
-		if params[:job][:skills] != ""
+		binding.pry
+		if params[:job][:skills] != "" && params[:job][:skills] != nil
 			skill = Skill.new
 			skill.name = params[:job][:skills]
 			skills = Skill.all
 			exists = false
+			user_has_skill = false
 			skills.each do |existing_skill|
 				if existing_skill.name == skill.name
 					exists = true
 					skill = existing_skill
+					user.skills.each do |user_skill|
+						if user_skill.name == skill.name
+							user_has_skill = true
+						end
+					end
+					unless user_has_skill
+						user.skills.push(skill)
+					end
 					job.skills.push(skill)
 					return_hash = {:job => job, :skill => skill}
 					render json: return_hash
+					break
 				end
+			end
+			job.skills.push(skill)
+			user.skills.push(skill)
 			return_hash = {:job => job, :skill => skill}
 			render json: return_hash
 		else
 			return_hash = {:job => job, :skill => {}}
 			render json: return_hash
 		end			
-
-
 	end
 
 	def destroy
