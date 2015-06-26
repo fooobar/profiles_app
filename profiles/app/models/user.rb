@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
 	def self.send_match_email(employer_skills,user_skills, student_id)
 		match = {}
 		employer_skills.each do |key, value|
+			#run user skills in order to get the full array of skills
 			(value & user_skills).each do |i| 
 				if match[key] == nil
 					 match[key] = [i]

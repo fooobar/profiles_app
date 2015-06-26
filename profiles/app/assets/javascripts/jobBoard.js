@@ -28,7 +28,12 @@ renderUsers(data)
 
 //When a checkbox is changed, the page updates
 $("input[type=checkbox]").on('change',function(event){
-	showSkill = event.target.name
+	showSkill = event.target.value
+	$.ajax({
+		url : "/skills/:id",
+		type: 'PATCH',
+		data: {id: showSkill}
+	}).done(console.log('sent!'))
 	showChecked()
 });
 }
