@@ -34,8 +34,9 @@ class User < ActiveRecord::Base
 			(value & user_skills).each do |i| 
 				if match[key] == nil
 					 match[key] = [i]
+					 "This ran"
 				else
-					match[key].push[i]
+					match[key].push(i)
 				end
 			end
 		end
@@ -45,7 +46,7 @@ class User < ActiveRecord::Base
 				skill_name = Skill.find(value)
 				skill_array.push(skill_name.name)
 			end
-			skill_array.join(' ')
+			skill_array.join('')
 			User.send_email(student_id , key, skill_array)
 		end
 	end

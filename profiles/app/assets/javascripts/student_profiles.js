@@ -218,18 +218,3 @@ var addExperience = function(e){
 
 // Delete Skill
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

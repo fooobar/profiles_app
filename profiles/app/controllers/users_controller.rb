@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 				return
 			end
 		else
-			@user.clicked += 1
+			@user.clicked = (Float(@user.clicked) + 0.5).to_s
 			@user.save
 			if @user.user_type === "student"
 				render :show_student
@@ -65,7 +65,7 @@ class UsersController < ApplicationController
 	def update
 		user = User.find(params[:id])
 		user.update(user_params)
-		render json: user		
+		render json: user
 	end
 
 	def index
