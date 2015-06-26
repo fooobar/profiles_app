@@ -63,12 +63,10 @@ class JobsController < ApplicationController
 	end
 
 	def create
-		binding.pry
 		job = Job.new(job_params)
 		job.user_id = params[:user_id]
 		user = User.find(params[:user_id])
 		job.save
-		binding.pry
 		if params[:job][:skills] != "" && params[:job][:skills] != nil
 			skill = Skill.new
 			skill.name = params[:job][:skills]
@@ -77,7 +75,6 @@ class JobsController < ApplicationController
 			user_has_skill = false
 			skills.each do |existing_skill|
 				if existing_skill.name == skill.name
-					exists = true
 					skill = existing_skill
 					user.skills.each do |user_skill|
 						if user_skill.name == skill.name
