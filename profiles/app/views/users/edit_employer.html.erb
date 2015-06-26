@@ -18,20 +18,21 @@
 	<!-- End Image -->
 
 	<!-- User Contact Links -->
+	<!-- Contact Links -->
+
 	<div class="profile-contact">
-	<% if @user.city%><h4><%=@user.city%><%end%>
-	<% if @user.state%>, <%=@user.state%><%end%></h4>
+	<a class="edit-button" id="profile-contact-edit-button" href="">Edit</a>
+	<% if @user.city%><h4><%=@user.city%><%end%><% if @user.state%>, <%=@user.state%><%end%></h4>
 		<ul>
 			<li><a href="mailto:<%=@user.email%>">Email Me</a></li>
-			<% if @user.website %><li><a href="<%=@user.website%>">My Website</a></li><%end%>
-			<% if @user.twitter %><li><a href="<%=@user.twitter%>">Tweet Me</a></li><%end%>
-			<% if @user.github %><li><a href="<%=@user.github%>">GitHub</a></li><%end%>
-			
-			<% if @user.linkedin %><li><a href="<%=@user.linkedin%>">LinkedIn</a></li><%end%>
-			<% if @user.behance%><li><a href="<%=@user.behance%>">Behance</a></li><%end%>
+			<% if @user.website && @user.website != "" %><li><a class="website" href="<%=@user.website%>">My Website</a></li><%end%>
+			<% if @user.twitter && @user.twitter != "" %><li><a class="twitter" href="<%=@user.twitter%>">Tweet Me</a></li><%end%>
+			<% if @user.github && @user.github != "" %><li><a class="github" href="<%=@user.github%>">GitHub</a></li><%end%>
+			<% if @user.linkedin && @user.linkedin != "" %><li><a class="linkedin" href="<%=@user.linkedin%>">LinkedIn</a></li><%end%>
+			<% if @user.behance && @user.behance != ""%><li><a class="behance" href="<%=@user.behance%>">Behance</a></li><%end%>
 		</ul>
 		<!-- edit form -->
-		<div class="hidden" id="profile-contact-edit">
+		<div class="edit-form" id="profile-contact-edit">
 			<%= form_for @user do |f| %>
 				<%= label_tag(:website, "Website link") %>
 				<br>
@@ -55,18 +56,18 @@
 				<br>
 				<%= f.submit 'Update', class: "contact-update-button" %>
 			<% end %>
+			</div>
 		</div>
 	</div>
 	<!-- End User Contact Links -->
 
-</div>
 <!-- END OF SIDE NAV -->
 
 
 <!-- MAIN AREA -->
 <div class="profile-main">
 
-	<!-- User Basic Info -->
+	<!-- User Header -->
 	<div class="profile-header">
 		<div class="profile-info">
 			<a class="profile-header-edit-button" href="">Edit</a>
@@ -82,8 +83,12 @@
 				<%= f.submit 'Update', class: "header-update-button" %>
 			<% end %>
 		</div>
-
 	</div>
+	<div class="header_image">
+		<img src="">
+	</div>
+	<!-- End User Header -->
+
 
 	<!-- Start Jobs Posted -->
 	<div class="profile-jobs">
@@ -111,12 +116,31 @@
 					<h5>Created at: <%=job.created_at%></h5>
 					<p class="job-desc-preview"><%=job.desc.truncate_words(20)%> <a href="">More</a></p>
 					<p class="job-desc-all hidden"><%=job.desc%> <a href="">Less</a></p>
+					<div class="job-skills">
+						<p>Skills Required:</p>
+						<ul>
+							<%job.skills.each do |skill|%> 
+							<li><%=skill.name%></li>
+							<% end%>
+						</ul>	
+
+					</div>
 				</div>
 			<!-- edit form -->
 				<div class="hidden profile-job-edit">
 					<%= form_for job, url: "/users/#{@user.id}/jobs/#{job.id}", html: {method: :patch} do |f| %>
-						<%= f.text_field :title %>
-						<%= f.text_field :desc %>
+						<%= f.label :title, "Job Title"%>
+						<%= f.text_field :title %><br>
+						<%= f.label :desc, "Job Description"%>
+						<%= f.text_field :desc %><br>
+						<p>Skills Required:</p>
+						<ul>
+							<%job.skills.each do |skill|%> 
+							<li><%=skill.name%></li>
+							<% end%>
+						</ul>	
+						<%= f.label :skills, "Add Skill"%>
+						<%= f.text_field :skills, :value => ""%><br>
 						<%= f.submit 'Update', class: "job-update-button" %>
 					<% end %>
 				</div>

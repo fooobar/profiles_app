@@ -4,32 +4,39 @@ class JobsController < ApplicationController
 		job = Job.find(params[:id])
 		# update the job
 		job.update(job_params)
-
-		skill = Skill.new
-		skill.name = params[:skills]
-		skills = Skill.all
-		job = Job.find(params[:id])
-		exists = false
-		job_has_skill = false
-		Job.skills.each do |job_skill|
-			if job_skill.name == skill.name
-				job_has_skill = true
-			end
-		end
-		if job_has_skill
-			render json: job
-		else
-			skills.each do |existing_skill|
-				if existing_skill.name == skill.name
-					exists = true
+		if params[:job][:skills] != ""
+			skill = Skill.new
+			skill.name = params[:job][:skills]
+			skills = Skill.all
+			exists = false
+			job_has_skill = false
+			job.skills.each do |job_skill|
+				if job_skill.name == skill.name
+					job_has_skill = true
 				end
 			end
-			unless exists
-				skill.save #THIS MIGHT NEED TO BE FIXED IF THE JOB IS ONLY GETTING THE CACHED SKILL NOT THE SAVED ONE
-				job.skills.push(skill)
-				render json: job
+			if job_has_skill
+				return_hash = {:job => job, :skill => skill}
+				render json: return_hash
+			else
+				skills.each do |existing_skill|
+					if existing_skill.name == skill.name
+						exists = true
+						skill = existing_skill
+						job.skills.push(skill)
+						return_hash = {:job => job, :skill => skill}
+						render json: return_hash
+					end
+				end
+				unless exists
+					job.skills.push(skill)
+					return_hash = {:job => job, :skill => skill}
+					render json: return_hash
+				end
 			end
-			render json: job
+		else
+			return_hash = {:job => job, :skill => {}}
+			render json: return_hash
 		end
 	end
 

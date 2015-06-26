@@ -116,7 +116,7 @@
 		<h2>Projects</h2>
 		<% @user.projects.each do |project| %>
 			<div class="project" data="<%=project.id%>">
-				<a class="edit-button" id="profile-project<%=project.id%>-edit-button" href="">Edit</a>
+				<a class="edit-button"  href="">Edit</a>
 				<br>
 				<img class="project-image" src="<%=project.image_src%>">
 				<h3><%= project.title%></h3>
@@ -125,6 +125,10 @@
 				<!-- edit form -->
 				<div class="edit-form" id="profile-project-edit">
 					<%= form_for project, url: "/users/#{@user.id}/projects/#{project.id}", html: {method: :patch} do |f| %>
+						<%= label_tag(:image_src, "Image Url") %>
+						<br>
+						<%= f.text_field :image_src %>
+						<br>
 						<%= label_tag(:title, "Project Title") %>
 						<br>
 						<%= f.text_field :title %>
@@ -148,7 +152,7 @@
 
 	<div class="profile-experiences">
 		<h2>Experience</h2>
-		<% @user.experiences.each do |exp|%>
+		<% @sorted_experiences.each do |exp|%>
 			<div class="experience" data="<%=exp.id%>">
 				<a class="edit-button" id="profile-experience-edit-button" href="">Edit</a>
 				<h3><%=exp.role%></h3>

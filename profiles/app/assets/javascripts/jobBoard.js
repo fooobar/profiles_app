@@ -5,7 +5,7 @@
 		checkbox = $('input[type=checkbox]')
 		if ($( "input:checked" ).length !== 0){
 			for (var i = 0; i < checkbox.length; i++){
-				if (checkbox[i].checked == false){
+				if (checkbox[i].checked === false){
 					$('.'+checkbox[i].name).hide()
 				} else {
 					$('.'+checkbox[i].name).show()
