@@ -1,11 +1,13 @@
 
+
 // Event Handlers
 
 $(document).ready(function() {
 	UserId = $('.profile-side-nav').attr('data')
 	$(document).on("click", '.edit-button', renderEditForm)
 	$(document).on("click", '.add-button', renderAddForm)
-	$(document).on("click", '.skills-edit-button', renderSkillsForm)
+	$(document).on("click", '.skill-add-button', renderSkillAddForm)
+	$(document).on("click", '.skill-update-button', addStudentSkills)
 	$(document).on("click", '.image-edit-button', renderImageForm)
 	$(document).on("click", '.image-update-button', updateImage)
 	$(document).on("click", '.contact-update-button', updateContact)
@@ -35,13 +37,13 @@ var renderImageForm = function(e) {
 	$(this).hide()
 	$(this).parent().children('.edit-form').show()
 }
-
-var renderSkillsForm = function(e) {
+var renderSkillAddForm = function(e) {
 	e.preventDefault()
 	$(this).hide()
-	$(this).parent().children('.edit-form').show()
-	$(this).parent().find('.delete-button').show()
+	$(this).parent().children('.add-form').show()
 }
+
+
 
 
 // Update Image
@@ -213,8 +215,24 @@ var addExperience = function(e){
 
 // Add Skill
 
+var addStudentSkills = function(e){
+	e.preventDefault();
+	$.ajax({
+		context: this,
+		url: '/users/'+UserId,
+		type: 'patch',
+		data: $(this).parent().serialize()
+	}).done(function(resp) {
+		// update the text to reflect the changes
+		
+		$(this).parents('.profile-skills').find('ul').append('<li>'+resp['skill']['name']+'</li>')
+
+		// hide/show form/edit
+		$(this).parents('.profile-skills').children().show();
+		$(this).parents('.profile-skills').find('.add-form').hide();		
+	})
+}
 
 
 
-// Delete Skill
 

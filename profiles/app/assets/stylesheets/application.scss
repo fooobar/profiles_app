@@ -19,65 +19,63 @@
 /* PROFILE PAGES STUDENT*/
 
 body {
-	width: 100%;
-	margin: 0;
-	padding: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .profile-side-nav {
-	width: 20%;
-	float: left;
-	height: 100%;
-	min-width: 200px;
-	margin-top: 50px;
-	margin-left: 50px;
+    width: 20%;
+    float: left;
+    height: 100%;
+    min-width: 200px;
+    margin-top: 50px;
+    margin-left: 50px;
 
 }
 
 .profile-main {
-	margin-left: 30px;
-	width: 70%;
-	float: left;
+    margin-left: 30px;
+    width: 70%;
+    float: left;
 }
 
 .experience, .profile-contact, .job , .add-job, .profile-stats, .profile-options {
-	background-color: #E6E6E6;
-	margin-bottom: 10px;
-	border: solid 1px black;
+    background-color: #E6E6E6;
+    margin-bottom: 10px;
+    border: solid 1px black;
 }
 
 .hidden {
-	display: none;
+    display: none;
 }
 
 
 .edit-form, .add-form {
-	display: none;
+    display: none;
 }
 
 
 .profile-image, .project-image{
-	max-width: 200px
+    max-width: 200px
 }
 
 
 .profile-content {
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	/*min-height: 3000px;*/
-	background-position: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /*min-height: 3000px;*/
+    background-position: center;
 
 }
 
 .project {
-	width: 20%;
-	float: left;
-	margin-right: 10px;
+    width: 20%;
+    float: left;
+    margin-right: 10px;
 }
 
 .clear-row {
-	clear: both;
+    clear: both;
 }
-
-
