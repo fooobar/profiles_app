@@ -117,6 +117,15 @@ var updateProject = function(e){
 	})
 }
 
+
+// Add Project
+
+
+
+// Delete Project
+
+
+
 // Update Experience
 
 var updateExperience = function(e) {
@@ -138,5 +147,38 @@ var updateExperience = function(e) {
 		$(this).parents('.experience').find('.edit-form').hide();		
 	})
 }
+
+
+
+// Add Experience
+
+
+
+
+// Delete Experience
+
+
+
+
+// Add Skill
+
+
+
+
+// Delete Skill
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
