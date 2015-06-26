@@ -9,10 +9,10 @@
 		<% end %>
 	</form>
 </div>
-<div id="listing-container"></div>
-<script id="users-template" type="x-tmpl-mustache">
+<div id="listings"></div>
+<script id="template" type="x-tmpl-mustache">
 	{{#users}}
-			<div class="user{{#skills}} {{param}}{{/skills}}">
+			<div class="tags{{#skills}} {{param}}{{/skills}}">
 				<h2>{{f_name}} {{l_name}}
 				</h2>
 				<h3>Candidates Skills:
@@ -30,7 +30,7 @@
 </script>
 
 <script>
-	var users = {users :<%=raw @users.to_json(:include => :skills)%>}
+	var data = {users :<%=raw @users.to_json(:include => :skills)%>}
 </script>
 
 <%= javascript_include_tag("footer") %>
