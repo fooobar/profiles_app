@@ -43,11 +43,28 @@ class JobsController < ApplicationController
 	def create
 		job = Job.new(job_params)
 		job.user_id = params[:user_id]
-		if job.save
-			render json: job
+		user = User.find(params[:user_id])
+		job.save
+		if params[:job][:skills] != ""
+			skill = Skill.new
+			skill.name = params[:job][:skills]
+			skills = Skill.all
+			exists = false
+			skills.each do |existing_skill|
+				if existing_skill.name == skill.name
+					exists = true
+					skill = existing_skill
+					job.skills.push(skill)
+					return_hash = {:job => job, :skill => skill}
+					render json: return_hash
+				end
+			return_hash = {:job => job, :skill => skill}
+			render json: return_hash
 		else
-			"Error message"
-		end
+			return_hash = {:job => job, :skill => {}}
+			render json: return_hash
+		end			
+
 
 	end
 
