@@ -71,7 +71,7 @@ class UsersController < ApplicationController
 		user_skills = []
 		u.skills.each do |skill|
 			user_skills.push(skill.id)  
-		end 
+	end 
 		
 		
 	end
