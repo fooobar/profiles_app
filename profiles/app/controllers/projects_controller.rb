@@ -35,7 +35,8 @@ class ProjectsController < ApplicationController
 		def project_params
 			params.require(:project).permit(:title,:desc,:website,:image_src,:user_id)
 		end
-	end
-
-
+	
 end
+
+
+

@@ -8,6 +8,8 @@ $(document).ready(function() {
 	$('.image-edit-button').on("click", renderImageForm)
 	$('.image-update-button').on("click", updateImage)
 	$('.contact-update-button').on("click", updateContact)
+	$('.project-update-button').on("click", updateProject)
+	$('.experience-update-button').on("click", updateExperience)
 })
 
 
@@ -45,9 +47,12 @@ var updateImage = function(e) {
 			'user[image_src]': $('#user_image_src').val()
 		}
 	}).done(function(resp) {
+		// update image
+		$('.profile-image').attr('src', resp['image_src'])
+		// hide/show form/edit
 		$('.image-edit-button').show()
 		$('#profile-image-edit').hide()	
-		$('.profile-image').attr('src', resp['image_src'])
+		
 	})	
 }
 
@@ -71,5 +76,67 @@ var updateContact = function(e) {
 	})
 }
 
+// Update Header
+
+var updateName = function(e){
+	e.preventDefault();
+	$.ajax({
+		context: this,
+		url: '/users/'+UserId,
+		type: 'patch',
+		data: $(this).parent().serialize()
+	}).done(function(resp) {
+		// update the text to reflect the changes
+		$(this).parents('.profile-header').find('h1').text(resp["f_name"]+" "+resp["l_name"] )
+		$(this).parents('.profile-header').find('h2').text(resp["role"])
+		$(this).parents('.profile-header').find('h3').text(resp["bio"])
+		// hide/show form/edit
+		$(this).parents('.profile-header').children().show();
+		$(this).parents('.profile-header').find('.edit-form').hide();		
+	})
+}
+
+// Update Project 
+
+var updateProject = function(e){
+	e.preventDefault();
+	$.ajax({
+		context: this,
+		url: '/users/'+UserId+'/projects/'+$(this).parents('.project').attr('data'),
+		type: 'patch',
+		data: $(this).parent().serialize()
+	}).done(function(resp) {
+		// update the text to reflect the changes
+		$(this).parents('.project').find('img').attr('src', resp["image_src"])
+		$(this).parents('.project').find('h3').text(resp["title"])
+		$(this).parents('.project').find('p').text(resp["desc"])
+		$(this).parents('.project').find('a').attr('href', resp["website"])
+		// hide/show form/edit
+		$(this).parents('.project').children().show();
+		$(this).parents('.project').find('.edit-form').hide();		
+	})
+}
+
+// Update Experience
+
+var updateExperience = function(e) {
+	e.preventDefault();
+	$.ajax({
+		context: this,
+		url: '/users/'+UserId+'/experiences/'+$(this).parents('.experience').attr('data'),
+		type: 'patch',
+		data: $(this).parent().serialize()
+	}).done(function(resp) {
+		// update the text to reflect the changes
+		$(this).parents('.experience').find('a').attr('href', resp["website"])
+		$(this).parents('.experience').find('h3').text(resp["role"])
+		$(this).parents('.experience').find('h4').text(resp["company_name"])
+		$(this).parents('.experience').find('h5').text(resp["start_date"]+" &mdash; "+resp["end_date"]+" | "+resp["city"]+", "+resp["state"])
+		$(this).parents('.experience').find('p').text(resp["blurb"])
+		// hide/show form/edit
+		$(this).parents('.experience').children().show();
+		$(this).parents('.experience').find('.edit-form').hide();		
+	})
+}
 
 
