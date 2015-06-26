@@ -1,4 +1,7 @@
-<div class="profile-content">
+<div class="profile-content" style="
+	background-image: url(<%=@user.background%>); 
+	background-repeat: no-repeat; 
+	background-color: <%=@user.color%>">
 	<!-- SIDE NAV -->
 
 	<div class="profile-side-nav" data="<%=@user.id%>">
@@ -21,9 +24,9 @@
 		<!-- User Contact Links -->
 		<!-- Contact Links -->
 
-		<div class="profile-contact" 
-				 style="background-image: url(<%=@user.background%>)">
-		<a class="edit-button" id="profile-contact-edit-button" href="">Edit</a>
+		<div class="profile-contact">
+			<h4>Your Contact Info </h4>
+			<a class="edit-button" id="profile-contact-edit-button" href="">Edit</a>
 		<% if @user.city%><h4><%=@user.city%><%end%><% if @user.state%>, <%=@user.state%><%end%></h4>
 			<ul>
 				<li><a href="mailto:<%=@user.email%>">Email Me</a></li>
@@ -59,6 +62,21 @@
 					<%= f.submit 'Update', class: "contact-update-button" %>
 				<% end %>
 				</div>
+			</div>
+			<div class="profile-options">
+				<h4>Your Preferences </h4>
+				<%= form_for @user do |f| %>
+					<%= label_tag(:background, "Background Image") %>
+					<br>
+					<%= f.text_field :background %>
+					<br>
+					<%= label_tag(:color, " or Background Color") %>
+					<br>
+					<%= f.text_field :color %>
+					<br>
+					<%= f.submit 'Update', class: "prefs-update-button" %>
+				<% end %>
+
 			</div>
 		</div>
 		<!-- End User Contact Links -->
@@ -197,12 +215,13 @@
 			<input type="submit" name="commit" value="Update" class="job-update-button">
 		</form>
 	</div>		
-<br>
-<form class="edit_job" id="edit_job_{{id}}" action="/users/{{user_id}}/jobs/{{id}}" method="post">
-			<input type="hidden" name="_method" value="delete">
-			<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
-			<input type="submit" name="commit" value="Delete" class="profile-job-delete-button">
-</form>
+	<br>
+	<form class="edit_job" id="edit_job_{{id}}" action="/users/{{user_id}}/jobs/{{id}}" method="post">
+				<input type="hidden" name="_method" value="delete">
+				<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
+				<input type="submit" name="commit" value="Delete" class="profile-job-delete-button">
+				
+	</form>
 {{/job}}
-</div>
 </script>
+</div>

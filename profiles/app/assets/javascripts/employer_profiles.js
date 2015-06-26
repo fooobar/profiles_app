@@ -19,6 +19,10 @@ $(document).ready(function() {
 	
 	// delete - jobs
 	$('.profile-jobs').on("click", '.profile-job-delete-button', deleteJob)
+
+	// user preferences
+	$('.prefs-update-button').on("click", updatePrefs)
+	
 })
 
 
@@ -145,6 +149,24 @@ var deleteJob = function(event){
 		data: $(this).parent().serialize()
 	}).done(function(data) {
 		$(this).parent().parent().remove()
+	})
+}
+
+
+// update prefs
+
+var updatePrefs = function(event){
+	event.preventDefault()
+	$.ajax({
+		context: this,
+		url: '/users/'+UserId,
+		type: 'patch',
+		data: {
+			'user[background]': $('#user_background').val(),
+			'user[color]': $('#user_color').val(),
+		}
+	}).done(function(resp) {
+		console.log(resp)
 	})
 }
 		

@@ -8,7 +8,6 @@
   <meta charset="UTF-8">
 </head>
 <body>
-
 <div id="header">
 	<div class="current-user-header">
 		<% if @current_user%>
@@ -23,6 +22,7 @@
 		<a id="logout" href="/logout">Log Out</a>
 	<% end %>
 </div>
+
 
 <%= yield %>
 

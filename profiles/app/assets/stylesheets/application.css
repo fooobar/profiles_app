@@ -38,7 +38,7 @@ body {
 	float: left;
 }
 
-.experience, .profile-contact, .job , .add-job {
+.experience, .profile-contact, .job , .add-job, .profile-options {
 	background-color: #E6E6E6;
 	margin-bottom: 10px;
 	border: solid 1px black;
