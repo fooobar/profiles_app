@@ -19,7 +19,8 @@ user_jeremy = User.create({
 	f_name: 'Jeremy',
 	l_name: 'Bell',
 	email: 'jeremyianbell@gmail.com', 
-	password: 'melville1', user_type: 'student'
+	password: 'melville1', 
+    user_type: 'student'
 	})
 
 user_karlyce = User.create({
@@ -56,6 +57,13 @@ user_drew = User.create({
 	user_type: 'student'
 	})
 
+user_kyle = User.create({
+    f_name: 'Kyle', 
+    l_name: 'Coach', 
+    email: 'kyle@outcomes.com',
+    password: 'melville1', 
+    user_type: 'outcomes'
+    })
 
 skill_html = Skill.create({
 	name: "HTML5"

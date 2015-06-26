@@ -26,13 +26,15 @@ body {
 	width: 20%;
 	float: left;
 	height: 100%;
-	min-width: 200px;
+	min-width: 210px;
+	margin-top: 50px;
+	margin-left: 50px;
 
 }
 
 .profile-main {
 	margin-left: 30px;
-	width: 75%;
+	width: 70%;
 	float: left;
 }
 
@@ -52,8 +54,28 @@ body {
 }
 
 
-.profile-image {
+.profile-image, .project-image{
 	max-width: 200px
 }
 
 
+.profile-content {
+	width: 100%;
+	background-image: url("https://pbs.twimg.com/profile_banners/20536157/1430507292/1500x500");
+	background-repeat: no-repeat;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.project {
+	width: 20%;
+	float: left;
+	margin-right: 10px;
+}
+
+.clear-row {
+	clear: both;
+}

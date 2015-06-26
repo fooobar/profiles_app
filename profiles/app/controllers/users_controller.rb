@@ -27,9 +27,13 @@ class UsersController < ApplicationController
 			if @user.user_type === "student"
 				@sorted_experiences = @user.experiences.order(end_date: :desc)
 				render :edit_student
-			else 
+			elsif @user.user_type === "employer"
 				@sorted_jobs = @user.jobs.order(updated_at: :desc)
 				render :edit_employer
+			else 
+				@skills = Skill.all
+				@projects = Project.all
+				render :edit_outcomes
 			end
 		else
 			if @user.user_type === "student"
