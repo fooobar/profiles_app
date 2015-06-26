@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 20150626172221) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "param"
     t.integer  "clicked",    default: 0
+    t.string   "param"
   end
 
   create_table "skills_users", force: :cascade do |t|
