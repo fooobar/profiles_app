@@ -49,7 +49,6 @@ class UsersController < ApplicationController
 				render :show_student
 				return
 			else 
-				@show_user = User.find(params[:id])
 				render :show_employer
 				return
 			end
@@ -66,14 +65,7 @@ class UsersController < ApplicationController
 	def update
 		user = User.find(params[:id])
 		user.update(user_params)
-		render json: user
-		#put send email method here
-		user_skills = []
-		u.skills.each do |skill|
-			user_skills.push(skill.id)  
-		end 
-		
-		
+		render json: user		
 	end
 
 	def index
