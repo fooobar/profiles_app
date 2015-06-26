@@ -31,7 +31,8 @@ class UsersController < ApplicationController
 				@sorted_jobs = @user.jobs.order(updated_at: :desc)
 				render :edit_employer
 			else 
-				@users = User.all
+				@students = User.where(:user_type => "student")
+				@employers = User.where(:user_type => "employer")
 				@skills = Skill.all
 				@projects = Project.all
 				render :edit_outcomes

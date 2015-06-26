@@ -91,7 +91,6 @@
 
 		<!-- Start Jobs Posted -->
 		<div class="profile-jobs">
-			<h3>Jobs you are offering:</h3>
 			<div class="add-job">
 				<a class="add-job-button" href="#">Add Job</a>
 				<div class="add-job-form hidden">
@@ -104,9 +103,10 @@
 						<%= f.text_field :skills, :value => ""%><br>
 						<%= f.submit 'Create Job', class: "add-job-form-button" %>
 					<% end %>
+					<a class="add-job-cancel-button" href="#">Cancel</a>
 				</div>
 			</div>
-			
+			<h3>Jobs you are offering:</h3>
 			<div class="profile-new-job"></div>
 
 			<% @sorted_jobs.each do |job|%>
@@ -115,7 +115,13 @@
 					<div class="job-info">
 						<h3><%=job.title%></h3>
 						<h5>Created at: <%=job.created_at%></h5>
-						<p class="job-desc-preview"><%=job.desc.truncate_words(20)%> <a href="">More</a></p>
+						<p class="job-desc-preview">
+							<% if job.desc.split.size > 20%>
+								<%=job.desc.truncate_words(20)%><a href="">More</a></p>
+							<%else%>
+								<%= job.desc%> 
+							<%end%> 
+							
 						<p class="job-desc-all hidden"><%=job.desc%> <a href="">Less</a></p>
 						<div class="job-skills">
 							<p>Skills Required:</p>
@@ -169,12 +175,14 @@
 		<h5>Created at: {{created_at}}></h5>
 		<p class="job-desc-preview">{{desc}}</p>
 		{{/job}}
-		<p>Skills Required:</p>
+		{{#skill}}
+			{{#name}}
+			<p>Skills Required:</p>
 			<ul>
-			{{#skill}}
 				<li>{{name}}</li>
-				{{/skill}}
-			</ul>	
+			</ul>
+			{{/name}}
+		{{/skill}}
 	</div>		
 	<!-- edit form -->
 	
@@ -183,8 +191,8 @@
 		<form class="edit_job" id="edit_job_{{id}}" action="/users/{{user_id}}/jobs/{{id}}" method="post">
 			<input type="hidden" name="_method" value="patch">
 			<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
-			<input type="text" value={{title}} name="job[title]" id="job_title">
-			<input type="text" value={{desc}} name="job[desc]" id="job_desc">
+			<input type="text" value="{{title}}" name="job[title]" id="job_title">
+			<input type="text" value="{{desc}}" name="job[desc]" id="job_desc">
 			<input type="submit" name="commit" value="Update" class="job-update-button">
 		</form>
 	</div>		
