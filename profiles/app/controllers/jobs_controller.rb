@@ -6,7 +6,7 @@ class JobsController < ApplicationController
 		job.update(job_params)
 
 		skill = Skill.new
-		skill.name = params[:skill]
+		skill.name = params[:skills]
 		skills = Skill.all
 		job = Job.find(params[:id])
 		exists = false
