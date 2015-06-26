@@ -41,6 +41,7 @@ class JobsController < ApplicationController
 	end
 
 	def create
+		binding.pry
 		job = Job.new(job_params)
 		job.user_id = params[:user_id]
 		if job.save
