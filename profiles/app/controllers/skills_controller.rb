@@ -27,9 +27,14 @@ class SkillsController < ApplicationController
 		end
 	end
 
+	def index
+		@users = User.where(:user_type => 'student')
+		@skills = Skill.all
+	end
+
 	private
-		def skill_params
-			params.require(:skill).permit(:name)
-		end
+	
+	def skill_params
+		params.require(:skill).permit(:name)
 	end
 end

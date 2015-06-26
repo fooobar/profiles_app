@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <meta charset="UTF-8">
 </head>
-<body>
+<body class="<%= controller_name %> <%= action_name %>">
 
 <div id="header">
 	<div class="current-user-header"><%= @current_user ? (@current_user.user_type == 'student' ? 'Hello ' + @current_user.f_name : 'Hello ' + @current_user.org_name) : ''%>

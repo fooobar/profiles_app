@@ -1,3 +1,5 @@
+if ($('body.jobs.index').length) {
+
 	// select all the checkboxes on the page and check their status
 	//Hide the unchecked and show the checked
 	//if none are checked show all jobs
@@ -5,7 +7,7 @@
 		checkbox = $('input[type=checkbox]')
 		if ($( "input:checked" ).length !== 0){
 			for (var i = 0; i < checkbox.length; i++){
-				if (checkbox[i].checked === false){
+				if (checkbox[i].checked == false){
 					$('.'+checkbox[i].name).hide()
 				} else {
 					$('.'+checkbox[i].name).show()
@@ -26,10 +28,12 @@
 		$('#listing-container').append(render)
 	}
 
-	renderJobs(jobs)
+	renderJobs(jobs);
 
 	//When a checkbox is changed, the page updates
 	$("input[type=checkbox]").on('change',function(event){
 		showSkill = event.target.name
 		showChecked()
 	});
+
+}
