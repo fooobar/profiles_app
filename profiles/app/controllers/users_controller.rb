@@ -23,13 +23,25 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@job = Job.new
+		@project = Project.new
+		@experience = Experience.new
 		if current_user === @user
 			if @user.user_type === "student"
+				@user.clicked += 1
+				@user.save
 				@sorted_experiences = @user.experiences.order(end_date: :desc)
 				render :edit_student
-			else 
+			elsif @user.user_type === "employer"
+				@user.clicked += 1
+				@user.save
 				@sorted_jobs = @user.jobs.order(updated_at: :desc)
 				render :edit_employer
+			else 
+				@students = User.where(:user_type => "student")
+				@employers = User.where(:user_type => "employer")
+				@skills = Skill.all
+				@projects = Project.all
+				render :edit_outcomes
 			end
 		else
 			if @user.user_type === "student"
@@ -67,7 +79,7 @@ class UsersController < ApplicationController
 
 	private 
 		def user_params
-			params.require(:user).permit(:f_name,:l_name,:org_name,:email,:image_src,:phone,:city,:state,:website,:github,:twitter,:linkedin,:behance,:bio, :role, :user_type, :password)
+			params.require(:user).permit(:f_name,:l_name,:org_name,:email,:image_src,:phone,:city,:state,:website,:github,:twitter,:linkedin,:behance,:bio, :role, :user_type, :password, :background, :clicked, :color)
 		end
 
 

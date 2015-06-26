@@ -30,9 +30,8 @@ renderUsers(data)
 $("input[type=checkbox]").on('change',function(event){
 	showSkill = event.target.value
 	$.ajax({
-		url : "/skills/:id",
+		url : "/skills/"+showSkill,
 		type: 'PATCH',
-		data: {id: showSkill}
 	}).done(console.log('sent!'))
 	showChecked()
 });

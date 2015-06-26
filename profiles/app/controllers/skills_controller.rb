@@ -27,14 +27,25 @@ class SkillsController < ApplicationController
 		end
 	end
 
+
 	def index
 		@users = User.where(:user_type => 'student')
 		@skills = Skill.all
 	end
 
-	private
-	
-	def skill_params
-		params.require(:skill).permit(:name)
+	def update
+		skill = Skill.find(params[:id])
+		skill.clicked += 1
+		skill.save
+		response = {:message => 'good job'}
+		render json: response
 	end
+
+
+	private
+		def skill_params
+			params.require(:skill).permit(:name, :clicked)
+		end
+
+
 end
