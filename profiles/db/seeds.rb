@@ -46,7 +46,9 @@ user_fernanda = User.create({
 	l_name: 'Correa',
 	email: 'nandasc@gmail.com',
 	password: 'melville1',
-	user_type: 'student'
+	user_type: 'student',
+    background: 'http://www.psdgraphics.com/file/colorful-triangles-background.jpg',
+    image_src: 'https://scontent-iad3-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/p720x720/12904_10205382361451922_2465365376983298725_n.jpg?oh=80561a1a3e52ca762346e3ec72abbe57&oe=561FC6B2'
 })
 
 user_drew = User.create({
@@ -110,7 +112,8 @@ Project.create([
         desc: "Google is an American multinational technology company specializing in Internet-related services and products.",
         website: "https://www.google.com/",
         image_src: "http://i.forbesimg.com/media/lists/companies/google_416x416.jpg",
-        user_id: user_karlyce.id
+        user_id: user_karlyce.id,
+        color: '#FF5050'
     },
     {
         title: "Youtube",

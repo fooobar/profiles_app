@@ -1,5 +1,6 @@
 // Event Handlers
 
+
 $(document).ready(function() {
 	// show page
 	$('.job-desc-preview a').on("click", moreJobDesc)
@@ -22,9 +23,13 @@ $(document).ready(function() {
 
 	// user preferences
 	$('.prefs-update-button').on("click", updatePrefs)
-	
+	resizeDiv();
 })
 
+var resizeDiv = function(event){
+	vph = $( document ).height();
+	$('.profile-content').css({'height': vph});
+}
 
 // Show Employer Profile - more description
 var moreJobDesc = function(event){
@@ -161,12 +166,11 @@ var updatePrefs = function(event){
 		context: this,
 		url: '/users/'+UserId,
 		type: 'patch',
-		data: {
-			'user[background]': $('#user_background').val(),
-			'user[color]': $('#user_color').val(),
-		}
+		data: $(this).parent().serialize()
 	}).done(function(resp) {
 		console.log(resp)
+		$(this).parents().find($('.profile-content')).css('background-image', 'url(' + resp["background"] + ')')
+		$(this).parents().find($('.profile-content')).css('background-color', resp["color"] )		
 	})
 }
 		
