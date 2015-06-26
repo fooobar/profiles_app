@@ -10,7 +10,7 @@
 <body>
 
 <div id="header">
-	<div class="current-user-header"><%= @current_user ? (@current_user.user_type == 'student' || 'outcomes' ? 'Hello ' + @current_user.f_name : 'Hello ' + @current_user.org_name) : ''%>
+	<div class="current-user-header"><%= @current_user ? (@current_user.user_type == 'student' || @current_user.user_type =='outcomes' ? 'Hello ' + @current_user.f_name : 'Hello ' + @current_user.org_name) : ''%>
 	</div>
 	<% if @current_user%>
 		<br>

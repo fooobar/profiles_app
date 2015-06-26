@@ -100,6 +100,8 @@
 						<%= f.text_field :title %><br>
 						<%= f.label :desc, "Job Description"%>
 						<%= f.text_field :desc %><br>
+						<%= f.label :skills, "Add One Skill"%>
+						<%= f.text_field :skills, :value => ""%><br>
 						<%= f.submit 'Create Job', class: "add-job-form-button" %>
 					<% end %>
 				</div>
@@ -162,12 +164,22 @@
 <div class="job">
 	<a class="profile-job-edit-button" href="#">Edit</a>
 	<div class="job-info">
+	{{#job}}
 		<h3>{{title}}</h3>
 		<h5>Created at: {{created_at}}></h5>
 		<p class="job-desc-preview">{{desc}}</p>
-	</div>
+		{{/job}}
+		<p>Skills Required:</p>
+			<ul>
+			{{#skill}}
+				<li>{{name}}</li>
+				{{/skill}}
+			</ul>	
+	</div>		
 	<!-- edit form -->
+	
 	<div class="hidden profile-job-edit">
+	{{#job}}
 		<form class="edit_job" id="edit_job_{{id}}" action="/users/{{user_id}}/jobs/{{id}}" method="post">
 			<input type="hidden" name="_method" value="patch">
 			<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
@@ -175,6 +187,13 @@
 			<input type="text" value={{desc}} name="job[desc]" id="job_desc">
 			<input type="submit" name="commit" value="Update" class="job-update-button">
 		</form>
-	</div>
+	</div>		
+<br>
+<form class="edit_job" id="edit_job_{{id}}" action="/users/{{user_id}}/jobs/{{id}}" method="post">
+			<input type="hidden" name="_method" value="delete">
+			<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
+			<input type="submit" name="commit" value="Delete" class="profile-job-delete-button">
+</form>
+{{/job}}
 </div>
 </script>

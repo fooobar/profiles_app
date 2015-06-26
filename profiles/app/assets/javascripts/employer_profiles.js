@@ -1,7 +1,6 @@
 // Event Handlers
 
 $(document).ready(function() {
-	console.log('loaded')
 	// show page
 	$('.job-desc-preview a').on("click", moreJobDesc)
 	$('.job-desc-all a').on("click", lessJobDesc)
@@ -23,7 +22,6 @@ $(document).ready(function() {
 // Show Employer Profile - more description
 var moreJobDesc = function(event){
 	event.preventDefault()
-	console.log(event.siblingElement)
 	$(event.target.parentElement).addClass("hidden");
 	$(event.target.parentElement).next('.job-desc-all').removeClass("hidden");
 }
@@ -31,7 +29,6 @@ var moreJobDesc = function(event){
 // Show Employer Profile - less description
 var lessJobDesc = function(event){
 	event.preventDefault()
-	console.log(event.siblingElement)
 	$(event.target.parentElement).addClass("hidden");
 	$(event.target.parentElement).prev('.job-desc-preview').removeClass("hidden");
 }
@@ -53,11 +50,10 @@ var updateJob = function(event){
 		type: 'patch',
 		data: $(this).parent().serialize()
 	}).done(function(resp) {
+		debugger
 		// update the text to reflect the changes
 		$(this).parent().parent().parent().find($('.job-info')).find($('h3')).text(resp["job"]["title"])
-		$(this).parent().parent().parent().find($('.job-info')).find($('p')).text(resp["job"]["desc"])
-		console.log(resp)
-		debugger
+		$(this).parent().parent().parent().find($('.job-info')).find($('.profile-job-edit-button')).text(resp["job"]["desc"])
 		// adding skill
 		$(this).parent().parent().parent().find($('.job-info')).find($('.job-skills')).find($('ul')).append('<li>' + resp["skill"]["name"] + '</li>')
 		// hide form show text
@@ -122,6 +118,7 @@ var addJob = function(event){
 		// clear form values
 		$(this).parent().find($('#job_title')).val('');
 		$(this).parent().find($('#job_desc')).val('');
+		$(this).parent().find($('#job_skills')).val('');
 
 	})
 }
@@ -134,7 +131,6 @@ var addJob = function(event){
 
 var deleteJob = function(event){
 	event.preventDefault();
-	console.log(event)
 	$.ajax({
 		context: this,
 		url: $(this).parent().attr('action'),
