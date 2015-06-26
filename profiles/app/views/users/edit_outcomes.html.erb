@@ -50,6 +50,28 @@
 			</div>
 		</div>
 
+		<div class="profile-options">
+			<h4>Your Preferences </h4>
+			<%= form_for @user do |f| %>
+				<%= label_tag(:background, "Background Image") %>
+				<br>
+				<%= f.text_field :background %>
+				<br>
+				<%= label_tag(:color, " or Background Color") %>
+				<br>
+				<%= f.text_field :color %>
+				<br>
+				<%= f.submit 'Update', class: "prefs-update-button" %>
+			<% end %>
+
+		</div>
+		<div class="profile-stats">
+			<h4>Your Stats</h4>
+				<p>Your page has been viewed</p>
+				<h1><%=@user.clicked%></h1>
+				<p>time.</p>
+		</div>
+
 	</div>
 
 	<!-- MAIN AREA -->
@@ -61,7 +83,7 @@
 			<p>We have <%=@students.count%> students:</p>
 			<ul>
 				<% @students.each do |student| %>
-				<li><a href="/users/<%=student.id%>"><%= student.f_name%> <%= student.l_name %></a></li>
+				<li><a href="/users/<%=student.id%>"><%= student.f_name%> <%= student.l_name %></a> | Viewed: <%= student.clicked %></li>
 				<%end%>
 			</ul>
 		</div>
@@ -71,9 +93,10 @@
 			<p>We have <%=@employers.count%> employers:</p>
 			<ul>
 				<% @employers.each do |employer| %>
-				<li><a href="/users/<%=employer.id%>"><%= employer.org_name%></a></li>
+				<li><a href="/users/<%=employer.id%>"><%= employer.org_name%></a> | Viewed: <%= employer.clicked %></li>
 				<%end%>
 			</ul>
+			<p>Employers are searching for these skills:</p>
 		</div>
 		
 		<div class="outcome-stats">
