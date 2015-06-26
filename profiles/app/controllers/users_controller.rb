@@ -37,7 +37,8 @@ class UsersController < ApplicationController
 			else 
 				@students = User.where(:user_type => "student")
 				@employers = User.where(:user_type => "employer")
-				@skills = Skill.all
+				@skillsStudents = Skill.all.order(student_clicks: :desc)
+				@skillsEmployers = Skill.all.order(student_clicks: :desc)
 				@projects = Project.all
 				render :edit_outcomes
 				return
