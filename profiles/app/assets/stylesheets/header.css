@@ -1,0 +1,11 @@
+/* navigation bar*/
+
+.nav-bar-picture {
+	width: 20px;
+}
+
+.current-user-header{
+	height: 50px;
+	background-color: #282828;
+	color: white;
+}
