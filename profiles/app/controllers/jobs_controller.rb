@@ -4,10 +4,11 @@ class JobsController < ApplicationController
 		job = Job.find(params[:id])
 		# update the job
 		job.update(job_params)
-		if params[:job][:skills] != ""
+		if params[:job][:skills] != "" && params[:job][:skills] != nil
 			skill = Skill.new
 			skill.name = params[:job][:skills]
 			skills = Skill.all
+			user = User.find(params[:user_id])
 			exists = false
 			job_has_skill = false
 			job.skills.each do |job_skill|
@@ -16,27 +17,47 @@ class JobsController < ApplicationController
 				end
 			end
 			if job_has_skill
-				return_hash = {:job => job, :skill => skill}
+				return_hash = {:job => job, :skill => {}}
 				render json: return_hash
+				return
 			else
 				skills.each do |existing_skill|
 					if existing_skill.name == skill.name
 						exists = true
 						skill = existing_skill
 						job.skills.push(skill)
+						user.skills.each do |user_skill|
+							if user_skill.name == skill.name
+								user_has_skill = true
+							end
+						end
+						unless user_has_skill
+							user.skills.push(skill)
+						end
 						return_hash = {:job => job, :skill => skill}
 						render json: return_hash
+						return
 					end
 				end
 				unless exists
 					job.skills.push(skill)
+					user.skills.each do |user_skill|
+						if user_skill.name == skill.name
+							user_has_skill = true
+						end
+					end
+					unless user_has_skill
+						user.skills.push(skill)
+					end
 					return_hash = {:job => job, :skill => skill}
 					render json: return_hash
+					return
 				end
 			end
 		else
 			return_hash = {:job => job, :skill => {}}
 			render json: return_hash
+			return
 		end
 	end
 
@@ -68,7 +89,7 @@ class JobsController < ApplicationController
 					job.skills.push(skill)
 					return_hash = {:job => job, :skill => skill}
 					render json: return_hash
-					break
+					return
 				end
 			end
 			job.skills.push(skill)
