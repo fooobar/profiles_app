@@ -66,9 +66,10 @@ class UsersController < ApplicationController
 	def update
 		user = User.find(params[:id])
 		user.update(user_params)
-		if params[:job][:skills] != "" && params[:job][:skills] != nil
+		binding.pry
+		if params[:user][:skills] != "" && params[:user][:skills] != nil
 			skill = Skill.new
-			skill.name = params[:job][:skills]
+			skill.name = params[:user][:skills]
 			skills = Skill.all 
 			skills.each do |existing_skill|
 				if skill.name == existing_skill.name
@@ -88,6 +89,7 @@ class UsersController < ApplicationController
 			return
 		end
 		render json: user		
+
 	end
 
 	def index
