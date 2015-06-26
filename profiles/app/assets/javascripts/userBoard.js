@@ -8,7 +8,7 @@ var showChecked = function(){
 	var classes = checkboxes.map(function(i, checkbox) {
 		return checkbox.name
 	}).get();
-	$('.'+classes.join('.')).show();
+	$('.'+classes.join(',.')).show();
 }	
 
 //rendering the job list to the page
