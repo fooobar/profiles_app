@@ -23,6 +23,8 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@job = Job.new
+		@project = Project.new
+		@experience = Experience.new
 		if current_user === @user
 			if @user.user_type === "student"
 				@sorted_experiences = @user.experiences.order(end_date: :desc)
