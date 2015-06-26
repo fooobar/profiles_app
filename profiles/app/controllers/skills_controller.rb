@@ -27,9 +27,17 @@ class SkillsController < ApplicationController
 		end
 	end
 
+	def update
+		skill = Skill.find(params[:id])
+		skill.clicked += 1
+		skill.save
+		"good job"
+	end
+
+
 	private
 		def skill_params
-			params.require(:skill).permit(:name)
+			params.require(:skill).permit(:name, :clicked)
 		end
 	end
 end

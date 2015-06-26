@@ -51,7 +51,7 @@ body {
 }
 
 
-.edit-form, .delete-button, .add-form {
+.edit-form, .add-form {
 	display: none;
 }
 
