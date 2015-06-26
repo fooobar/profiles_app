@@ -172,6 +172,9 @@
 						<%= f.submit 'Update', class: "project-update-button" %>
 					<% end %>
 				</div>
+					<%= form_for project, url: "/users/#{@user.id}/projects/#{project.id}", html: {method: :delete} do |f| %>
+						<%= f.submit 'Delete', class: "delete-button" %>
+					<% end %>
 			</div>
 		<%end%>	
 	</div>
@@ -260,6 +263,9 @@
 						<%= f.submit 'Update', class: "experience-update-button" %>
 					<% end %>
 				</div>
+					<%= form_for exp, url: "/users/#{@user.id}/experiences/#{exp.id}", html: {method: :delete} do |f| %>
+						<%= f.submit 'Delete', class: "delete-button" %>
+					<% end %>
 			</div>	
 		<%end%>
 	</div>
