@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
 		employer_skills.each do |key, value|
 			(value & user_skills).each do |i| 
 				if match[key] == nil
-					match[key] = [i]
+					 match[key] = [i]
 				else
 					match[key].push[i]
 				end
