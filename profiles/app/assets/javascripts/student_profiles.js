@@ -1,4 +1,5 @@
 
+
 // Event Handlers
 
 $(document).ready(function() {
@@ -217,8 +218,6 @@ var addExperience = function(e){
 
 
 // Delete Skill
-
-
 
 
 
