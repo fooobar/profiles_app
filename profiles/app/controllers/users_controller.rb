@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 				return
 			end
 		else
-			@user.clicked += 1
+			@user.clicked = (Float(@user.clicked) + 0.5).to_s
 			@user.save
 			if @user.user_type === "student"
 				render :show_student
