@@ -37,19 +37,19 @@ class UsersController < ApplicationController
 			else 
 				@students = User.where(:user_type => "student")
 				@employers = User.where(:user_type => "employer")
-				@skills = Skill.all
+				@skillsStudents = Skill.all.order(student_clicks: :desc)
+				@skillsEmployers = Skill.all.order(student_clicks: :desc)
 				@projects = Project.all
 				render :edit_outcomes
 				return
 			end
 		else
-			@user.clicked += 1
+			@user.clicked = (Float(@user.clicked) + 0.5).to_s
 			@user.save
 			if @user.user_type === "student"
 				render :show_student
 				return
 			else 
-				@show_user = User.find(params[:id])
 				render :show_employer
 				return
 			end
@@ -66,9 +66,30 @@ class UsersController < ApplicationController
 	def update
 		user = User.find(params[:id])
 		user.update(user_params)
-		render json: user 
-		
-		
+		binding.pry
+		if params[:user][:skills] != "" && params[:user][:skills] != nil
+			skill = Skill.new
+			skill.name = params[:user][:skills]
+			skills = Skill.all 
+			skills.each do |existing_skill|
+				if skill.name == existing_skill.name
+					skill = existing_skill
+				end
+			end
+			user.skills.each do |user_skill|
+				if user_skill.name == skill.name
+					return_hash = {:user => user, :skill => skill}
+					render json: return_hash
+					return
+				end
+			end
+			user.skills.push(skill)
+			return_hash = {:user => user, :skill => skill}
+			render json: return_hash
+			return
+		end
+		render json: user		
+
 	end
 
 	def index

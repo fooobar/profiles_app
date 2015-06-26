@@ -1,4 +1,5 @@
 
+
 // select all the checkboxes on the page and check their status
 //Hide the unchecked and show the checked
 //if none are checked show all jobs

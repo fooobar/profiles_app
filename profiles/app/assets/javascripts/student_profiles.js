@@ -236,18 +236,3 @@ var addStudentSkills = function(e){
 
 
 
-// Delete Skill
-
-
-
-
-
-
-
-
-
-
-
-
-
-

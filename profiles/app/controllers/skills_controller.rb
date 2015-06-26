@@ -35,8 +35,13 @@ class SkillsController < ApplicationController
 
 	def update
 		skill = Skill.find(params[:id])
-		skill.clicked += 1
-		skill.save
+		if current_user.user_type == "student"
+			skill.student_clicks += 1
+			skill.save
+		elsif current_user.user_type == "employer"
+			skill.employer_clicks += 1
+			skill.save
+		end
 		response = {:message => 'good job'}
 		render json: response
 	end

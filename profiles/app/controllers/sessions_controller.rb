@@ -10,7 +10,13 @@ class SessionsController < ApplicationController
 
 		if user && user.authenticate(params[:password])
 			session[:id] = user.id
-			redirect_to "/users/#{user.id}"
+			if user.user_type == 'student'
+				redirect_to "/jobs"
+			elsif user.user_type == 'employer'
+				redirect_to "/skills"
+			else
+				redirect_to "/users/#{user.id}"
+			end
 		else
 			redirect_to '/login'
 		end
