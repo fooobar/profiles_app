@@ -1,7 +1,7 @@
 // select all the checkboxes on the page and check their status
 //Hide the unchecked and show the checked
 //if none are checked show all jobs
-var showCheckedJobs = function(){
+var showChecked = function(){
 	checkbox = $('input[type=checkbox]')
 	if ($( "input:checked" ).length !== 0){
 			$(".tags").hide();
