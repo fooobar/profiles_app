@@ -1,5 +1,4 @@
 // Event Handlers
-debugger
 $(document).ready(function() {
 	// show page
 	$('.job-desc-preview a').on("click", moreJobDesc)
