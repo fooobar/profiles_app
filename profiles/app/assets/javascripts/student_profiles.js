@@ -153,7 +153,7 @@ var addProject = function(e){
 
 // Delete Project
 
-
+	// curretnly just using default form action rather than Ajax
 
 
 
@@ -208,7 +208,7 @@ var addExperience = function(e){
 
 // Delete Experience
 
-
+	// curretnly just using default form action rather than Ajax
 
 
 // Add Skill

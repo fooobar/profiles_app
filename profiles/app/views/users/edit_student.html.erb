@@ -172,6 +172,9 @@
 						<%= f.submit 'Update', class: "project-update-button" %>
 					<% end %>
 				</div>
+					<%= form_for project, url: "/users/#{@user.id}/projects/#{project.id}", html: {method: :delete} do |f| %>
+						<%= f.submit 'Delete', class: "delete-button" %>
+					<% end %>
 			</div>
 		<%end%>	
 	</div>
@@ -260,6 +263,9 @@
 						<%= f.submit 'Update', class: "experience-update-button" %>
 					<% end %>
 				</div>
+					<%= form_for exp, url: "/users/#{@user.id}/experiences/#{exp.id}", html: {method: :delete} do |f| %>
+						<%= f.submit 'Delete', class: "delete-button" %>
+					<% end %>
 			</div>	
 		<%end%>
 	</div>
@@ -282,10 +288,10 @@
 		<form class="edit-project" id="edit_project_{{id}}" action="/users/{{user_id}}/projects/{{id}}" method="post">
 			<input type="hidden" name="_method" value="patch">
 			<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
-			<input type="text" value={{image_src}} name="project[image_src]" id="project_image_src">
-			<input type="text" value={{title}} name="project[title]" id="project_title">
-			<input type="text" value={{desc}} name="project[desc]" id="project_desc">
-			<input type="text" value={{website}} name="project[website]" id="project_website">
+			<input type="text" value="{{image_src}}" name="project[image_src]" id="project_image_src">
+			<input type="text" value="{{title}}" name="project[title]" id="project_title">
+			<input type="text" value="{{desc}}" name="project[desc]" id="project_desc">
+			<input type="text" value="{{website}}" name="project[website]" id="project_website">
 			<input type="submit" name="commit" value="Update" class="project-update-button">
 		</form>
 	</div>
@@ -304,11 +310,11 @@
 		<form class="edit-experience" id="edit_experience_{{id}}" action="/users/{{user_id}}/experiences/{{id}}" method="post">
 			<input type="hidden" name="_method" value="patch">
 			<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
-			<input type="text" value={{role}} name="experience[role]" id="project_role">
-			<input type="text" value={{company_name}} name="experience[company_name]" id="project_company_name">
-			<input type="date" value={{start_date}} name="experience[start_date]" id="project_start_date">
-			<input type="date" value={{end_date}} name="experience[end_date]" id="project_end_date">
-			<input type="text" value={{city}} name="experience[city]" id="project_city">
+			<input type="text" value="{{role}}" name="experience[role]" id="project_role">
+			<input type="text" value="{{company_name}}" name="experience[company_name]" id="project_company_name">
+			<input type="date" value="{{start_date}}" name="experience[start_date]" id="project_start_date">
+			<input type="date" value="{{end_date}}" name="experience[end_date]" id="project_end_date">
+			<input type="text" value="{{city}}" name="experience[city]" id="project_city">
 			<input type="text" value="{{state}}" name="experience[state]" id="project_state">
 			<input type="text" value="{{blurb}}" name="experience[blurb]" id="project_blurb">
 			<input type="submit" name="commit" value="Update" class="experience-update-button">

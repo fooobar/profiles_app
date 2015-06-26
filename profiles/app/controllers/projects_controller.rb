@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
 
 	def destroy
 		Project.destroy(params[:id])
-		render json: {message: 'success'}
+		redirect_to :back
 	end
 
 

@@ -26,7 +26,7 @@ class ExperiencesController < ApplicationController
 
 	def destroy
 		Experience.destroy(params[:id])
-		render json: {message: 'success'}
+		redirect_to :back
 	end
 
 	private
