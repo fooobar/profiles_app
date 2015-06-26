@@ -31,6 +31,7 @@ class SkillsController < ApplicationController
 	def index
 		@users = User.where(:user_type => 'student')
 		@skills = Skill.all
+		@current_user = current_user
 	end
 
 	def update
