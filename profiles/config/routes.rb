@@ -8,10 +8,12 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [ :new, :create, :destroy]
   resources :jobs
+  resources :skills, only: [:update]
 
   resources :users do
   	resources  :projects, :skills, :experiences, :jobs
   end
+
   
   get '/users/new/student' => 'users#new_student'
   get '/users/new/employer' => 'users#new_employer'
