@@ -32,6 +32,8 @@ class UsersController < ApplicationController
 				@sorted_experiences = @user.experiences.order(end_date: :desc)
 				render :edit_student
 			elsif @user.user_type === "employer"
+				@user.clicked += 1
+				@user.save
 				@sorted_jobs = @user.jobs.order(updated_at: :desc)
 				render :edit_employer
 			else 
