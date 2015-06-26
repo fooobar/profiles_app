@@ -21,7 +21,8 @@
 		<!-- User Contact Links -->
 		<!-- Contact Links -->
 
-		<div class="profile-contact">
+		<div class="profile-contact" 
+				 style="background-image: url(<%=@user.background%>)">
 		<a class="edit-button" id="profile-contact-edit-button" href="">Edit</a>
 		<% if @user.city%><h4><%=@user.city%><%end%><% if @user.state%>, <%=@user.state%><%end%></h4>
 			<ul>
