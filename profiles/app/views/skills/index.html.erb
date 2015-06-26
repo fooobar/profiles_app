@@ -1,6 +1,6 @@
-<h1>Job Board</h1>
+<h1>Job Candidates</h1>
 <div class = "filter-container">
-<span>Filter this list by skill</span>
+<span>Filter candidates by skill</span>
 	<form name="skill-list">
 		<% @skills.each do |skill| %>
 		<label for="<%= skill.name %>"><%= skill.name %></label>
@@ -10,25 +10,27 @@
 	</form>
 </div>
 <div id="listing-container"></div>
-<script id="jobs-template" type="x-tmpl-mustache">
-	{{#jobs}}
-			<div class="positions{{#skills}} {{param}}{{/skills}}">
-				<h2>{{title}}</h2>
-				<h3>Required Skills:
+<script id="users-template" type="x-tmpl-mustache">
+	{{#users}}
+			<div class="user{{#skills}} {{param}}{{/skills}}">
+				<h2>{{f_name}} {{l_name}}
+				</h2>
+				<h3>Candidates Skills:
 					<span>
 							{{#skills}}
 								{{name}}
 							{{/skills}}
 					</span>
 				</h3>
-				<p class="truncate">{{desc}}</p><a href="/jobs/{{id}}">Read More</a>
+				<!-- css needed to trim the blurb -->
+				<a href="/users/{{id}}">Candidates Profile</a>
 				<br>
 				</div>
-	{{/jobs}}
+	{{/users}}
 </script>
 
 <script>
-	var data = {jobs :<%=raw @jobs.to_json(:include => :skills)%>}
+	var users = {users :<%=raw @users.to_json(:include => :skills)%>}
 </script>
 
 <%= javascript_include_tag("footer") %>

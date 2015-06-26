@@ -63,6 +63,13 @@ class UsersController < ApplicationController
 		user = User.find(params[:id])
 		user.update(user_params)
 		render json: user
+		#put send email method here
+		user_skills = []
+		u.skills.each do |skill|
+			user_skills.push(skill.id)  
+		end 
+		
+		
 	end
 
 	def index
