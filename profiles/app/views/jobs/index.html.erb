@@ -10,7 +10,7 @@
 	</form>
 </div>
 <div id="listing-container"></div>
-<script id="jobs-template" type="x-tmpl-mustache">
+<script id="template" type="x-tmpl-mustache">
 	{{#jobs}}
 			<div class="{{#skills}}{{name}} {{/skills}}">
 				<h2>{{title}}</h2>
@@ -29,7 +29,7 @@
 </script>
 
 <script>
-	var jobs = {jobs :<%=raw @jobs.to_json(:include => :skills)%>}
+	var data = {jobs :<%=raw @jobs.to_json(:include => :skills)%>}
 </script>
 
 <%= javascript_include_tag("footer") %>

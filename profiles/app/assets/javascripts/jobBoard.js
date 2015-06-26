@@ -19,17 +19,16 @@
 	}	
 
 	//rendering the job list to the page
-	var renderJobs = function(jobList){
+	var renderView = function(dataList){
 		$('#listing-container').text('')
-		var template = $('#jobs-template').html()
-		var render = Mustache.render(template, jobList)
+		var template = $('#template').html()
+		var render = Mustache.render(template, dataList)
 		$('#listing-container').append(render)
 	}
 
-	renderJobs(jobs)
+	renderView(data)
 
 	//When a checkbox is changed, the page updates
 	$("input[type=checkbox]").on('change',function(event){
-		showSkill = event.target.name
 		showChecked()
 	});
