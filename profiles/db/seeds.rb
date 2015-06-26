@@ -112,8 +112,7 @@ Project.create([
         desc: "Google is an American multinational technology company specializing in Internet-related services and products.",
         website: "https://www.google.com/",
         image_src: "http://i.forbesimg.com/media/lists/companies/google_416x416.jpg",
-        user_id: user_karlyce.id,
-        color: '#FF5050'
+        user_id: user_karlyce.id
     },
     {
         title: "Youtube",
@@ -138,7 +137,7 @@ Project.create([
     }
 ])
 
-e1 = User.create(org_name: 'Google', email: 'google@example.com', password: 'melville1', user_type: 'employer')
+e1 = User.create(org_name: 'Google', email: 'google@example.com', password: 'melville1', user_type: 'employer',  color: '#FF5050')
 e2 = User.create(org_name: 'Facebook', email: 'facebook@example.com', password: 'melville1', user_type: 'employer')
 e3 = User.create(org_name: 'Twitter', email: 'twitter@example.com', password: 'melville1', user_type: 'employer')
 
