@@ -18,7 +18,7 @@
 		}
 	}	
 
-	//rendering the job list to the page
+	//rendering the data list to the page
 	var renderView = function(dataList){
 		$('#listing-container').text('')
 		var template = $('#template').html()
