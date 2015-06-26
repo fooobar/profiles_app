@@ -36,7 +36,7 @@ var lessJobDesc = function(event){
 	$(event.target.parentElement).prev('.job-desc-preview').removeClass("hidden");
 }
 
-// Update Job
+// Edit Job
 
 // Edit Job button shows form
 var showUpdateJob = function(e) {
@@ -54,8 +54,12 @@ var updateJob = function(event){
 		data: $(this).parent().serialize()
 	}).done(function(resp) {
 		// update the text to reflect the changes
-		$(this).parent().parent().parent().find($('.job-info')).find($('h3')).text(resp["title"])
-		$(this).parent().parent().parent().find($('.job-info')).find($('p')).text(resp["desc"])
+		$(this).parent().parent().parent().find($('.job-info')).find($('h3')).text(resp["job"]["title"])
+		$(this).parent().parent().parent().find($('.job-info')).find($('p')).text(resp["job"]["desc"])
+		console.log(resp)
+		debugger
+		// adding skill
+		$(this).parent().parent().parent().find($('.job-info')).find($('.job-skills')).find($('ul')).append('<li>' + resp["skill"]["name"] + '</li>')
 		// hide form show text
 		$(this).parent().parent().hide();
 		$(this).parent().parent().siblings('.job-info').show();		

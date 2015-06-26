@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 		@job = Job.new
 		if current_user === @user
 			if @user.user_type === "student"
+				@sorted_experiences = @user.experiences.order(end_date: :desc)
 				render :edit_student
 			else 
 				@sorted_jobs = @user.jobs.order(updated_at: :desc)
@@ -66,7 +67,7 @@ class UsersController < ApplicationController
 
 	private 
 		def user_params
-			params.require(:user).permit(:f_name,:l_name,:org_name,:email,:image_src,:phone,:city,:state,:website,:github,:twitter,:linkedin,:behance,:bio, :user_type, :password)
+			params.require(:user).permit(:f_name,:l_name,:org_name,:email,:image_src,:phone,:city,:state,:website,:github,:twitter,:linkedin,:behance,:bio, :role, :user_type, :password)
 		end
 
 
