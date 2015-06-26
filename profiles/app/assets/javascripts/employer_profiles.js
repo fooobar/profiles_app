@@ -1,6 +1,5 @@
 // Event Handlers
-
-
+debugger
 $(document).ready(function() {
 	// show page
 	$('.job-desc-preview a').on("click", moreJobDesc)
@@ -9,8 +8,8 @@ $(document).ready(function() {
 	$('.profile-jobs').on("click", '.profile-job-edit-button', showUpdateJob)
 	$('.profile-jobs').on("click", '.job-update-button', updateJob)
 	// edit header - name and bio company
-	$('.profile-header-edit-button').on("click", editHeader)
-	$('.header-update-button').on("click", updateName)
+	$('.profile-header-edit-button').on("click", editOrgHeader)
+	$('.header-update-button').on("click", updateOrgName)
 
 	// add job
 	$('.add-job-button').on("click", showAddJob)
@@ -47,14 +46,14 @@ var lessJobDesc = function(event){
 
 // updating header
 
-var editHeader = function(event){
+var editOrgHeader = function(event){
 	event.preventDefault()
 	$(this).parent().hide();
 	$(this).parent().siblings('#profile-header-edit').show();
 }
 
 
-var updateName = function(event){
+var updateOrgName = function(event){
 	event.preventDefault();
 	
 	$.ajax({
@@ -63,6 +62,7 @@ var updateName = function(event){
 		type: 'patch',
 		data: $(this).parent().serialize()
 	}).done(function(resp) {
+		console.log(resp)
 		// update the text to reflect the changes
 		$(this).parent().parent().parent().find($('.profile-info')).find($('h1')).text(resp["org_name"])
 		$(this).parent().parent().parent().find($('.profile-info')).find($('h2')).text(resp["bio"])
@@ -173,6 +173,3 @@ var updatePrefs = function(event){
 		$(this).parents().find($('.profile-content')).css('background-color', resp["color"] )		
 	})
 }
-
-
-		

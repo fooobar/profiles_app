@@ -43,13 +43,12 @@ class UsersController < ApplicationController
 				return
 			end
 		else
-			@user.clicked += 1
+			@user.clicked = (Float(@user.clicked) + 0.5).to_s
 			@user.save
 			if @user.user_type === "student"
 				render :show_student
 				return
 			else 
-				@show_user = User.find(params[:id])
 				render :show_employer
 				return
 			end
@@ -67,13 +66,6 @@ class UsersController < ApplicationController
 		user = User.find(params[:id])
 		user.update(user_params)
 		render json: user
-		#put send email method here
-		user_skills = []
-		u.skills.each do |skill|
-			user_skills.push(skill.id)  
-	end 
-		
-		
 	end
 
 	def index

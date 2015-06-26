@@ -1,3 +1,5 @@
+if ($('body.users.show').length){
+
 // Current User ID
 
 
@@ -38,3 +40,4 @@ var updateImage = function(e) {
 
 
 
+}
