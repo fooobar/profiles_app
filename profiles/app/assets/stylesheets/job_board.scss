@@ -1,0 +1,41 @@
+.skill-list {
+	label {
+		color: #6E6E6E;
+		
+	}
+	input {
+		margin-bottom: 15px;
+		margin-left: 5px;
+
+	}
+}
+
+#listings {
+	background-color: white;
+	border-radius: 5px;
+	border: solid 1px #E6E6E6;
+
+		.tags {
+			padding: 20px;
+			border-bottom: solid 1px #E6E6E6;
+
+			h2{
+				padding-bottom: 5px;
+				border-bottom: solid 1px #00FF99;
+			}
+
+			h3 {
+				padding-top: 15px;
+			}
+
+		}
+
+		.tags:hover {
+		background-color: #E6E6E6;
+		}
+
+		p {
+			color: #6E6E6E;
+		}
+
+}

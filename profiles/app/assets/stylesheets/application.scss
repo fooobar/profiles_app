@@ -28,24 +28,71 @@ body {
     margin-left: 30px;
     width: 60%;
     float: left;
+    margin-top: 40px;
 }
 
 h1 {
     font-family: helvetica;
     margin: 0;
     padding: 0;
+    margin-left: 50px;
+    margin-top: 20px;
+    font-size: 50pt;
+    color: #3A3A3A;
 }
 
-.experience, .profile-contact, .job , .add-job, .profile-stats, .profile-options {
-    background: rgba(255,255,255, 0.4);
-    margin-bottom: 10px;
-    border: solid 1px black;
+
+h2 {
+    font-family: helvetica;
+    margin: 0;
+    padding: 0;
+    font-size: 25pt;
+    color: #3A3A3A;
+    padding-bottom: 10px;
+    
+
+}
+
+h3 {
+    font-family: helvetica;
+    margin: 0;
+    padding: 0;
+    font-size: 15pt;
+    color: #6E6E6E;
+    padding-bottom: 10px;
+    
+
+}
+
+
+/* Background Image: */
+
+.profile-content {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-position: center;
+}
+
+
+/* General stuff */
+
+.clear-row {
+    clear: both;
 }
 
 .hidden {
     display: none;
 }
 
+
+
+/* I think this was for testing: */
+.experience, .profile-contact, .job , .add-job, .profile-stats, .profile-options {
+    background: rgba(255,255,255, 0.4);
+    margin-bottom: 10px;
+    border: solid 1px black;
+}
 
 .edit-form, .add-form {
     display: none;
@@ -56,22 +103,12 @@ h1 {
     max-width: 200px
 }
 
-
-.profile-content {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    /*min-height: 3000px;*/
-    background-position: center;
-
-}
-
 .project {
     width: 20%;
     float: left;
     margin-right: 10px;
 }
 
-.clear-row {
-    clear: both;
-}
+
+
+
