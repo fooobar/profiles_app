@@ -45,8 +45,8 @@ class User < ActiveRecord::Base
 				skill_name = Skill.find(value)
 				skill_array.push(skill_name.name)
 			end
-			skill_array.join('')
-			User.send_email(student_id , key, skill_array)
+			skill_string = skill_array * ", "
+			User.send_email(student_id , key, skill_string)
 		end
 	end
 
@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
   		m.to = 'splashofwater@yahoo.com'
   		m.from = "updates@example.com"
   		m.subject = "A new alumni has skills you are tracking"
-  		m.html = "#{student.f_name} just updated their profile with these skills that you are tracking: #{skills}. View their profile here"
+  		m.html = "Hello #{employer.org_name}, #{student.f_name} #{student.l_name} just updated their profile with these skills that you are tracking: #{skills}. View their profile here"
 		end
 		client.send(mail)
 	end

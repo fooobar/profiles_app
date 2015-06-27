@@ -10,14 +10,16 @@
 <div class="current-user-header">
 		<% if @current_user%>
 			<% if @current_user.user_type == "student" || @current_user.user_type == "outcomes"%>
-				<img class="nav-bar-picture" src="<%=@current_user.image_src%>"><a href="/users/<%=@current_user.id%>">Hello <%= @current_user.f_name%></a>
+				<img class="nav-bar-picture" src="/assets/logo.png"><a href="/">Home</a> <img class="nav-bar-picture" src="<%=@current_user.image_src%>"><a href="/users/<%=@current_user.id%>">Hello <%= @current_user.f_name%></a>
 				<a href="/jobs">| Job Boards</a>
 			<% else %>
 				<img class="nav-bar-picture" src="<%=@current_user.image_src%>"><a href="/users/<%=@current_user.id%>">Hello <%=@current_user.org_name%></a>
 			<% end %>
 		<% else %>
-		<div> Logo placeholder
-		<a href="/login">Log in</a></div>
+		<div> 
+			<img class="nav-bar-picture" src="/assets/logo.png"><a href="/">Generic Constructor</a>
+			<a id="login" href="/login">Log in</a>
+		</div>
 		<% end %>
 	<% if @current_user%>
 		<a id="logout" href="/logout">Log Out</a>

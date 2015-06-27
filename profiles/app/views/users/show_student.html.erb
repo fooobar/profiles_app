@@ -1,6 +1,6 @@
 <div class="profile-content" style="
 	background-image: url(<%=@user.background%>); 
-	background-repeat: no-repeat; 
+	background-repeat: no-repeat;
 	background-color: <%=@user.color%>">
 	<!-- SIDE NAV -->
 
@@ -17,13 +17,12 @@
 		<div class="profile-contact">
 		<% if @user.city%><h4><%=@user.city%><%end%><% if @user.state%>, <%=@user.state%><%end%></h4>
 			<ul>
-				<li><a href="mailto:<%=@user.email%>">Email Me</a></li>
-				<% if @user.website %><li><a href="<%=@user.website%>">My Website</a></li><%end%>
-				<% if @user.twitter %><li><a href="<%=@user.twitter%>">Tweet Me</a></li><%end%>
-				<% if @user.github %><li><a href="<%=@user.github%>">GitHub</a></li><%end%>
-				
-				<% if @user.linkedin %><li><a href="<%=@user.linkedin%>">LinkedIn</a></li><%end%>
-				<% if @user.behance%><li><a href="<%=@user.behance%>">Behance</a></li><%end%>
+				<li><a class="contact-link email" href="mailto:<%=@user.email%>">Email Me</a></li>
+				<% if @user.website && @user.website != "" %><li><a class="contact-link website" href="<%=@user.website%>">My Website</a></li><%end%>
+				<% if @user.twitter && @user.twitter != "" %><li><a class="contact-link twitter" href="<%=@user.twitter%>">Tweet Me</a></li><%end%>
+				<% if @user.github && @user.github != "" %><li><a class="contact-link github" href="<%=@user.github%>">GitHub</a></li><%end%>
+				<% if @user.linkedin && @user.linkedin != "" %><li><a class="contact-link linkedin" href="<%=@user.linkedin%>">LinkedIn</a></li><%end%>
+				<% if @user.behance && @user.behance != ""%><li><a class="contact-link behance" href="<%=@user.behance%>">Behance</a></li><%end%>
 			</ul>
 		</div>
 
@@ -61,7 +60,7 @@
 					<img class="project-image" src="<%=project.image_src%>">
 					<h3><%= project.title%></h3>
 					<p><%= project.desc%></p>
-					<a href="<%=project.website%>">Click to Learn More</a>
+					<a class="read-more" href="<%=project.website%>">Read More</a>
 				</div>
 			<%end%>
 		</div>

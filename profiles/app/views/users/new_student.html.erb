@@ -1,20 +1,24 @@
-<h1> Sign-up as a Student:</h1>
-<%= form_for @user do |f| %>
+<img class="sign-up-image" src="/assets/man-people-office-writing.jpg">
+<div class="login">
+	<h1>Student<br>Sign-up</h1>
+	<%= form_for @user do |f| %>
+	<br>
+	<%= f.label "First Name" %><br>
+	<%= f.text_field :f_name %><br>
 
-<%= f.label "First Name" %>
-<%= f.text_field :f_name %><br>
+	<%= f.label "Last Name" %><br>
+	<%= f.text_field :l_name %><br>
 
-<%= f.label "Last Name" %>
-<%= f.text_field :l_name %><br>
+	<%= f.label "Email" %><br>
+	<%= f.text_field :email %><br>
 
-<%= f.label "Email" %>
-<%= f.text_field :email %><br>
+	<%= f.label "Password" %><br>
+	<%= f.password_field :password %><br>
 
-<%= f.label "Password" %>
-<%= f.password_field :password %><br>
+	<%= hidden_field_tag :user_type, 'student'  %><br>
 
-<%= hidden_field_tag :user_type, 'student'  %><br>
+	<%= f.submit 'New Student', class: "login-submit new-user-button"%>
 
-<%= f.submit 'New Student' %>
+	<% end %>
 
-<% end %>
+</div>

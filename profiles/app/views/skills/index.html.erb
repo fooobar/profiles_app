@@ -1,7 +1,8 @@
-<h1>Job Candidates</h1>
+<h1>Student Board</h1>
 <div class = "filter-container profile-side-nav">
-<span>Filter candidates by skill</span>
-	<form name="skill-list">
+<h3>Filter candidates by skill</h3>
+	<form name="skill-list" class="skill-list">
+		<br>
 		<% @skills.each do |skill| %>
 		<label for="<%= skill.name %>"><%= skill.name %></label>
 		<input type="checkbox" name="<%= skill.param %>" value="<%= skill.id %>">
@@ -23,6 +24,7 @@
 							{{/skills}}
 					</span>
 				</h3>
+				<p>{{bio}}</p>
 				<!-- css needed to trim the blurb -->
 				<a href="/users/{{id}}">Candidates Profile</a>
 				<br>

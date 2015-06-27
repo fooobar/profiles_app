@@ -83,12 +83,15 @@ class UsersController < ApplicationController
 				end
 			end
 			user.skills.push(skill)
+			employers = User.get_employer_skills()
+			user_skills = User.get_user_skills(params[:id])
+			User.send_match_email(employers,user_skills,params[:id])
 			return_hash = {:user => user, :skill => skill}
 			render json: return_hash
 			return
 		end
 		render json: user		
-
+		@current_user = current_user
 	end
 
 	def index

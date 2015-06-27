@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   get '/users/new/student' => 'users#new_student'
   get '/users/new/employer' => 'users#new_employer'
 
+  delete '/users/:user_id/:job_id/:id' => 'skills#destroy2'
+
 end
