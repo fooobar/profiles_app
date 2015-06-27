@@ -14,6 +14,7 @@
 	background-color: white;
 	border-radius: 5px;
 	border: solid 1px #E6E6E6;
+	margin-bottom: 40px;
 
 		.tags {
 			padding: 20px;
@@ -27,15 +28,26 @@
 			h3 {
 				padding-top: 15px;
 			}
+
+			p {
+			padding:0;
+			margin: 0;
+			margin-bottom: 20px;
+			color: #6E6E6E;
+			}
+
+			h4 {
+			padding:0;
+			margin: 0;
+			color: #6E6E6E;
+			}
 		}
 
 		.tags:hover {
 		background-color: #E6E6E6;
 		}
 
-		p {
-			color: #6E6E6E;
-		}
+		
 
 		a {
 			background-color: #4D4D4D;
