@@ -130,16 +130,6 @@
 
 		<div class="profile-skills">
 			<h2>Skills</h2>
-			<ul>
-				<% @user.skills.each do |skill|%>
-					<li><%=skill.name%>
-						<%= form_for skill, url: "/users/#{@user.id}/skills/#{skill.id}", html: {method: :delete} do |f| %>
-							<%= f.submit 'Delete', class: "delete-button" %>
-						<% end %>
-						<br>
-					</li>
-				<%end%>
-			</ul>
 			<a class="skill-add-button" id="profile-skills-edit-button" href="">Add Skill</a>
 			<!-- edit form -->
 			<div class="add-form" id="profile-skills-edit">
@@ -151,6 +141,17 @@
 					<%= f.submit 'Update', class: "skill-update-button" %>
 				<% end %>
 			</div>
+			<ul>
+				<% @user.skills.each do |skill|%>
+					<li><%=skill.name%>
+						<%= form_for skill, url: "/users/#{@user.id}/skills/#{skill.id}", html: {method: :delete} do |f| %>
+							<%= f.submit 'Delete', class: "delete-button" %>
+						<% end %>
+						<br>
+					</li>
+				<%end%>
+			</ul>
+			
 		</div>
 
 		<!-- Projects -->
