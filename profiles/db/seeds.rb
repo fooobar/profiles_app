@@ -145,10 +145,6 @@ e3 = User.create(org_name: 'Twitter', email: 'twitter@example.com', password: 'm
 
 emps = [e1, e2, e3]
 
-20.times do 
-    Job.create(title: FFaker::Lorem.words(3).join(' '), desc: FFaker::Lorem.paragraph, user_id: emps.sample.id)
-end
-
 Experience.create([
     {
         company_name: "BobCo" ,

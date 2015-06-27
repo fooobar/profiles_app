@@ -1,9 +1,16 @@
-<h3>Login</h3>
+<div class="login">
+	<h1>Login</h1>
+	<br>
+	<%= form_tag("/login", method: "post", class: "login-form") do |f| %>
+		<%= label_tag(:email, "Email") %>
+		<br>
+		<%= email_field(:user, :email) %>
+		<br>
+		<%= label_tag(:password, "Password") %>
+		<br>
+		<%= password_field_tag(:password) %>
+		<br>
+		<%= submit_tag("Login", class: "login-submit") %>
+	<% end %>
 
-<%= form_tag("/login", method: "post") do %>
-	<%= label_tag(:email, "Email:") %>
-	<%= email_field(:user, :email) %>
-	<%= label_tag(:password, "Password:") %>
-	<%= password_field_tag(:password) %>
-	<%= submit_tag("Login") %>
-<% end %>
+</div>
