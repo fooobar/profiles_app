@@ -34,7 +34,6 @@ class User < ActiveRecord::Base
 			(value & user_skills).each do |i| 
 				if match[key] == nil
 					 match[key] = [i]
-					 "This ran"
 				else
 					match[key].push(i)
 				end
