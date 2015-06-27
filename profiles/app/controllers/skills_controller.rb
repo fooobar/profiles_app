@@ -48,6 +48,20 @@ class SkillsController < ApplicationController
 	end
 
 
+	def destroy
+		user = User.find(params[:user_id])
+		skill = Skill.find(params[:id])
+		user.skills.each_with_index do |user_skill, i|
+			if user_skill.name == skill.name
+				skill_index = i
+			end
+		end
+		user.skills.delete(user.skills[skill_index])
+		response = {:message => 'success'}
+	end
+
+
+
 	private
 		def skill_params
 			params.require(:skill).permit(:name, :clicked)
