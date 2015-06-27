@@ -4,14 +4,14 @@
 	background-color: <%=@user.color%>">
 	<!-- SIDE NAV -->
 
-	<div class="profile-side-nav" data="<%=@user.id%>">
+	<div class="student profile-side-nav" data="<%=@user.id%>">
 
 	<!-- Image -->
 
 		<div class="profile-image">
 			<img class="profile-image" src="<%=@user.image_src%>">
 			<br>
-			<a class="image-edit-button" id="profile-image-edit-button" href="">Edit Image</a>
+			<a class="image-edit-button" id="profile-image-edit-button" href="">Edit</a>
 			<!-- edit form -->
 			<div class="edit-form" id="profile-image-edit">
 				<%= form_for @user do |f| %>
@@ -27,12 +27,12 @@
 		<a class="edit-button" id="profile-contact-edit-button" href="">Edit</a>
 		<% if @user.city%><h4><%=@user.city%><%end%><% if @user.state%>, <%=@user.state%><%end%></h4>
 			<ul>
-				<li><a href="mailto:<%=@user.email%>">Email Me</a></li>
-				<% if @user.website && @user.website != "" %><li><a class="website" href="<%=@user.website%>">My Website</a></li><%end%>
-				<% if @user.twitter && @user.twitter != "" %><li><a class="twitter" href="<%=@user.twitter%>">Tweet Me</a></li><%end%>
-				<% if @user.github && @user.github != "" %><li><a class="github" href="<%=@user.github%>">GitHub</a></li><%end%>
-				<% if @user.linkedin && @user.linkedin != "" %><li><a class="linkedin" href="<%=@user.linkedin%>">LinkedIn</a></li><%end%>
-				<% if @user.behance && @user.behance != ""%><li><a class="behance" href="<%=@user.behance%>">Behance</a></li><%end%>
+				<li><a class="contact-link email" href="mailto:<%=@user.email%>">Email Me</a></li>
+				<% if @user.website && @user.website != "" %><li><a class="contact-link website" href="<%=@user.website%>">My Website</a></li><%end%>
+				<% if @user.twitter && @user.twitter != "" %><li><a class="contact-link twitter" href="<%=@user.twitter%>">Tweet Me</a></li><%end%>
+				<% if @user.github && @user.github != "" %><li><a class="contact-link github" href="<%=@user.github%>">GitHub</a></li><%end%>
+				<% if @user.linkedin && @user.linkedin != "" %><li><a class="contact-link linkedin" href="<%=@user.linkedin%>">LinkedIn</a></li><%end%>
+				<% if @user.behance && @user.behance != ""%><li><a class="contact-link behance" href="<%=@user.behance%>">Behance</a></li><%end%>
 			</ul>
 			<!-- edit form -->
 			<div class="edit-form" id="profile-contact-edit">
@@ -81,7 +81,7 @@
 				<h4>Your Stats</h4>
 					<p>Your page has been viewed</p>
 					<h1><%=@user.clicked%></h1>
-					<p>time.</p>
+					<p>times.</p>
 			</div>
 
 	</div>
@@ -185,7 +185,9 @@
 					<img class="project-image" src="<%=project.image_src%>">
 					<h3><%= project.title%></h3>
 					<p><%= project.desc%></p>
-					<a href="<%=project.website%>">Click to Learn More</a>
+					<a class="read-more" href="<%=project.website%>">Read More</a>
+					<br>
+					<br>
 					<!-- edit form -->
 					<div class="edit-form" id="profile-project-edit">
 						<%= form_for project, url: "/users/#{@user.id}/projects/#{project.id}", html: {method: :patch} do |f| %>

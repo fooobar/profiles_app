@@ -71,7 +71,7 @@ h3 {
     width: 100%;
     margin: 0;
     padding: 0;
-    background-position: center;
+    background-position: top;
 }
 
 
@@ -87,27 +87,30 @@ h3 {
 
 
 
-/* I think this was for testing: */
+/* I think this was for testing: 
 .experience, .profile-contact, .job , .add-job, .profile-stats, .profile-options {
     background: rgba(255,255,255, 0.4);
     margin-bottom: 10px;
     border: solid 1px black;
-}
+} */
 
 .edit-form, .add-form {
     display: none;
 }
 
 
-.profile-image, .project-image{
+.profile-image {
     max-width: 200px
 }
 
-.project {
-    width: 20%;
+.project-image {
+    max-width: 100px;
+    margin: 10px;
+    margin-right: 20px;
     float: left;
-    margin-right: 10px;
 }
+
+
 
 
 
