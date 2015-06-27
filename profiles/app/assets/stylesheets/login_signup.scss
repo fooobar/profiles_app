@@ -3,7 +3,14 @@ $green-color: #00FF99;
 $dark-grey-color: #3A3A3A;
 $light-grey-color: #E6E6E6;
 
+.sign-up-image {
+	width: 100%;
+}
+
 .login {
+	position: absolute;
+	top: 40px;
+	left: 30%;
 	width: 40%;
 	text-align: center;
 	margin-left: auto;
@@ -63,3 +70,11 @@ $light-grey-color: #E6E6E6;
 	color: $dark-grey-color;
 	padding-top: 4px;
 }
+
+@media (max-width:1024px) {
+	.sign-up-image {
+		width: 1500px;
+	}
+
+}
+

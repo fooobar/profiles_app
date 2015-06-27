@@ -33,7 +33,16 @@ $green-color: #00FF99;
 	width: 40%;
 	top: 25%;
 	left: 30%;
+	
 }
+
+.spin-gear {
+	-webkit-animation:spin 10s linear infinite;
+    -moz-animation:spin 10s linear infinite;
+    animation:spin 10s linear infinite;
+	
+}
+
 
 .home-bottom-boxes{
 	margin-top: 15px;
@@ -69,3 +78,20 @@ $green-color: #00FF99;
 		}
 
 }
+
+
+
+
+@-moz-keyframes spin { 
+	100% { -moz-transform: rotate(360deg); }
+}
+
+@-webkit-keyframes spin {
+ 100% { -webkit-transform: rotate(360deg); } 
+ }
+
+@keyframes spin { 
+	100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } 
+}
+
+
