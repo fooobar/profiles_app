@@ -98,8 +98,18 @@ skill_apis = Skill.create({
 	})
 
 skill_slack = Skill.create({
-	name: "Slack"
+	name: "Angular JS"
 	})
+s2 = Skill.create({
+    name: "JQuery"
+    })
+s3 = Skill.create({
+    name: "Handlebars"
+    })
+
+s4 = Skill.create({
+    name: "Jasmine"
+    })
 
 Project.create([
     {

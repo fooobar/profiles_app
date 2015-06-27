@@ -40,7 +40,8 @@
 			<h1><%= @user.org_name%></h1>
 			<% if @user.bio%><h2><%= @user.bio%> </h2><%end%>
 		</div>
-
+	<% renderer = Redcarpet::Render::HTML.new(render_options = {})%>
+	<% raw markdown = Redcarpet::Markdown.new(renderer) %>
 
 		<!-- Start Jobs Posted -->
 		<div class="profile-jobs">
@@ -50,7 +51,7 @@
 					<h3><%=job.title%></h3>
 					<h5>Created at: <%=job.created_at%></h5>
 					<p class="job-desc-preview"><%=job.desc.truncate_words(20)%>... <a href="">More</a></p>
-					<p class="job-desc-all hidden"><%=job.desc%> <a href="">Less</a></p>
+					<p class="job-desc-all hidden"><%= markdown.render(job.desc)%> <a href="">Less</a></p>
 				</div>
 			<%end%>
 		</div>
