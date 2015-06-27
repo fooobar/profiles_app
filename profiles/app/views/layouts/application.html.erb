@@ -11,7 +11,7 @@
 		<% if @current_user%>
 			<% if @current_user.user_type == "student" || @current_user.user_type == "outcomes"%>
 				<img class="nav-bar-picture" src="<%=@current_user.image_src%>"><a href="/users/<%=@current_user.id%>">Hello <%= @current_user.f_name%></a>
-				<a href="/jobs"> | Job Boards</a>
+				<a href="/jobs">| Job Boards</a>
 			<% else %>
 				<img class="nav-bar-picture" src="<%=@current_user.image_src%>"><a href="/users/<%=@current_user.id%>">Hello <%=@current_user.org_name%></a>
 			<% end %>

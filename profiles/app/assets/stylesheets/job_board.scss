@@ -1,0 +1,68 @@
+.skill-list {
+	label {
+		color: #6E6E6E;
+		
+	}
+	input {
+		margin-bottom: 15px;
+		margin-left: 5px;
+
+	}
+}
+
+#listings {
+	background-color: white;
+	border-radius: 5px;
+	border: solid 1px #E6E6E6;
+	margin-bottom: 40px;
+
+		.tags {
+			padding: 20px;
+			border-bottom: solid 1px #E6E6E6;
+
+			h2{
+				padding-bottom: 5px;
+				border-bottom: solid 1px #00FF99;
+			}
+
+			h3 {
+				padding-top: 15px;
+			}
+
+			p {
+			padding:0;
+			margin: 0;
+			margin-bottom: 20px;
+			color: #6E6E6E;
+			}
+
+			h4 {
+			padding:0;
+			margin: 0;
+			color: #6E6E6E;
+			}
+		}
+
+		.tags:hover {
+		background-color: #E6E6E6;
+		}
+
+		
+
+		a {
+			background-color: #4D4D4D;
+			padding: 8px;
+			margin-bottom: 10px;
+			color: #00FF99;
+			text-decoration: none;
+			font-size: 12px;
+		}
+
+		a:hover {
+			background-color: #00FF99;
+			color: #4D4D4D;
+			font-size: 12px;
+			border: solid 1px #00FF99;
+		}
+
+}

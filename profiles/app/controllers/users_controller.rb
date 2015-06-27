@@ -91,7 +91,7 @@ class UsersController < ApplicationController
 			return
 		end
 		render json: user		
-
+		@current_user = current_user
 	end
 
 	def index
