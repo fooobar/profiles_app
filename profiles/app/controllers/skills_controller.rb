@@ -51,6 +51,7 @@ class SkillsController < ApplicationController
 	def destroy
 		user = User.find(params[:user_id])
 		skill = Skill.find(params[:id])
+		skill_index = 0
 		user.skills.each_with_index do |user_skill, i|
 			if user_skill.name == skill.name
 				skill_index = i
@@ -58,6 +59,7 @@ class SkillsController < ApplicationController
 		end
 		user.skills.delete(user.skills[skill_index])
 		response = {:message => 'success'}
+		redirect_to "/users/#{user.id}"
 	end
 
 
