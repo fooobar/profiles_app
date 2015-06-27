@@ -5,11 +5,14 @@
 			<span><%= skill.name %></span>
 		<% end %>
 	</h3>
+	<% renderer = Redcarpet::Render::HTML.new(render_options = {})%>
+	<% markdown = Redcarpet::Markdown.new(renderer, tables: true, fenced_code_blocks: true, underline: true) %>
 	<div class="job-posting-content">
-		<%= @job.desc %>
+		<%= markdown.render(@job.desc).html_safe %>
 	</div>
 	<a href="mailto:<%= @user.email %>">Apply for this job</a>
 	<br>
-	
 
 </div>
+
+
