@@ -48,7 +48,7 @@ class SkillsController < ApplicationController
 	end
 
 
-	def delete
+	def destroy
 		user = User.find(params[:user_id])
 		skill = Skill.find(params[:id])
 		user.skills.each_with_index do |user_skill, i|
