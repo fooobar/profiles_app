@@ -11,6 +11,7 @@ $(document).ready(function() {
 	$(document).on("click", '.image-edit-button', renderImageForm)
 	$(document).on("click", '.image-update-button', updateImage)
 	$(document).on("click", '.contact-update-button', updateContact)
+	$(document).on("click", '.student-header-update-button', updateStudentHeader)
 	$(document).on("click", '.project-update-button', updateProject)
 	$(document).on("click", '.project-create-button', addProject)
 	$(document).on("click", '.experience-update-button', updateExperience)
@@ -89,7 +90,7 @@ var updateContact = function(e) {
 
 // Update Header
 
-var updateName = function(e){
+var updateStudentHeader = function(e){
 	e.preventDefault();
 	$.ajax({
 		context: this,
