@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require mustache
+//= require jQuery_succinct.js
 //= require_tree .
 
 

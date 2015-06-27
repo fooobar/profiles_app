@@ -1,135 +1,195 @@
-<!-- SIDE NAV -->
+<div class="profile-content" style="
+	background-image: url(<%=@user.background%>); 
+	background-repeat: no-repeat; 
+	background-color: <%=@user.color%>">
+	<!-- SIDE NAV -->
 
-<div class="profile-side-nav" data="<%=@user.id%>">
+	<div class="profile-side-nav" data="<%=@user.id%>">
 
-	<!-- Image -->
-	<div class="profile-image-div">
-		<img class="profile-image" src="<%=@user.image_src%>">
-		<br>
-		<a class="image-edit-button" id="profile-image-edit-button" href="">Edit Image</a>
-		<!-- hidden edit form -->
-		<div class="hidden" id="profile-image-edit">
-			<%= form_for @user do |f| %>
-				<%= f.text_field :image_src %>
-				<%= f.submit 'Update', class: "image-update-button" %>
-			<% end %>
-		</div>
-	</div>
-	<!-- End Image -->
-
-	<!-- User Contact Links -->
-	<div class="profile-contact">
-	<% if @user.city%><h4><%=@user.city%><%end%>
-	<% if @user.state%>, <%=@user.state%><%end%></h4>
-		<ul>
-			<li><a href="mailto:<%=@user.email%>">Email Me</a></li>
-			<% if @user.website %><li><a href="<%=@user.website%>">My Website</a></li><%end%>
-			<% if @user.twitter %><li><a href="<%=@user.twitter%>">Tweet Me</a></li><%end%>
-			<% if @user.github %><li><a href="<%=@user.github%>">GitHub</a></li><%end%>
-			
-			<% if @user.linkedin %><li><a href="<%=@user.linkedin%>">LinkedIn</a></li><%end%>
-			<% if @user.behance%><li><a href="<%=@user.behance%>">Behance</a></li><%end%>
-		</ul>
-		<!-- edit form -->
-		<div class="hidden" id="profile-contact-edit">
-			<%= form_for @user do |f| %>
-				<%= label_tag(:website, "Website link") %>
-				<br>
-				<%= f.text_field :website %>
-				<br>
-				<%= label_tag(:twitter, "Twitter link") %>
-				<br>
-				<%= f.text_field :twitter %>
-				<br>
-				<%= label_tag(:github, "Github link") %>
-				<br>
-				<%= f.text_field :github %>
-				<br>
-				<%= label_tag(:linkedin, "Linkedin") %>
-				<br>
-				<%= f.text_field :linkedin %>
-				<br>
-				<%= label_tag(:behance, "Behance") %>
-				<br>
-				<%= f.text_field :behance %>
-				<br>
-				<%= f.submit 'Update', class: "contact-update-button" %>
-			<% end %>
-		</div>
-	</div>
-	<!-- End User Contact Links -->
-
-</div>
-<!-- END OF SIDE NAV -->
-
-
-<!-- MAIN AREA -->
-<div class="profile-main">
-
-	<!-- User Basic Info -->
-	<div class="profile-header">
-		<div class="profile-info">
-			<a class="profile-header-edit-button" href="">Edit</a>
-			<h1><%= @user.org_name%></h1>
-			<% if @user.bio%>
-			<h2><%= @user.bio%> </h2><%end%>
-		</div>
-		<!-- edit form -->
-		<div class="hidden" id="profile-header-edit">
-			<%= form_for @user do |f| %>
-				<%= f.text_field :org_name %>
-				<%= f.text_field :bio %>
-				<%= f.submit 'Update', class: "header-update-button" %>
-			<% end %>
-		</div>
-
-	</div>
-
-	<!-- Start Jobs Posted -->
-	<div class="profile-jobs">
-		<h3>Jobs you are offering:</h3>
-		<div class="add-job">
-			<a class="add-job-button" href="#">Add Job</a>
-			<div class="add-job-form hidden">
-				<%= form_for @job, url: "/users/#{@user.id}/jobs/", html: {method: :post} do |f| %>
-					<%= f.label :title, "Job Title"%>
-					<%= f.text_field :title %><br>
-					<%= f.label :desc, "Job Description"%>
-					<%= f.text_field :desc %><br>
-					<%= f.submit 'Update', class: "add-job-form-button" %>
+		<!-- Image -->
+		<div class="profile-image-div">
+			<img class="profile-image" src="<%=@user.image_src%>">
+			<br>
+			<a class="image-edit-button" id="profile-image-edit-button" href="">Edit Image</a>
+			<!-- hidden edit form -->
+			<div class="hidden" id="profile-image-edit">
+				<%= form_for @user do |f| %>
+					<%= f.text_field :image_src %>
+					<%= f.submit 'Update', class: "image-update-button" %>
 				<% end %>
 			</div>
 		</div>
-		
-		<div class="profile-new-job"></div>
+		<!-- End Image -->
 
-		<% @sorted_jobs.each do |job|%>
-			<div class="job" data="<%=job.id%>">
-				<a class="profile-job-edit-button" href="#">Edit</a>
-				<div class="job-info">
-					<h3><%=job.title%></h3>
-					<h5>Created at: <%=job.created_at%></h5>
-					<p class="job-desc-preview"><%=job.desc.truncate_words(20)%> <a href="">More</a></p>
-					<p class="job-desc-all hidden"><%=job.desc%> <a href="">Less</a></p>
-				</div>
+		<!-- User Contact Links -->
+		<!-- Contact Links -->
+
+		<div class="profile-contact">
+			<h4>Your Contact Info </h4>
+			<a class="edit-button" id="profile-contact-edit-button" href="">Edit</a>
+		<% if @user.city%><h4><%=@user.city%><%end%><% if @user.state%>, <%=@user.state%><%end%></h4>
+			<ul>
+				<li><a href="mailto:<%=@user.email%>">Email Me</a></li>
+				<% if @user.website && @user.website != "" %><li><a class="website" href="<%=@user.website%>">My Website</a></li><%end%>
+				<% if @user.twitter && @user.twitter != "" %><li><a class="twitter" href="<%=@user.twitter%>">Tweet Me</a></li><%end%>
+				<% if @user.github && @user.github != "" %><li><a class="github" href="<%=@user.github%>">GitHub</a></li><%end%>
+				<% if @user.linkedin && @user.linkedin != "" %><li><a class="linkedin" href="<%=@user.linkedin%>">LinkedIn</a></li><%end%>
+				<% if @user.behance && @user.behance != ""%><li><a class="behance" href="<%=@user.behance%>">Behance</a></li><%end%>
+			</ul>
 			<!-- edit form -->
-				<div class="hidden profile-job-edit">
-					<%= form_for job, url: "/users/#{@user.id}/jobs/#{job.id}", html: {method: :patch} do |f| %>
-						<%= f.text_field :title %>
-						<%= f.text_field :desc %>
-						<%= f.submit 'Update', class: "job-update-button" %>
-					<% end %>
+			<div class="edit-form" id="profile-contact-edit">
+				<%= form_for @user do |f| %>
+					<%= label_tag(:website, "Website link") %>
+					<br>
+					<%= f.text_field :website %>
+					<br>
+					<%= label_tag(:twitter, "Twitter link") %>
+					<br>
+					<%= f.text_field :twitter %>
+					<br>
+					<%= label_tag(:github, "Github link") %>
+					<br>
+					<%= f.text_field :github %>
+					<br>
+					<%= label_tag(:linkedin, "Linkedin") %>
+					<br>
+					<%= f.text_field :linkedin %>
+					<br>
+					<%= label_tag(:behance, "Behance") %>
+					<br>
+					<%= f.text_field :behance %>
+					<br>
+					<%= f.submit 'Update', class: "contact-update-button" %>
+				<% end %>
 				</div>
-				<br>
-				<%= form_for job, url: "/users/#{@user.id}/jobs/#{job.id}", html: {method: :delete} do |f| %>
-				<%= f.submit 'Delete', class: "profile-job-delete-button" %>
-					<% end %>
 			</div>
+			<div class="profile-options">
+				<h4>Your Preferences </h4>
+				<%= form_for @user do |f| %>
+					<%= label_tag(:background, "Background Image") %>
+					<br>
+					<%= f.text_field :background %>
+					<br>
+					<%= label_tag(:color, " or Background Color") %>
+					<br>
+					<%= f.text_field :color %>
+					<br>
+					<%= f.submit 'Update', class: "prefs-update-button" %>
+				<% end %>
 
-		<%end%>
+			</div>
+			<div class="profile-stats">
+				<h4>Your Stats</h4>
+					<p>Your page has been viewed</p>
+					<h1><%=@user.clicked%></h1>
+					<p>time.</p>
+			</div>
+		</div>
+		<!-- End User Contact Links -->
+
+	<!-- END OF SIDE NAV -->
+
+
+	<!-- MAIN AREA -->
+	<div class="profile-main">
+
+		<!-- User Header -->
+		<div class="profile-header">
+			<div class="profile-info">
+				<a class="profile-header-edit-button" href="">Edit</a>
+				<h1><%= @user.org_name%></h1>
+				<% if @user.bio%>
+				<h2><%= @user.bio%> </h2><%end%>
+			</div>
+			<!-- edit form -->
+			<div class="hidden" id="profile-header-edit">
+				<%= form_for @user do |f| %>
+					<%= f.text_field :org_name %>
+					<%= f.text_field :bio %>
+					<%= f.submit 'Update', class: "header-update-button" %>
+				<% end %>
+			</div>
+		</div>
+
+		<!-- End User Header -->
+
+
+		<!-- Start Jobs Posted -->
+		<div class="profile-jobs">
+			<div class="add-job">
+				<a class="add-job-button" href="#">Add Job</a>
+				<div class="add-job-form hidden">
+					<%= form_for @job, url: "/users/#{@user.id}/jobs/", html: {method: :post} do |f| %>
+						<%= f.label :title, "Job Title"%>
+						<%= f.text_field :title %><br>
+						<%= f.label :desc, "Job Description"%>
+						<%= f.text_field :desc %><br>
+						<%= f.label :skills, "Add One Skill"%>
+						<%= f.text_field :skills, :value => ""%><br>
+						<%= f.submit 'Create Job', class: "add-job-form-button" %>
+					<% end %>
+					<a class="add-job-cancel-button" href="#">Cancel</a>
+				</div>
+			</div>
+			<h3>Jobs you are offering:</h3>
+			<div class="profile-new-job"></div>
+
+			<% @sorted_jobs.each do |job|%>
+				<div class="job" data="<%=job.id%>">
+					<a class="profile-job-edit-button" href="#">Edit</a>
+					<div class="job-info">
+						<h3><%=job.title%></h3>
+						<h5>Created at: <%=job.created_at%></h5>
+						<p class="job-desc-preview">
+							<% if job.desc.split.size > 20%>
+								<%=job.desc.truncate_words(20)%><a href="">More</a></p>
+							<%else%>
+								<%= job.desc%> 
+							<%end%> 
+							
+						<p class="job-desc-all hidden"><%=job.desc%> <a href="">Less</a></p>
+						<div class="job-skills">
+							<p>Skills Required:</p>
+							<ul>
+								<%job.skills.each do |skill|%> 
+								<li><%=skill.name%>
+									<%= form_for skill, url: "/users/#{@user.id}/#{job.id}/#{skill.id}", html: {method: :delete} do |f| %>
+							<%= f.submit 'Delete', class: "profile-job-delete-button" %>
+						<% end %></li>
+								<% end%>
+							</ul>	
+
+						</div>
+					</div>
+				<!-- edit form -->
+					<div class="hidden profile-job-edit">
+						<%= form_for job, url: "/users/#{@user.id}/jobs/#{job.id}", html: {method: :patch} do |f| %>
+							<%= f.label :title, "Job Title"%>
+							<%= f.text_field :title %><br>
+							<%= f.label :desc, "Job Description"%>
+							<%= f.text_field :desc %><br>
+							<p>Skills Required:</p>
+							<ul>
+								<%job.skills.each do |skill|%> 
+								<li><%=skill.name%></li>
+								<% end%>
+							</ul>	
+							<%= f.label :skills, "Add Skill"%>
+							<%= f.text_field :skills, :value => ""%><br>
+							<%= f.submit 'Update', class: "job-update-button" %>
+						<% end %>
+					</div>
+					<br>
+					<%= form_for job, url: "/users/#{@user.id}/jobs/#{job.id}", html: {method: :delete} do |f| %>
+					<%= f.submit 'Delete', class: "profile-job-delete-button" %>
+						<% end %>
+				</div>
+
+			<%end%>
+		</div>
+		<!-- End Jobs Posted -->
+
 	</div>
-	<!-- End Jobs Posted -->
-
 </div>
 <!-- END MAIN AREA -->
 
@@ -138,19 +198,39 @@
 <div class="job">
 	<a class="profile-job-edit-button" href="#">Edit</a>
 	<div class="job-info">
+	{{#job}}
 		<h3>{{title}}</h3>
 		<h5>Created at: {{created_at}}></h5>
 		<p class="job-desc-preview">{{desc}}</p>
-	</div>
+		{{/job}}
+		{{#skill}}
+			{{#name}}
+			<p>Skills Required:</p>
+			<ul>
+				<li>{{name}}</li>
+			</ul>
+			{{/name}}
+		{{/skill}}
+	</div>		
 	<!-- edit form -->
+	
 	<div class="hidden profile-job-edit">
+	{{#job}}
 		<form class="edit_job" id="edit_job_{{id}}" action="/users/{{user_id}}/jobs/{{id}}" method="post">
 			<input type="hidden" name="_method" value="patch">
 			<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
-			<input type="text" value={{title}} name="job[title]" id="job_title">
-			<input type="text" value={{desc}} name="job[desc]" id="job_desc">
+			<input type="text" value="{{title}}" name="job[title]" id="job_title">
+			<input type="text" value="{{desc}}" name="job[desc]" id="job_desc">
 			<input type="submit" name="commit" value="Update" class="job-update-button">
 		</form>
-	</div>
-</div>
+	</div>		
+	<br>
+	<form class="edit_job" id="edit_job_{{id}}" action="/users/{{user_id}}/jobs/{{id}}" method="post">
+				<input type="hidden" name="_method" value="delete">
+				<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
+				<input type="submit" name="commit" value="Delete" class="profile-job-delete-button">
+				
+	</form>
+{{/job}}
 </script>
+</div>

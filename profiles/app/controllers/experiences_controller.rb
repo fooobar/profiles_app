@@ -26,13 +26,12 @@ class ExperiencesController < ApplicationController
 
 	def destroy
 		Experience.destroy(params[:id])
-		render json: {message: 'success'}
+		redirect_to :back
 	end
 
 	private
 		def experience_params
 			params.require(:experience).permit(:company_name,:company_website,:city,:state,:start_date,:end_date,:role,:user_id,:blurb)
 		end
-	end
 
 end

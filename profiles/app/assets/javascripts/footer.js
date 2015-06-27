@@ -1,1 +1,1 @@
-//= require jobBoard
+//= require filter
