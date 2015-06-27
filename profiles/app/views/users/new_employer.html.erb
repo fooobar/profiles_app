@@ -1,17 +1,20 @@
-<h1> Sign-up as a Employer:</h1>
-<%= form_for @user do |f| %>
+<div class="login">
+	<h1>Employer<br>Sign-up</h1>
+	<%= form_for @user do |f| %>
+<br>
+	<%= f.label "Company Name" %><br>
+	<%= f.text_field :org_name %><br>
 
-<%= f.label "Company Name" %>
-<%= f.text_field :org_name %><br>
+	<%= f.label "Email" %><br>
+	<%= f.text_field :email %><br>
 
-<%= f.label "Email" %>
-<%= f.text_field :email %><br>
+	<%= f.label "Password" %><br>
+	<%= f.password_field :password %><br>
 
-<%= f.label "Password" %>
-<%= f.password_field :password %><br>
+	<%= hidden_field_tag :user_type, 'employer'  %><br>
 
-<%= hidden_field_tag :user_type, 'employer'  %><br>
+	<%= f.submit 'New Employer', class: "login-submit new-user-button"%>
 
-<%= f.submit 'New Employer'%>
+	<% end %>
 
-<% end %>
+</div>
