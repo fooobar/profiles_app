@@ -15,8 +15,7 @@
  */
 
 
-
-/* PROFILE PAGES STUDENT*/
+/* Main Document  */
 
 body {
     width: 100%;
@@ -24,24 +23,21 @@ body {
     padding: 0;
 }
 
-.profile-side-nav {
-    width: 20%;
-    float: left;
-    height: 100%;
-    min-width: 200px;
-    margin-top: 50px;
-    margin-left: 50px;
-
-}
 
 .profile-main {
     margin-left: 30px;
-    width: 70%;
+    width: 60%;
     float: left;
 }
 
+h1 {
+    font-family: helvetica;
+    margin: 0;
+    padding: 0;
+}
+
 .experience, .profile-contact, .job , .add-job, .profile-stats, .profile-options {
-    background-color: #E6E6E6;
+    background: rgba(255,255,255, 0.4);
     margin-bottom: 10px;
     border: solid 1px black;
 }

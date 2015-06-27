@@ -10,26 +10,39 @@
 	.nav-bar-picture {
 	width: 25px;
 	float: left;
+	margin-left: 10px;
 	}
 
 	a {
 		font-family: helvetica;
 		color: white;
-		padding-left: 10px;
+		margin-left: 10px;
 		padding-top: 5px;
 		text-decoration: none;
 		vertical-align: bottom;
 		float: left;
 	}
 
-	a:hover, #logout:hover {
+	a:hover {
 		color: #00FF99;
-		font-weight: bold;
+		border-bottom: solid 1px #00FF99;
 	}
+
 
 	#logout {
 		padding-left: 10px;
 		padding-top: 5px;
 		float: right;
+		margin-right: 10px;
+
+	}
+
+
+	#logout:hover {
+	color: #00FF99;
+	background-color: #474747;
+	border-radius: 5px;
+	padding: 5px;
+	border-bottom: none;
 	}
 }
