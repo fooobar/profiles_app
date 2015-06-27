@@ -4,4 +4,9 @@
 		<span><%= skill.name %></span>
 	<% end %>
 </h3>
-<p><%= @job.desc %></p>
+<% renderer = Redcarpet::Render::HTML.new(render_options = {})%>
+<% markdown = Redcarpet::Markdown.new(renderer, tables: true, fenced_code_blocks: true, underline: true) %>
+<%= markdown.render(@job.desc).html_safe %>
+
+
+
