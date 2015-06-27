@@ -62,6 +62,37 @@ class SkillsController < ApplicationController
 		redirect_to "/users/#{user.id}"
 	end
 
+	def destroy2
+		employer = User.find(params[:user_id])
+		skill = Skill.find(params[:id])
+		job = Job.find(params[:job_id])		
+		job_skill_index = 0
+		employer_delete_skill = true
+		employer_skill_index = 0
+		employer.jobs.each do |job|
+			job.skills.each do |job_skill|
+				if job_skill.name = skill.name
+					employer_delete_skill = false
+				end
+			end
+		end
+		if employer_delete_skill
+			employer.skills.each_with_index do |employer_skill, i|
+				if employer_skill.name == skill.name
+					employer_skill_index = i
+				end
+			end
+			employer.skills.delete(employer.skills[employer_skill_index])
+		end
+		job.skills.each_with_index do |job_skill, i|
+			if job_skill.name == skill.name
+				job_skill_index = i 
+			end
+		end
+		job.skills.delete(job.skills[job_skill_index])
+		response = {:message => 'success'}
+		render json: response
+	end
 
 
 	private
