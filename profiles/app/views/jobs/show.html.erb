@@ -1,5 +1,5 @@
 <div class="job-show">
-	<img src="<%= @user.image_src %>">
+	<img class="profile_image" src="<%= @user.image_src %>">
 	<h1><%= @user.org_name %> is looking for a <%= @job.title %></h1>
 	<h3>Skills required: 
 		<% @job.skills.each do |skill| %>
