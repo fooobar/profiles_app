@@ -9,9 +9,11 @@
 	<!-- Image -->
 
 		<div class="profile-image">
+		<a class="image-edit-button" id="profile-image-edit-button" href="">Edit</a>
+		<br>
 			<img class="profile-image" src="<%=@user.image_src%>">
-			<br>
-			<a class="image-edit-button" id="profile-image-edit-button" href="">Edit</a>
+			
+			
 			<!-- edit form -->
 			<div class="edit-form" id="profile-image-edit">
 				<%= form_for @user do |f| %>
