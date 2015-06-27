@@ -48,6 +48,7 @@ user_fernanda = User.create({
 	email: 'nandasc@gmail.com',
 	password: 'melville1',
 	user_type: 'student',
+    bio: 'Hi, I am a web developer living in NYC.',
     background: 'http://www.psdgraphics.com/file/colorful-triangles-background.jpg',
     image_src: 'https://scontent-iad3-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/p720x720/12904_10205382361451922_2465365376983298725_n.jpg?oh=80561a1a3e52ca762346e3ec72abbe57&oe=561FC6B2'
 })
@@ -143,10 +144,6 @@ e2 = User.create(org_name: 'Facebook', email: 'facebook@example.com', password: 
 e3 = User.create(org_name: 'Twitter', email: 'twitter@example.com', password: 'melville1', user_type: 'employer')
 
 emps = [e1, e2, e3]
-
-20.times do 
-    Job.create(title: FFaker::Lorem.words(3).join(' '), desc: FFaker::Lorem.paragraph, user_id: emps.sample.id)
-end
 
 Experience.create([
     {

@@ -152,7 +152,10 @@
 							<p>Skills Required:</p>
 							<ul>
 								<%job.skills.each do |skill|%> 
-								<li><%=skill.name%></li>
+								<li><%=skill.name%>
+									<%= form_for skill, url: "/users/#{@user.id}/#{job.id}/#{skill.id}", html: {method: :delete} do |f| %>
+							<%= f.submit 'Delete', class: "profile-job-delete-button" %>
+						<% end %></li>
 								<% end%>
 							</ul>	
 

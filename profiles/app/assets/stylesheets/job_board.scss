@@ -14,6 +14,7 @@
 	background-color: white;
 	border-radius: 5px;
 	border: solid 1px #E6E6E6;
+	margin-bottom: 40px;
 
 		.tags {
 			padding: 20px;
@@ -27,15 +28,33 @@
 			h3 {
 				padding-top: 15px;
 			}
+
+			p {
+			padding:0;
+			margin: 0;
+			margin-bottom: 20px;
+			color: #6E6E6E;
+			}
+
+			h4 {
+			padding:0;
+			margin: 0;
+			color: #6E6E6E;
+			}
+
+			span {
+				background-color: #D4D4D4;
+				padding: 5px;
+				border-radius: 2px;
+				margin-right: 5px;
+				font-size: 13pt;
+			}
 		}
 
 		.tags:hover {
 		background-color: #E6E6E6;
 		}
 
-		p {
-			color: #6E6E6E;
-		}
 
 		a {
 			background-color: #4D4D4D;
