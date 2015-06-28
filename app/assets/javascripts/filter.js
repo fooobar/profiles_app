@@ -2,7 +2,7 @@
 //Hide the unchecked and show the checked
 //if none are checked show all jobs
 $(document).ready(function() {
-	if (typeof data === 'undefined'){
+	if (typeof data !== 'undefined'){
 		renderData(data)
 	}
 })
