@@ -1,6 +1,13 @@
 // select all the checkboxes on the page and check their status
 //Hide the unchecked and show the checked
 //if none are checked show all jobs
+$(document).ready(function() {
+	if (data){
+		renderData(data)
+	}
+})
+
+
 var showChecked = function(){
 	checkbox = $('input[type=checkbox]')
 	if ($( "input:checked" ).length !== 0){
@@ -14,7 +21,7 @@ var showChecked = function(){
 			$(".tags").show();
 	}
 }
-
+// var data = JSON.parse($('#data').attr('data'))
 //rendering the job list to the page
 var renderData = function(dataList){
 	$('#listings').text('')
@@ -24,8 +31,6 @@ var renderData = function(dataList){
   $('.truncate').succinct({ size: 150 });
 
 }
-
-renderData(data)
 
 
 //When a checkbox is changed, the page updates
