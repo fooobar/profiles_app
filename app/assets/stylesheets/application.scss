@@ -1,15 +1,4 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
  *= require_tree .
  *= require_self
  */
@@ -24,10 +13,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-
 }
-
-
 
 .profile-main {
     margin-left: 30px;
@@ -54,8 +40,6 @@ h2 {
     font-size: 25pt;
     color: #3A3A3A;
     padding-bottom: 10px;
-    
-
 }
 
 h3 {
@@ -65,8 +49,6 @@ h3 {
     font-size: 15pt;
     color: #6E6E6E;
     padding-bottom: 10px;
-    
-
 }
 
 
@@ -92,27 +74,39 @@ h3 {
 }
 
 
-
-/* I think this was for testing: 
-.experience, .profile-contact, .job , .add-job, .profile-stats, .profile-options {
-    background: rgba(255,255,255, 0.4);
-    margin-bottom: 10px;
-    border: solid 1px black;
-} */
-
 .edit-form, .add-form {
     display: none;
 }
 
 
 .profile-image {
-    max-width: 200px
+    max-width: 200px;
 }
 
 
 
 
+/* Forms */
+
+input {
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 60%;
+    border-radius: 3px;
+    border: solid 1px $light-grey-color;
+    outline-color: $green-color;
+    outline-width: 1px;
+    margin-top: 5px;
+}
+
+input:focus {
+    background-color: #FAFAFA;
+}
 
 
-
-
+label {
+    text-align: right;
+    font-size: 12px;
+    color: $dark-grey-color;
+    width: 100%;
+}

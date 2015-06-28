@@ -3,10 +3,12 @@ class UsersController < ApplicationController
 	
 	def new_student
 		@user = User.new
+		@current_user = current_user
 	end
 
 	def new_employer
 		@user = User.new
+		@current_user = current_user
 	end
 
 	def create

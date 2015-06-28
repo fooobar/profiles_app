@@ -1,14 +1,43 @@
+$green-color: #00FF99;
+$dark-grey-color: #3A3A3A;
+$light-grey-color: #E6E6E6;
+
 .skill-list {
 	label {
 		color: #6E6E6E;
+		font-size: 12pt;
 		
 	}
 	input {
 		margin-bottom: 15px;
 		margin-left: 5px;
+		width: 0%;
 
 	}
 }
+
+.board-img{
+	width: 100%;
+}
+
+
+.job-board {
+
+	h1{
+		position: absolute;
+		top: 20%;
+		text-align:center;
+		font-size: 70pt;
+		background-color: $green-color;
+		color: white;
+		padding-left: 20px;
+		padding-right: 20px;
+
+
+	}
+}
+
+
 
 #listings {
 	background-color: white;
@@ -19,6 +48,7 @@
 		.tags {
 			padding: 20px;
 			border-bottom: solid 1px #E6E6E6;
+
 
 			h2{
 				padding-bottom: 5px;
