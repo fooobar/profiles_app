@@ -7,7 +7,7 @@ $mid-grey-color: #B8B8B8;
 
 /* buttons */
 
-.edit-button, .image-edit-button, .profile-header-edit-button {
+.edit-button, .image-edit-button, .profile-header-edit-button, .employer-edit-button {
 	font-size: 12px;
 	float: right;
 	text-decoration: none;
@@ -19,7 +19,7 @@ $mid-grey-color: #B8B8B8;
 	margin-top: 4px;
 }
 
-.edit-button:hover, .image-edit-button:hover {
+.edit-button:hover, .image-edit-button:hover, .employer-edit-button:hover {
 	background-color: $green-color;
 	color: white;
 }
@@ -55,7 +55,7 @@ $mid-grey-color: #B8B8B8;
 	color: $dark-grey-color;
 }
 
-.delete-button, .image-update-button, .contact-update-button, .prefs-update-button, .student-header-update-button, .skill-update-button, .project-update-button, .project-create-button, .experience-update-button, .experience-create-button {
+.delete-button, .employer-delete-button, .image-update-button, .contact-update-button, .prefs-update-button, .student-header-update-button, .skill-update-button, .project-update-button, .project-create-button, .experience-update-button, .experience-create-button {
 	font-size: 14px;
 	background-color: white;
 	border: solid 1px #00FF99;
@@ -63,7 +63,7 @@ $mid-grey-color: #B8B8B8;
 }
 
 
-.delete-button {
+.delete-button, .employer-delete-button {
 	float: right;
 	width: 50px;
 	margin: 4px 0px 4px 10px;
@@ -73,7 +73,7 @@ $mid-grey-color: #B8B8B8;
 	color: $mid-grey-color;
 }
 
-.delete-button:hover {
+.delete-button:hover, .employer-delete-button:hover {
 	background-color: $green-color;
 	border-radius: 3px;
 	color: white;
@@ -96,14 +96,30 @@ $mid-grey-color: #B8B8B8;
 }
 
 
+.add-job-form-button, .job-update-button, .add-job-cancel-button {
+	width: 200px;
+	background-color: white;
+	border: solid 1px $green-color;
+}
 
 
+.add-job-form-button, .add-job-cancel-button {
+	display: inline-block;
+}
+
+.add-job-cancel-button {
+	margin-bottom: 20px;
+	text-align: center;
+	text-decoration: none;
+	padding: 5px;
+	border-radius: 5px;
+}
 
 
-
-
-
-
+.add-job-form-button:hover, .add-job-cancel-button:hover {
+	background-color: $green-color;
+	color: white;
+}
 
 
 /* side nav style */
@@ -526,9 +542,3 @@ a:hover {
 	float: left;
 	margin-right: 70px;
 }
-
-
-
-
-
-
