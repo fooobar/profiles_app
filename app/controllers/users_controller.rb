@@ -90,6 +90,7 @@ class UsersController < ApplicationController
 			User.send_match_email(employers,user_skills,params[:id])
 			if current_user.user_type == "student"
 				redirect_to "/users/#{user.id}"
+				return
 			else
 				return_hash = {:user => user, :skill => skill}
 				render json: return_hash
@@ -105,6 +106,7 @@ class UsersController < ApplicationController
 				return
 		end
 		render json: user
+		return
 	end
 
 	def index
