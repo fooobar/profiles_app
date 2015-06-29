@@ -8,7 +8,7 @@
 
 	<!-- Image -->
 
-		<div class="profile-image">
+		<div class="prof-image-div" >
 		<a class="image-edit-button" id="profile-image-edit-button" href="">Edit</a>
 		<br>
 			<img class="profile-image" src="<%=@user.image_src%>">
@@ -27,6 +27,7 @@
 
 		<div class="profile-contact">
 		<a class="edit-button" id="profile-contact-edit-button" href="">Edit</a>
+		<h4>Your Contact Info </h4>
 		<% if @user.city%><h4><%=@user.city%><%end%><% if @user.state%>, <%=@user.state%><%end%></h4>
 			<ul>
 				<li><a class="contact-link email" href="mailto:<%=@user.email%>">Email Me</a></li>
@@ -59,7 +60,7 @@
 					<br>
 					<%= f.text_field :behance %>
 					<br>
-					<%= f.submit 'Update', class: "contact-update-button" %>
+					<%= f.submit 'Update', class: "contact-update-button, update-button" %>
 				<% end %>
 			</div>
 		</div>
@@ -67,23 +68,22 @@
 		<div class="profile-options">
 				<h4>Your Preferences </h4>
 				<%= form_for @user do |f| %>
-					<%= label_tag(:background, "Background Image") %>
+					<%= label_tag(:background, "Background Image URL") %>
 					<br>
 					<%= f.text_field :background %>
 					<br>
-					<%= label_tag(:color, " or Background Color") %>
+					<%= label_tag(:color, "Background Color hex value") %>
 					<br>
 					<%= f.text_field :color %>
 					<br>
-					<%= f.submit 'Update', class: "prefs-update-button" %>
+					<%= f.submit 'Update', class: "prefs-update-button, update-button" %>
 				<% end %>
 
 			</div>
 			<div class="profile-stats">
 				<h4>Your Stats</h4>
-					<p>Your page has been viewed</p>
-					<h1><%=@user.clicked%></h1>
-					<p>times.</p>
+					
+					<h1><%=@user.clicked%></h1><p>Page Views</p>
 			</div>
 
 	</div>
@@ -120,7 +120,7 @@
 					<br>
 					<%= f.text_field :bio %>
 					<br>
-					<%= f.submit 'Update', class: "student-header-update-button" %>
+					<%= f.submit 'Update', class: "student-header-update-button, update-button" %>
 				<% end %>
 			</div>
 
@@ -138,7 +138,7 @@
 					<br>
 					<%= f.text_field :skills, :value => "" %>
 					<br>
-					<%= f.submit 'Update', class: "skill-update-button" %>
+					<%= f.submit 'Update', class: "skill-update-button, update-button" %>
 				<% end %>
 			</div>
 			<ul>
@@ -215,7 +215,7 @@
 							<br>
 							<%= f.text_field :website %>
 							<br>
-							<%= f.submit 'Update', class: "project-update-button" %>
+							<%= f.submit 'Update', class: "project-update-button, update-button" %>
 						<% end %>
 					</div>
 						<%= form_for project, url: "/users/#{@user.id}/projects/#{project.id}", html: {method: :delete} do |f| %>
@@ -306,7 +306,7 @@
 							<br>
 							<%= f.text_field :blurb %>
 							<br>
-							<%= f.submit 'Update', class: "experience-update-button" %>
+							<%= f.submit 'Update', class: "experience-update-button, update-button" %>
 						<% end %>
 					</div>
 						<%= form_for exp, url: "/users/#{@user.id}/experiences/#{exp.id}", html: {method: :delete} do |f| %>
@@ -338,7 +338,7 @@
 				<input type="text" value="{{title}}" name="project[title]" id="project_title">
 				<input type="text" value="{{desc}}" name="project[desc]" id="project_desc">
 				<input type="text" value="{{website}}" name="project[website]" id="project_website">
-				<input type="submit" name="commit" value="Update" class="project-update-button">
+				<input type="submit" name="commit" value="Update" class="project-update-button, update-button">
 			</form>
 		</div>
 	</div>
@@ -363,7 +363,7 @@
 				<input type="text" value="{{city}}" name="experience[city]" id="project_city">
 				<input type="text" value="{{state}}" name="experience[state]" id="project_state">
 				<input type="text" value="{{blurb}}" name="experience[blurb]" id="project_blurb">
-				<input type="submit" name="commit" value="Update" class="experience-update-button">
+				<input type="submit" name="commit" value="Update" class="experience-update-button, update-button">
 			</form>
 		</div>
 	</div>
