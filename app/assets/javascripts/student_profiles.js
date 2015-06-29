@@ -99,9 +99,9 @@ var updateStudentHeader = function(e){
 		data: $(this).parent().serialize()
 	}).done(function(resp) {
 		// update the text to reflect the changes
-		$(this).parents('.profile-header').find('h1').text(resp["f_name"]+" "+resp["l_name"] )
-		$(this).parents('.profile-header').find('h2').text(resp["role"])
-		$(this).parents('.profile-header').find('h3').text(resp["bio"])
+		$(this).parents('.profile-header').find('h1').text(resp["user"]["f_name"]+" "+resp["user"]["l_name"] )
+		$(this).parents('.profile-header').find('h2').text(resp["user"]["role"])
+		$(this).parents('.profile-header').find('h3').text(resp["user"]["bio"])
 		// hide/show form/edit
 		$(this).parents('.profile-header').children().show();
 		$(this).parents('.profile-header').find('.edit-form').hide();		
@@ -233,7 +233,3 @@ var addStudentSkills = function(e){
 		$(this).parents('.profile-skills').find('.add-form').hide();		
 	})
 }
-
-
-
-

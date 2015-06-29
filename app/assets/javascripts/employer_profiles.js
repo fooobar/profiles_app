@@ -169,7 +169,7 @@ var updatePrefs = function(event){
 		data: $(this).parent().serialize()
 	}).done(function(resp) {
 		console.log(resp)
-		$(this).parents().find($('.profile-content')).css('background-image', 'url(' + resp["background"] + ')')
-		$(this).parents().find($('.profile-content')).css('background-color', resp["color"] )		
+		$(this).parents().find($('.profile-content')).css('background-image', 'url(' + resp["user"]["background"] + ')')
+		$(this).parents().find($('.profile-content')).css('background-color', resp["user"]["color"] )		
 	})
 }

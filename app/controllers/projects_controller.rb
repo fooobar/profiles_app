@@ -12,7 +12,12 @@ class ProjectsController < ApplicationController
 	def update
 		project = Project.find(params[:id])
 		project.update(project_params)
-		render json: project
+		if current_user.user_type == "student"
+				redirect_to "/users/#{params[:user_id]}"
+		else
+				render json: project
+				return
+		end
 	end
 
 	def create

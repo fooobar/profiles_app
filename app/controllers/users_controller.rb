@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 				return
 			end
 		else
-			@user.clicked = (Float(@user.clicked) + 1).to_s
+			@user.clicked = (Float(@user.clicked) + 0.5).to_s
 			@user.save
 			if @user.user_type === "student"
 				render :show_student
@@ -88,12 +88,23 @@ class UsersController < ApplicationController
 			employers = User.get_employer_skills()
 			user_skills = User.get_user_skills(params[:id])
 			User.send_match_email(employers,user_skills,params[:id])
-			return_hash = {:user => user, :skill => skill}
-			render json: return_hash
-			return
+			if current_user.user_type == "student"
+				redirect_to "/users/#{user.id}"
+			else
+				return_hash = {:user => user, :skill => skill}
+				render json: return_hash
+				return
+			end
 		end
-		render json: user		
 		@current_user = current_user
+		if current_user.user_type == "student"
+				redirect_to "/users/#{user.id}"
+				return
+		else
+				render json: user
+				return
+		end
+		render json: user
 	end
 
 	def index

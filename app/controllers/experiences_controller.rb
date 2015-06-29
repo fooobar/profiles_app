@@ -11,7 +11,12 @@ class ExperiencesController < ApplicationController
 	def update
 		experience = Experience.find(params[:id])
 		experience.update(experience_params)
-		render json: experience
+		if current_user.user_type == "student"
+				redirect_to "/users/#{params[:user_id]}"
+		else
+				render json: project
+				return
+		end
 	end
 
 	def create
