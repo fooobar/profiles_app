@@ -8,7 +8,7 @@
 
 		<!-- Image -->
 		<div class="prof-image-div" >
-		<a class="image-edit-button" id="profile-image-edit-button" href="">Edit</a>
+		<a class="image-edit-button" id="profile-image-edit-button .employer-edit-button" href="">Edit</a>
 		<br>
 			<img class="profile-image" src="<%=@user.image_src%>">
 			
@@ -138,7 +138,11 @@
 
 			<% @sorted_jobs.each do |job|%>
 				<div class="job" data="<%=job.id%>">
-					<a class="profile-job-edit-button" href="#">Edit</a>
+					
+					<%= form_for job, url: "/users/#{@user.id}/jobs/#{job.id}", html: {method: :delete} do |f| %>
+					<%= f.submit 'Delete', class: "profile-job-delete-button employer-delete-button" %>
+						<% end %>
+						<a class="profile-job-edit-button employer-edit-button" href="#">Edit</a>
 					<div class="job-info">
 						<h3><%=job.title%></h3>
 						<h5>Created at: <%=job.created_at%></h5>
@@ -155,9 +159,7 @@
 							<ul>
 								<%job.skills.each do |skill|%> 
 								<li><%=skill.name%>
-									<%= form_for skill, url: "/users/#{@user.id}/#{job.id}/#{skill.id}", html: {method: :delete} do |f| %>
-							<%= f.submit 'Delete', class: "profile-job-delete-button" %>
-						<% end %></li>
+									</li>
 								<% end%>
 							</ul>	
 
@@ -182,9 +184,6 @@
 						<% end %>
 					</div>
 					<br>
-					<%= form_for job, url: "/users/#{@user.id}/jobs/#{job.id}", html: {method: :delete} do |f| %>
-					<%= f.submit 'Delete', class: "profile-job-delete-button" %>
-						<% end %>
 				</div>
 
 			<%end%>
@@ -198,7 +197,7 @@
 
 <script type="x-mustache" id="new-job-template">
 <div class="job">
-	<a class="profile-job-edit-button" href="#">Edit</a>
+	<a class="profile-job-edit-button employer-edit-button" href="#">Edit</a>
 	<div class="job-info">
 	{{#job}}
 		<h3>{{title}}</h3>
