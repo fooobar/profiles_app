@@ -7,13 +7,13 @@
 	<div class="profile-side-nav">
 
 		<!-- Image -->
-		<div class="profile-image">
-			<img style="width: 200px" src="<%=@user.image_src%>">
+		<div class="prof-image-div prof-image-div-show">
+			<img class="profile-image" style="width: 200px" src="<%=@user.image_src%>">
 		</div>
 		<!-- End Image -->
 
 		<!-- User Contact Links -->
-		<div class="profile-contact">
+		<div class="profile-contact profile-contact-show">
 		<% if @user.city%><h4><%=@user.city%><%end%>
 		<% if @user.state%>, <%=@user.state%><%end%></h4>
 			<ul>
@@ -45,7 +45,7 @@
 
 		<!-- Start Jobs Posted -->
 		<div class="profile-jobs">
-			<h2>Jobs you are offering</h2>
+			<h3>Jobs you are offering</h3>
 			<% @user.jobs.each do |job|%>
 				<div class="job">
 					<h3><%=job.title%></h3>

@@ -586,11 +586,11 @@ Job.create({
 Our Ideal Candidates:\n  Solid programming skills in whatever programming language and a track record of getting stuff done.  2+ years of hardcore client-side web application, or desktop/mobile GUI application development  Experience in major GUI / Client-side web development stack, a strong plus if it is in javascript, jQuery, html/css, Bootstrap, AWS javascript SDK.  Strong UX design, UI, and product sense  A CS degree or an equivalent background in software engineering  Strong plus: exposure to C++, Qt/Qml, photography enthusiast, UX design, PHP / SQL server side development\n
 
  About Topaz Labs\n Topaz Labs is a leading provider of advanced photography software for professional photographers. We're looking for passionate, creative developers to expand our development team for our new products on desktop and mobile.",
-        user_id: e11.id
+        user_id: e4.id
         })
 
 Job.create({
-  title: "UI/UX Designer (Design Ninja)", 
+  title: "UI/UX Designer (Design Ninja)2", 
   desc: "At BitGo, our mission is to secure the world’s bitcoin. Our platform is used by some of the largest institutions and enterprises in the bitcoin space today, and our brand is known as the gold standard for security. We have raised $14 million in venture capital financing from some of the top investors in Silicon Valley, New York, who have backed successful companies like PayPal, Netscape, Red Hat, Proofpoint, Verisign, Juniper Networks, Yammer and Tesla.\n 
 
 Our founders:
@@ -608,3 +608,28 @@ About BitGo, Inc\n Bitgo, a start-up in Palo Alto, CA is multi-signature wallet 
         user_id: e12.id
         })
 
+Job.create({
+  title: "Web App Developer (Javascript, jQuery, HTML,CSS, Client-side)", 
+  desc: "As a Web App Developer at Topaz Labs, you'll have the opportunity to collaborate with top notch software developers and image processing experts to create cloud-centric desktop and mobile photo applications. As an early member of our next generation product team you will be able to exercise your creativity and skill to the fullest and directly shape products for millions of people. You will be instrumental in the foundation of amazing products with a great user experience. In a small but fast growing company, you will have the special opportunity to grow with the company.\n
+
+ What We Offer:\n 
+  A place to work, learn and have fun among some of the best software developers, computer scientists, and photography artists  Flat organizational structure that ensures your ultimate freedom of creativity on the products we build  Informal and creative company culture, with frequent celebratory lunches and group activities.  Competitive salary, year-end bonus, comprehensive benefits (medical, dental, vision, matching 401K)\n
+
+Our Ideal Candidates:\n  Solid programming skills in whatever programming language and a track record of getting stuff done.  2+ years of hardcore client-side web application, or desktop/mobile GUI application development  Experience in major GUI / Client-side web development stack, a strong plus if it is in javascript, jQuery, html/css, Bootstrap, AWS javascript SDK.  Strong UX design, UI, and product sense  A CS degree or an equivalent background in software engineering  Strong plus: exposure to C++, Qt/Qml, photography enthusiast, UX design, PHP / SQL server side development\n
+
+ About Topaz Labs\n Topaz Labs is a leading provider of advanced photography software for professional photographers. We're looking for passionate, creative developers to expand our development team for our new products on desktop and mobile.",
+        user_id: e11.id
+        })
+
+Job.create({
+  title: "Web App Developer (Javascript, jQuery, HTML,CSS, Client-side)", 
+  desc: "As a Web App Developer at Topaz Labs, you'll have the opportunity to collaborate with top notch software developers and image processing experts to create cloud-centric desktop and mobile photo applications. As an early member of our next generation product team you will be able to exercise your creativity and skill to the fullest and directly shape products for millions of people. You will be instrumental in the foundation of amazing products with a great user experience. In a small but fast growing company, you will have the special opportunity to grow with the company.\n
+
+ What We Offer:\n 
+  A place to work, learn and have fun among some of the best software developers, computer scientists, and photography artists  Flat organizational structure that ensures your ultimate freedom of creativity on the products we build  Informal and creative company culture, with frequent celebratory lunches and group activities.  Competitive salary, year-end bonus, comprehensive benefits (medical, dental, vision, matching 401K)\n
+
+Our Ideal Candidates:\n  Solid programming skills in whatever programming language and a track record of getting stuff done.  2+ years of hardcore client-side web application, or desktop/mobile GUI application development  Experience in major GUI / Client-side web development stack, a strong plus if it is in javascript, jQuery, html/css, Bootstrap, AWS javascript SDK.  Strong UX design, UI, and product sense  A CS degree or an equivalent background in software engineering  Strong plus: exposure to C++, Qt/Qml, photography enthusiast, UX design, PHP / SQL server side development\n
+
+ About Topaz Labs\n Topaz Labs is a leading provider of advanced photography software for professional photographers. We're looking for passionate, creative developers to expand our development team for our new products on desktop and mobile.",
+        user_id: e4.id
+        })

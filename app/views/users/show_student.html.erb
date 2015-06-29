@@ -8,13 +8,13 @@
 
 	<!-- Image -->
 
-		<div >
+		<div class="prof-image-div prof-image-div-show" >
 			<img class="profile-image" src="<%=@user.image_src%>">
 		</div>
 
 	<!-- Contact Links -->
 
-		<div class="profile-contact">
+		<div class="profile-contact profile-contact-show">
 		<% if @user.city%><h4><%=@user.city%><%end%><% if @user.state%>, <%=@user.state%><%end%></h4>
 		<h4>Contact Info </h4>
 			<ul>
@@ -43,7 +43,7 @@
 
 		<!-- Skills -->
 
-		<div class="profile-skills">
+		<div class="profile-skills profile-skills-show">
 			<h2>Skills</h2>
 			<ul>
 				<% @user.skills.each do |skill|%>
@@ -59,10 +59,13 @@
 			<% @user.projects.each do |project| %>
 				<div class="project">
 					<img class="project-image" src="<%=project.image_src%>">
-					<h3><%= project.title%></h3>
-					<p><%= project.desc%></p>
-					<a class="read-more" href="<%=project.website%>">Read More</a>
-				</div>
+					<div class="project-details">
+						<h3><%= project.title%></h3>
+						<p><%= project.desc%></p>
+						<a class="read-more" href="<%=project.website%>">See Website</a>
+					</div>
+				</div>	
+				<div class="clear-row"> </div>
 			<%end%>
 		</div>
 

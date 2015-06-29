@@ -4,19 +4,21 @@
 	background-color: <%=@user.color%>">
 <!-- SIDE NAV -->
 
-	<div class="profile-side-nav" data="<%=@user.id%>">
+	<div class="outcomes profile-side-nav" data="<%=@user.id%>">
 
 	<!-- Image -->
 
-		<div class="profile-image">
+		<div class="prof-image-div" >
+		<a class="image-edit-button" id="profile-image-edit-button" href="">Edit</a>
+		<br>
 			<img class="profile-image" src="<%=@user.image_src%>">
-			<br>
-			<a class="image-edit-button" id="profile-image-edit-button" href="">Edit Image</a>
+			
+			
 			<!-- edit form -->
 			<div class="edit-form" id="profile-image-edit">
 				<%= form_for @user do |f| %>
 					<%= f.text_field :image_src %>
-					<%= f.submit 'Update', class: "image-update-button" %>
+					<%= f.submit 'Update', class: "image-update-button update-button" %>
 				<% end %>
 			</div>
 		</div>
@@ -27,8 +29,8 @@
 		<a class="edit-button" id="profile-contact-edit-button" href="">Edit</a>
 		<% if @user.city%><h4><%=@user.city%><%end%><% if @user.state%>, <%=@user.state%><%end%></h4>
 			<ul>
-				<li><%=@user.f_name%> <%=@user.l_name%></li>
-				<li><a href="mailto:<%=@user.email%>">Your Login Email</a></li>
+				<li><%=@user.l_name%> <%=@user.f_name%> </li>
+				<li><a href="mailto:<%=@user.email%>">Your Email</a></li>
 			</ul>
 			<!-- edit form -->
 			<div class="edit-form" id="profile-contact-edit">
@@ -45,7 +47,7 @@
 					<br>
 					<%= f.text_field :l_name %>
 					<br>
-					<%= f.submit 'Update', class: "contact-update-button" %>
+					<%= f.submit 'Update', class: "contact-update-button update-button" %>
 				<% end %>
 			</div>
 		</div>
@@ -61,56 +63,59 @@
 				<br>
 				<%= f.text_field :color %>
 				<br>
-				<%= f.submit 'Update', class: "prefs-update-button" %>
+				<%= f.submit 'Update', class: "prefs-update-button update-button" %>
 			<% end %>
 
 		</div>
-		<div class="profile-stats">
-			<h4>Your Stats</h4>
-				<p>Your page has been viewed</p>
-				<h1><%=@user.clicked%></h1>
-				<p>time.</p>
-		</div>
+
 
 	</div>
 
 	<!-- MAIN AREA -->
 
-	<div class="profile-main">
-		<h1>Welcome to the Outcomes Page</h1>
+	<div class="profile-header profile-main">
+		<h1>Outcomes Page</h1>
 		<div class="outcome-stats">
 			<h2>Students</h2>
-			<p>We have <%=@students.count%> students:</p>
-			<ul>
-				<% @students.each do |student| %>
-				<li><a href="/users/<%=student.id%>"><%= student.f_name%> <%= student.l_name %></a> | Viewed: <%= student.clicked %></li>
-				<%end%>
-			</ul>
-			<p>Students are searching for jobs with these skills:</p>
-			<ul>
-				<% @skillsStudents.each do |skill| %>
-				<li><%= skill.name%> | Clicked on: <%= skill.student_clicks%></li>
-				<%end%>
-			</ul>
+			<div class="fleft">
+				<h5>We have <%=@students.count%> students:</h5>
+				<ul>
+					<% @students.each do |student| %>
+					<li><a href="/users/<%=student.id%>"><%= student.f_name%> <%= student.l_name %></a> | Viewed: <%= student.clicked %></li>
+					<%end%>
+				</ul>
+			</div>
+			<div class="fleft">
+				<h5>Top skill search:</h5>
+				<ul>
+					<% @skillsStudents.each do |skill| %>
+					<li><%= skill.name%> | Clicked on: <%= skill.student_clicks%></li>
+					<%end%>
+				</ul>
+			</div>
 		</div>
+
+		<div class="clear-row"></div>
 
 		<div class="outcome-stats">
 			<h2>Employers</h2>
-			<p>We have <%=@employers.count%> employers:</p>
-			<ul>
-				<% @employers.each do |employer| %>
-				<li><a href="/users/<%=employer.id%>"><%= employer.org_name%></a> | Viewed: <%= employer.clicked %></li>
-				<%end%>
-			</ul>
-			<p>Employers are searching for these skills:</p>
-			<ul>
-				<% @skillsEmployers.each do |skill| %>
-				<li><%= skill.name%> | Clicked on: <%= skill.employer_clicks%></li>
-				<%end%>
-			</ul>
+			<div class="fleft">
+				<h5>We have <%=@employers.count%> employers:</h5>
+				<ul>
+					<% @employers.each do |employer| %>
+					<li><a href="/users/<%=employer.id%>"><%= employer.org_name%></a> | Viewed: <%= employer.clicked %></li>
+					<%end%>
+				</ul>
+			</div>
+			<div class="fleft">
+				<h5>Top skill search:</h5>
+				<ul>
+					<% @skillsEmployers.each do |skill| %>
+					<li><%= skill.name%> | Clicked on: <%= skill.employer_clicks%></li>
+					<%end%>
+				</ul>
+			</div>
 		</div>
-		
-	
 	</div>
 
 </div>
