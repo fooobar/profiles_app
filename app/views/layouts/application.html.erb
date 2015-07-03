@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profiles</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+<div class="current-user-header">
+		<% if @current_user%>
+			<% if @current_user.user_type == "student" || @current_user.user_type == "outcomes"%>
+				<img class="nav-bar-picture" src="/images/logo.png"><a href="/">Home</a> <img class="nav-bar-picture" src="<%=@current_user.image_src%>"><a href="/users/<%=@current_user.id%>">Hello <%= @current_user.f_name%></a>
+				<a href="/jobs">| Job Board</a>
+			<% else %>
+				<img class="nav-bar-picture" src="/images/logo.png"><a href="/">Home</a><img class="nav-bar-picture" src="<%=@current_user.image_src%>"><a href="/users/<%=@current_user.id%>">Hello <%=@current_user.org_name%></a></a>
+				<a href="/skills">| Student Board</a>
+			<% end %>
+		<% else %>
+		<div> 
+			<img class="nav-bar-picture" src="/images/logo.png"><a href="/">Generic Constructor</a>
+			<a id="login" href="/login">Log in</a>
+		</div>
+		<% end %>
+	<% if @current_user%>
+		<a id="logout" href="/logout">Log Out</a>
+	<% end %>
+</div>
+
+
+<%= yield %>
+
+<div class="bottom-marg"></div>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</body>
+</html>

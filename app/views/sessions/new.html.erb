@@ -1,0 +1,19 @@
+<img class="sign-up-image" src="/images/man-people-space-desk.jpg">
+
+
+<div class="login">
+	<h1>Login</h1>
+	<br>
+	<%= form_tag("/login", method: "post", class: "login-form") do |f| %>
+		<%= label_tag(:email, "Email") %>
+		<br>
+		<%= email_field(:user, :email) %>
+		<br>
+		<%= label_tag(:password, "Password") %>
+		<br>
+		<%= password_field_tag(:password) %>
+		<br>
+		<%= submit_tag("Login", class: "login-submit") %>
+	<% end %>
+
+</div>

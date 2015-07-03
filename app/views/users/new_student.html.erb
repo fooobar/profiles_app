@@ -1,0 +1,24 @@
+<img class="sign-up-image" src="/images/man-people-office-writing.jpg">
+<div class="login">
+	<h1>Student<br>Sign-up</h1>
+	<%= form_for @user do |f| %>
+	<br>
+	<%= f.label "First Name" %><br>
+	<%= f.text_field :f_name %><br>
+
+	<%= f.label "Last Name" %><br>
+	<%= f.text_field :l_name %><br>
+
+	<%= f.label "Email" %><br>
+	<%= f.text_field :email %><br>
+
+	<%= f.label "Password" %><br>
+	<%= f.password_field :password %><br>
+
+	<%= hidden_field_tag :user_type, 'student'  %><br>
+
+	<%= f.submit 'New Student', class: "login-submit new-user-button"%>
+
+	<% end %>
+
+</div>

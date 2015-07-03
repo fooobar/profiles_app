@@ -1,0 +1,21 @@
+<div class="job-show">
+	<img class="profile_image" src="<%= @user.image_src %>">
+	<h1><%= @user.org_name %> is looking for a <%= @job.title %></h1>
+	<h3>Skills required: 
+		<% @job.skills.each do |skill| %>
+			<span><%= skill.name %></span>
+		<% end %>
+	</h3>
+	<% renderer = Redcarpet::Render::HTML.new(render_options = {})%>
+	<% raw markdown = Redcarpet::Markdown.new(renderer) %>
+	<div class="job-posting-content">
+		<%= markdown.render(@job.desc).html_safe%>
+	</div>
+	<a href="mailto:<%= @user.email %>">Apply for this job</a>
+	<a href="/users/<%=@user.id%>">View Employer Profile</a>
+	<br>
+	<br>
+	<br>
+</div>
+
+

@@ -1,0 +1,41 @@
+<div class="job-board">
+
+	<h1>Job Board</h1>
+	<%= image_tag "/images/find-student.jpg", :class => "board-img"%>
+
+	<div class = "filter-container profile-side-nav">
+	<h3>Filter this list by skill</h3>
+		<form name="skill-list" class="skill-list">
+			<br>
+			<% @skills.each do |skill| %>
+			<label for="<%= skill.name %>"><%= skill.name %></label>
+			<input type="checkbox" name="<%= skill.param %>" value="<%= skill.id %>">
+			<br>
+			<% end %>
+		</form>
+	</div>
+
+	<div class="profile-main">
+	<div id="listings"></div>
+	<script id="template" type="x-tmpl-mustache">
+		{{#jobs}}
+				<div class="tags{{#skills}} {{param}}{{/skills}}">
+					<h2>{{title}}</h2>
+					<h3>Required Skills:
+								{{#skills}}
+									<span>{{name}}</span>
+								{{/skills}}
+						
+					</h3>
+					<p class="truncate">{{desc}}</p><a href="/jobs/{{id}}">Read More</a>
+					<br>
+					</div>
+		{{/jobs}}
+	</script>
+	</div>
+	<script>
+		var data = {jobs :<%=raw @jobs.to_json(:include => :skills)%>}
+	</script>
+
+	<%= javascript_include_tag("footer") %>
+</div>
