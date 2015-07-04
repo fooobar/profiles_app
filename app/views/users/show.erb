@@ -1,0 +1,150 @@
+<div class="profile-content" style="
+	background-image: url(<%=@user.background%>); 
+	background-repeat: no-repeat; 
+	background-color: <%=@user.color%>">
+	
+	<!-- START SIDE NAV -->
+
+	<div class="side-nav" data="<%=@user.id%>">
+
+	<!-- Image -->
+		<div class="image-div" >
+			<img class="profile-image" src="<%=@user.image_src%>">
+		</div>
+	<!-- End Image -->
+
+
+	<!-- Contact Links -->
+		<div class="user-contact">
+
+			<h4>Your Contact Info </h4>
+			<a class="edit-button" href="">Edit</a>
+
+			<ul>
+				<li><a href="mailto:<%=@user.email%>">Email Me</a></li>
+
+				<% if @user.website && @user.website != "" %>
+					<li>
+						<a href="<%=@user.website%>">My Website</a>
+					</li>
+				<%end%>
+
+				<% if @user.twitter && @user.twitter != "" %>
+				<li>
+					<a href="<%=@user.twitter%>">Tweet Me</a>
+				</li>
+				<%end%>
+
+
+				<% if @user.github && @user.github != "" %>
+				<li>
+					<a href="<%=@user.github%>">GitHub</a>
+				</li>
+				<%end%>
+
+				<% if @user.linkedin && @user.linkedin != "" %><li>
+					<a href="<%=@user.linkedin%>">LinkedIn</a>
+				</li>
+				<%end%>
+
+				<% if @user.behance && @user.behance != ""%>
+				<li>
+					<a href="<%=@user.behance%>">Behance</a>
+				</li>
+				<%end%>
+			</ul>
+		</div>
+	</div>
+
+	<!-- End User Contact Links -->
+
+	<div class="user-main-content">
+
+		<div class="user-header">
+			<div class="user-info">
+				<a class="edit-button" href="#">Edit</a>
+
+				<% if @user.user_type === "employer" %>
+					<h1><%= @user.org_name%></h1>
+				<% else %>
+					<h1><%= @user.f_name%> <%= @user.l_name%></h1>
+					<% if @user.role %> <h2><%= @user.role%></h2> <%end%>
+				<% end %>
+				<% if @user.bio %> <h2><%= @user.bio%></h2> <%end%>
+				<% if @user.city%> <h4><%=@user.city%><%end%> <% if @user.state%>, <%=@user.state%> </h4> 
+				<%end%>
+			</div>
+		</div>
+
+		<% if @user.user_type === "employer" %>
+			<% renderer = Redcarpet::Render::HTML.new(render_options = {})%>
+			<% raw markdown = Redcarpet::Markdown.new(renderer) %>
+
+				<!-- Start Jobs Posted -->
+				<div class="user-jobs">
+					<h3>Jobs you are offering</h3>
+					<% @user.jobs.each do |job|%>
+						<div class="job">
+							<h3><%=job.title%></h3>
+							<h5>Created at: <%=job.created_at%></h5>
+							<p class="job-desc-preview"><%=job.desc.truncate_words(20)%>... <a href="#">More</a></p>
+							<p class="job-desc-all hidden"><%= markdown.render(job.desc)%> <a href="#">Less</a></p>
+						</div>
+					<%end%>
+				</div>
+				<!-- End Jobs Posted -->
+
+		<% elsif @user.user_type === "student" %>
+
+			<!-- Skills -->
+
+			<div class="user-skills">
+				<h2>Skills</h2>
+				<ul>
+					<% @user.skills.each do |skill|%>
+						<li><%=skill.name%></li>
+					<%end%>
+				</ul>
+			</div>
+
+			<!-- Projects -->
+
+			<div class="user-projects">
+				<h2>Projects</h2>
+				<% @user.projects.each do |project| %>
+					<div class="project">
+						<img class="project-image" src="<%=project.image_src%>">
+						<div class="project-details">
+							<h3><%= project.title%></h3>
+							<p><%= project.desc%></p>
+							<a class="project-website" href="<%=project.website%>">See Website</a>
+						</div>
+					</div>	
+					<div class="clear-row"> </div>
+				<%end%>
+			</div>
+
+			<div class="clear-row"></div>
+
+			<!-- Work Experience -->
+
+			<div class="user-experiences">
+				<h2>Experiences</h2>
+				<% @user.experiences.each do |exp|%>
+					<div class="experience">
+						<h3><%=exp.role%></h3>
+						<h4><%=exp.company_name%></h4>
+						<h5><%=exp.start_date%> &mdash; <%=exp.end_date%> | <%=exp.city%>, <%=exp.state%></h5>
+						<p><%= exp.blurb%></p>
+					</div>
+				<%end%>
+			</div>
+
+		<% elsif @user.user_type === "outcomes" %>
+			<%= render "/users/outcomes_content" %>
+		<%end%>
+	</div>
+	
+</div>
+
+

@@ -17,7 +17,7 @@ var showChecked = function(){
 
 //rendering the job list to the page
 var renderData = function(dataList){
-	$('#listings').text('')
+	$('#listings').text('');
 	var template = $('#template').html()
 	var render = Mustache.render(template, dataList)
 	$('#listings').append(render)

@@ -17,3 +17,11 @@
 //= require_tree .
 
 
+$(document).ready(function() {
+	resizeDiv();
+})
+
+var resizeDiv = function(){
+	var vph = $( document ).height();
+	$('.profile-content').css({'height': vph});
+}

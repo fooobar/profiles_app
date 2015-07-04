@@ -1,0 +1,23 @@
+<div class="profile-content" style="
+	background-image: url(<%=@user.background%>); 
+	background-repeat: no-repeat; 
+	background-color: <%=@user.color%>">
+
+	<%= render "/users/side_nav" %>
+
+
+	<div class="profile-main">
+		<%= render "/users/header" %>
+
+		<% if @user.user_type === "student" %>
+			<%= render "/users/student_content" %>
+		<% elsif  @user.user_type === "employer" %> 
+			<%= render "/users/employer_content" %>
+		<% else %>
+			<%= render "/users/outcomes_content" %>
+		<% end %>
+	</div>
+
+	<%= render "/users/mustache" %>
+
+</div>

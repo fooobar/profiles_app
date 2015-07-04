@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
 	before_action :authorize, except: [:create, :new, :new_employer, :new_student]
 	
+	def index
+		@users = User.all
+		@current_user = current_user
+	end
+
 	def new_student
 		@user = User.new
 		@current_user = current_user
@@ -14,13 +19,19 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		@user.user_type = (params[:user_type])
-			if @user.save
-				redirect_to @user
-			else
-				render :new_student
-			end
+		if @user.user_type === "student" && @user.save
+			redirect_to @user
+		else
+			render :new_student
+		end
+		if @user.user_type === "employer" && @user.save
+			redirect_to @user
+		else
+			render :new_employer
+		end
 		@current_user = current_user
 	end
+
 
 	def show
 		@user = User.find(params[:id])
@@ -28,42 +39,24 @@ class UsersController < ApplicationController
 		@project = Project.new
 		@experience = Experience.new
 		if current_user === @user
-			if @user.user_type === "student"
 				@sorted_experiences = @user.experiences.order(end_date: :desc)
-				render :edit_student
-				return
-			elsif @user.user_type === "employer"
 				@sorted_jobs = @user.jobs.order(updated_at: :desc)
-				render :edit_employer
-				return 
-			else 
+				@sorted_projects = @user.projects.order(updated_at: :desc)
 				@students = User.where(:user_type => "student")
 				@employers = User.where(:user_type => "employer")
 				@skillsStudents = Skill.all.order(student_clicks: :desc)
 				@skillsEmployers = Skill.all.order(student_clicks: :desc)
-				@projects = Project.all
-				render :edit_outcomes
-				return
-			end
+				render :profile
+				# return
 		else
-			@user.clicked = (Float(@user.clicked) + 0.5).to_s
+			@user.clicked = (Float(@user.clicked) + 1).to_s
 			@user.save
-			if @user.user_type === "student"
-				render :show_student
-				return
-			else 
-				render :show_employer
-				return
-			end
+			render :show
+			# return
 		end
 		@current_user = current_user
-
 	end
 
-	# def edit
-	# 	@user = User.find(params[:id])
-	# 	render :edit_student
-	# end
 
 	def update
 		user = User.find(params[:id])
@@ -87,7 +80,7 @@ class UsersController < ApplicationController
 			user.skills.push(skill)
 			employers = User.get_employer_skills()
 			user_skills = User.get_user_skills(params[:id])
-			User.send_match_email(employers,user_skills,params[:id])
+			# User.send_match_email(employers,user_skills,params[:id])
 			return_hash = {:user => user, :skill => skill}
 			render json: return_hash
 			return
@@ -96,10 +89,6 @@ class UsersController < ApplicationController
 		@current_user = current_user
 	end
 
-	def index
-		@users = User.all
-		@current_user = current_user
-	end
 
 	private 
 		def user_params

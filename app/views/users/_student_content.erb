@@ -1,0 +1,210 @@
+<!-- MAIN AREA -->
+<div class="user-main-content">
+
+<!-- Skills -->
+
+	<div class="user-skills">
+		<h2>Skills</h2>
+		<a class="add-button" href="#">Add Skill</a>
+		<!-- edit form -->
+		<div class="add-form">
+			<%= form_for @user do |f| %>
+				<%= label_tag(:skills, "Add Skill") %>
+				<%= f.text_field :skills, :value => "" %>
+				<%= f.submit 'Add Skill', class: "add-skill-button" %>
+				<a href="#" class="cancel-button">Cancel</a>
+			<% end %>
+		</div>
+
+		<ul>
+			<% @user.skills.each do |skill|%>
+				<li><%=skill.name%>
+					<%= form_for skill, url: "/users/#{@user.id}/skills/#{skill.id}", html: {method: :delete} do |f| %>
+						<%= f.submit 'X', class: "delete-skill" %>
+					<% end %>
+				</li>
+			<%end%>
+		</ul>
+	</div>
+
+<!-- End Skills -->
+
+<!-- Start Projects -->
+
+	<div class="user-projects">
+
+		<h2>Projects</h2>
+		<a class="add-button" href="">Add Project</a>
+		<div class="add-form">
+			<h4>Add New Project</h4>
+			<%= form_for @project, url: "/users/#{@user.id}/projects", html: {method: :post} do |f| %>
+				<%= label_tag(:image_src, "Image Url") %>
+				<br>
+				<%= f.text_field :image_src %>
+				<br>
+				<%= label_tag(:title, "Project Title") %>
+				<br>
+				<%= f.text_field :title %>
+				<br>
+				<%= label_tag(:desc, "Description") %>
+				<br>
+				<%= f.text_field :desc %>
+				<br>
+				<%= label_tag(:website, "Project Website") %>
+				<br>
+				<%= f.text_field :website %>
+				<br>
+				<%= f.submit 'Add Project', class: "create-button" %>
+				<a href="#" class="cancel-button">Cancel</a>
+			<% end %>
+		</div>
+		
+		<!-- Where new projects are appended -->
+		<div class="new-project"></div>
+
+		<!-- Rendering of projects already in the database -->
+			<% @sorted_projects.each do |project| %>
+			<div class="project" data="<%=project.id%>">
+				<div class="user-info">
+					<%= form_for project, url: "/users/#{@user.id}/projects/#{project.id}", html: {method: :delete} do |f| %>
+						<%= f.submit 'Delete', class: "this-delete-button" %>
+					<% end %>
+					<a class="edit-button"  href="">Edit</a>
+					<div class="clear-row"> </div>
+
+					<img class="project-image" src="<%=project.image_src%>">
+					<div class="project-details">
+						<h3><%= project.title%></h3>
+						<p><%= project.desc%></p>
+						<a class="project-website" href="<%=project.website%>">See Website</a>
+					</div>
+				</div>
+				
+			<!-- edit form -->
+				<div class="edit-form">
+				<%= form_for project, url: "/users/#{@user.id}/projects/#{project.id}", html: {method: :patch} do |f| %>
+					<%= label_tag(:image_src, "Image Url") %>
+					<br>
+					<%= f.text_field :image_src %>
+					<br>
+					<%= label_tag(:title, "Project Title") %>
+					<br>
+					<%= f.text_field :title %>
+					<br>
+					<%= label_tag(:desc, "Description") %>
+					<br>
+					<%= f.text_field :desc %>
+					<br>
+					<%= label_tag(:website, "Project Website") %>
+					<br>
+					<%= f.text_field :website %>
+					<br>
+					<%= f.submit 'Update', class: "update-button" %>
+					<a href="#" class="cancel-button">Cancel</a>
+				<% end %>
+				</div>
+				<div class="clear-row"> </div>
+			</div>
+			<%end%>
+
+	<div class="clear-row"></div>
+	</div>
+
+	<!-- Work Experience -->
+	<div class="user-experiences">
+		<h2>Experiences</h2>
+		<div class="add-experience">
+			<a class="add-button" href="#">Add Experience</a>
+			<div class="add-form">
+				<%= form_for @experience, url: "/users/#{@user.id}/experiences", html: {method: :post} do |f| %>
+					<%= label_tag(:company_name, "Company Name *") %>
+					<br>
+					<%= f.text_field :company_name %>
+					<br>
+					<%= label_tag(:start_date, "Start Date *") %>
+					<br>
+					<%= f.date_field :start_date %>
+					<br>
+					<%= label_tag(:end_date, "End Date *") %>
+					<br>
+					<%= f.date_field :end_date %>
+					<br>
+					<%= label_tag(:role, "Role*") %>
+					<br>
+					<%= f.text_field :role %>
+					<br>
+					<%= label_tag(:blurb, "Description") %>
+					<br>
+					<%= f.text_field :blurb %>
+					<br>
+					<%= label_tag(:city, "City") %>
+					<br>
+					<%= f.text_field :city %>
+					<br>
+					<%= label_tag(:state, "State") %>
+					<br>
+					<%= f.text_field :state %>
+					<br>
+					<%= f.submit 'Add Experience', class: "create-button" %>
+					<a href="#" class="cancel-button">Cancel</a>
+				<% end %>
+			</div>
+		</div>
+		
+		<div class="new-experience"></div>
+
+		<% @sorted_experiences.each do |exp|%>
+			<div class="experience" data="<%=exp.id%>">
+
+				<div class="user-info">
+					<%= form_for exp, url: "/users/#{@user.id}/experiences/#{exp.id}", html: {method: :delete} do |f| %>
+							<%= f.submit 'Delete', class: "this-delete-button" %>
+					<% end %>
+					<a class="edit-button" href="#">Edit</a>
+					
+					<h3><%=exp.role%></h3>
+					<h4><%=exp.company_name%></h4>
+					<h5><%=exp.start_date%> &mdash; <%=exp.end_date%> | <%=exp.city%>, <%=exp.state%></h5>
+					<p><%= exp.blurb%></p>
+				</div>
+				<!-- edit form -->
+				<div class="edit-form" id="profile-experience-edit">
+					<%= form_for exp, url: "/users/#{@user.id}/experiences/#{exp.id}", html: {method: :patch} do |f| %>
+						<%= label_tag(:role, "Role") %>
+						<br>
+						<%= f.text_field :role %>
+						<br>
+						<%= label_tag(:company_name, "Company Name") %>
+						<br>
+						<%= f.text_field :company_name %>
+						<br>
+						<%= label_tag(:start_date, "Start Date") %>
+						<br>
+						<%= f.date_field :start_date %>
+						<br>
+						<%= label_tag(:end_date, "End Date") %>
+						<br>
+						<%= f.date_field :end_date %>
+						<br>
+						<%= label_tag(:city, "City") %>
+						<br>
+						<%= f.text_field :city %>
+						<br>
+						<%= label_tag(:state, "State") %>
+						<br>
+						<%= f.text_field :state %>
+						<br>
+						<%= label_tag(:blurb, "Description") %>
+						<br>
+						<%= f.text_field :blurb %>
+						<br>
+						<%= f.submit 'Update', class: "update-button" %>
+						<a href="#" class="cancel-button">Cancel</a>
+					<% end %>
+				</div>
+						
+			</div>	
+		<%end%>
+	</div>
+
+</div>

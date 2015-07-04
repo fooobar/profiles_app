@@ -1,0 +1,43 @@
+<div class="outcome-stats">
+	<h2>Students</h2>
+	<div class="clear-row"></div>
+	<div class="fleft">
+		<h5>We have <%=@students.count%> students:</h5>
+		<ul>
+			<% @students.each do |student| %>
+			<li><a href="/users/<%=student.id%>"><%= student.f_name%> <%= student.l_name %></a> | Viewed: <%= student.clicked %></li>
+			<%end%>
+		</ul>
+	</div>
+	<div class="fleft">
+		<h5>Top skill search:</h5>
+		<ul>
+			<% @skillsStudents.each do |skill| %>
+			<li><%= skill.name%> | Clicked on: <%= skill.student_clicks%></li>
+			<%end%>
+		</ul>
+	</div>
+</div>
+
+<div class="clear-row"></div>
+
+<div class="outcome-stats">
+	<h2>Employers</h2>
+	<div class="clear-row"></div>
+	<div class="fleft">
+		<h5>We have <%=@employers.count%> employers:</h5>
+		<ul>
+			<% @employers.each do |employer| %>
+			<li><a href="/users/<%=employer.id%>"><%= employer.org_name%></a> | Viewed: <%= employer.clicked %></li>
+			<%end%>
+		</ul>
+	</div>
+	<div class="fleft">
+		<h5>Top skill search:</h5>
+		<ul>
+			<% @skillsEmployers.each do |skill| %>
+			<li><%= skill.name%> | Clicked on: <%= skill.employer_clicks%></li>
+			<%end%>
+		</ul>
+	</div>
+</div>

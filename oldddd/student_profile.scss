@@ -1,0 +1,544 @@
+$green-color: #00FF99;
+$dark-grey-color: #3A3A3A;
+$light-grey-color: #E6E6E6;
+$mid-grey-color: #B8B8B8;
+
+
+
+/* buttons */
+
+.edit-button, .image-edit-button, .profile-header-edit-button, .employer-edit-button {
+	font-size: 12px;
+	float: right;
+	text-decoration: none;
+	color: $mid-grey-color;
+	background-color: white;
+	padding:5px;
+	border-radius: 3px;
+	margin-bottom: 4px;
+	margin-top: 4px;
+}
+
+.edit-button:hover, .image-edit-button:hover, .employer-edit-button:hover {
+	background-color: $green-color;
+	color: white;
+}
+
+
+.image-update-button {
+	width: 60%;
+}
+
+.image-update-button:hover {
+	background-color: $green-color;
+	color: white;
+	width: 40%;
+}
+
+
+.skill-add-button, .add-button, .add-job-button {
+	font-size: 14px;
+	background-color: #E6E6E6;
+	width: 99.5%;
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	border: solid 1px $mid-grey-color;
+}
+
+.skill-add-button:hover, .add-button:hover, .add-job-button:hover {
+	background-color: $mid-grey-color;
+	color: $dark-grey-color;
+}
+
+.delete-button, .employer-delete-button, .image-update-button, .contact-update-button, .prefs-update-button, .student-header-update-button, .skill-update-button, .project-update-button, .project-create-button, .experience-update-button, .experience-create-button {
+	font-size: 14px;
+	background-color: white;
+	border: solid 1px #00FF99;
+	margin-top: 10px;
+}
+
+
+.delete-button, .employer-delete-button {
+	float: right;
+	width: 50px;
+	margin: 4px 0px 4px 10px;
+	padding: 5px 0px 5px 0px;
+	font-size: 12px;
+	border: none;
+	color: $mid-grey-color;
+}
+
+.delete-button:hover, .employer-delete-button:hover {
+	background-color: $green-color;
+	border-radius: 3px;
+	color: white;
+}
+
+.read-more {
+	background-color: white;
+	border: solid 1px #00FF99;
+	padding: 6px;
+	margin-bottom: 10px;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+.read-more:hover {
+	background-color: #00FF99;
+	color: #4D4D4D;
+	font-size: 12px;
+	border: solid 1px #00FF99;
+}
+
+
+.add-job-form-button, .job-update-button, .add-job-cancel-button {
+	width: 200px;
+	background-color: white;
+	border: solid 1px $green-color;
+}
+
+
+.add-job-form-button, .add-job-cancel-button {
+	display: inline-block;
+}
+
+.add-job-cancel-button {
+	margin-bottom: 20px;
+	text-align: center;
+	text-decoration: none;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+
+.add-job-form-button:hover, .add-job-cancel-button:hover {
+	background-color: $green-color;
+	color: white;
+}
+
+
+/* side nav style */
+
+.student, .employer, .outcomes{
+	padding-top: 0px;
+}
+
+.profile-image {
+    max-width: 200px;
+    border: 8px solid $light-grey-color;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:10px;
+}
+
+
+.prof-image-div{
+	text-align: center;
+
+	.edit-form, .edit_user {
+		width: 100%;
+		input {
+			width: 85%;
+			font-size: 9pt;
+			margin: 0;
+			margin-bottom:8px;
+		}
+
+		.image-update-button {
+			width: 60%;
+		}
+
+		.image-update-button:hover {
+			background-color: $green-color;
+			color: white;
+			width: 60%;
+		}
+	}
+}
+
+
+.profile-contact, .profile-options, .profile-stats, .prof-image-div {
+	margin-top: 10px;
+	padding: 0;
+	border-bottom: solid 1px #00FF99;
+		h4{
+			margin-bottom: 10px;
+			text-transform: uppercase;
+			font-size: 8pt;
+		}
+}
+
+.profile-contact-show, .prof-image-div-show {
+	border-bottom: solid 0px #00FF99;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	margin-bottom: 5px;
+}
+
+li {
+	list-style-type: none;
+	margin: 0px;
+	a {
+		font-size: 11pt;
+		text-decoration: none;
+		line-height: 25pt;
+	}
+}
+
+
+
+.profile-stats {
+	border-bottom: solid 0px #00FF99;
+
+	p {
+		font-size: 11pt;
+		color: #666;
+		text-align: center;
+		margin-top: 0;
+	}
+
+	h1 {
+		font-size: 70pt;
+		margin: 0;
+		text-align: center;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+/* form */
+
+.edit_user {
+	width: 100%;
+		input {
+			width: 85%;
+			font-size: 9pt;
+			margin: 0;
+			margin-bottom:10px;
+			margin-top: 5px;
+		}
+
+		label {
+			color: #B8B8B8;
+		}
+
+		.update-button {
+			width: 100px;
+			background-color: white;
+			border: solid 1px $green-color;
+		}
+
+
+		.update-button:hover {
+			width: 100px;
+			background-color: $green-color;
+			color: white;
+		}
+
+}
+
+
+.profile-skills {
+	.add-form {
+
+		input {
+			width: 200px;
+		}
+		.update-button,  {
+			width: 100px;
+		}
+		label {
+			font-size: 10pt;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+/* profile main content */
+
+
+.profile-skills h2, .profile-projects h2, .profile-experiences h2 {
+	border-bottom: solid 1px #00FF99;
+	margin-bottom: 5px;
+}
+
+.profile-header, .profile-skills, .profile-projects, .profile-experiences, .profile-jobs {
+	background: white;
+	border-radius: 5px;
+	border: solid 1px #E6E6E6;
+	padding: 20px;	
+  min-width: 200px;
+}
+
+.profile-skills, .profile-projects, .profile-experiences, .profile-jobs{
+ margin-top: 40px;
+}
+
+
+.profile-header {
+	padding-top: 0px;
+		h1 {
+			margin-left: 0px;
+			margin-bottom: 15px;
+			font-size: 40pt;
+			border-bottom: solid 5px $light-grey-color;
+		}
+
+		h2 {
+			font-size: 12pt;
+			text-transform: uppercase;
+			color: $dark-grey-color;
+			margin-left: 30px;
+		}
+
+		h3 {
+			font-size: 13pt;
+			font-weight: normal;
+			color: $mid-grey-color;
+			margin-left: 30px;
+		}
+}
+
+
+.profile-skills {
+
+	li {
+		display: inline;
+		list-style-type: none;
+		margin-right: 10px;
+		background-color: $green-color;
+		padding: 5px 0px 5px 5px;
+		border: 1px solid #00B26B;
+		border-radius: 5px;
+	}
+
+	form {
+		padding-top: 20px;
+		display: inline-block;
+		margin-left: 0;
+
+		input {
+			width: 20px;
+		}
+
+		.delete-button {
+			margin: 0;
+			border: none;
+			margin-left: 5px;
+			background-color: $green-color;
+			border-left: 1px solid white;
+			color: $dark-grey-color;
+			float: none;
+		}
+
+		.delete-button:hover {
+			font-weight: bold;
+			border-left: 1px solid white;
+			color: white;
+		}
+	}
+}
+
+
+.profile-skills-show {
+	ul {
+		margin-top: 25px;
+	}
+	li {
+		padding: 5px 10px 5px 10px;
+	}
+}
+
+
+
+.project, .experience, .job {
+	margin: 15px 0px 15px 0px;
+	border-bottom: solid 1px $mid-grey-color;
+	overflow: auto;
+}
+
+.experience:last-child, .project:last-child, .job:last-child {
+	border-bottom: none;
+}
+
+
+.project-image {
+    max-width: 100px;
+    margin-right: 20px;
+    float: left;
+}
+
+.project-details {
+	float: left;
+	width: 80%;
+	padding-bottom: 30px;
+
+	h3{
+		color: $dark-grey-color;
+	}
+
+	p {
+		color: #666666;
+		font-size: 11pt;
+		margin: 0;
+		line-height: 20pt;
+		margin-bottom: 20px;
+		}
+
+
+}
+
+
+.experience {
+
+	h3{
+		color: $dark-grey-color;
+
+	}
+
+	h4, h5 {
+		margin: 0;
+		margin-bottom: 10px;
+		color: $mid-grey-color;
+		font-weight: normal;
+	}
+
+	p {
+		color: #666666;
+		font-size: 11pt;
+		margin: 0;
+		line-height: 20pt;
+		margin-bottom: 20px;
+	}
+}
+
+
+.profile-jobs {
+	margin-bottom: 40px;
+	
+	h3 {
+		background-color: $light-grey-color;
+		padding: 0px 10px 0px 10px;
+		display: inline-block;
+		margin-bottom: 30px;
+	}
+
+	.job {
+		h3{
+			background-color: white;
+			padding: 0px;
+			margin: 0;
+			color: $dark-grey-color;
+			margin-bottom: 10px;
+		}
+
+		h4, h5 {
+			margin: 0;
+			margin-bottom: 10px;
+			color: $mid-grey-color;
+			font-weight: normal;
+		}
+
+		p {
+			color: #666666;
+			font-size: 11pt;
+			margin: 0;
+			line-height: 18pt;
+			margin-bottom: 20px;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+/* ??? */
+
+
+a {
+	color: #666;
+}
+
+a:hover {
+	color: #00FF99;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* outcomes */
+
+.outcome-stats {
+	margin-top: 30px;
+
+	h2 {
+		margin: 0;
+		background-color: $green-color;
+		padding: 5px 15px 5px 15px;
+		display: inline-block;
+		font-size: 18pt;
+	}
+
+	h5 {
+		color: $dark-grey-color;
+		margin-bottom: 4px;
+		font-size: 12pt;
+	}
+
+	ul {
+		margin: 0;
+
+		li {
+			font-size: 11pt;
+			color: $mid-grey-color;
+			line-height: 24pt;
+			a{
+				font-size: 12pt;
+				line-height: 24pt;
+			}
+		}
+	}
+}
+
+.fleft {
+	float: left;
+	margin-right: 70px;
+}

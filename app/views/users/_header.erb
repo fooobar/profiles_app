@@ -1,0 +1,44 @@
+<!-- User Header -->
+<div class="user-header">
+	<div class="user-info">
+		<a class="edit-button" href="#">Edit</a>
+
+		<% if @user.user_type === "employer" %>
+			<h1 class="org-name"><%= @user.org_name%></h1>
+		<% else %>
+			<h1 class="student-name"><%= @user.f_name%> <%= @user.l_name%></h1>
+			<% if @user.role %> <h2><%= @user.role%></h2> <%end%>
+		<% end %>
+		<% if @user.bio %> <h2 class="bio"><%= @user.bio%></h2> <%end%>
+		<% if @user.city%> <h4 class="location"><%=@user.city%><%end%> <% if @user.state%>, <%=@user.state%> </h4> <%end%>
+	</div>
+	
+	<!-- edit form -->
+	<div class="hidden edit-form">
+		<%= form_for @user do |f| %>
+			<% if @user.user_type != "employer" %>
+				<%= f.label :f_name, "First Name" %><br>
+				<%= f.text_field :f_name %><br>
+				<%= f.label :l_name, "Last Name" %><br>
+				<%= f.text_field :l_name %><br>
+				<div class="clear-row"></div>
+				<%= f.label :role %><br>
+				<%= f.text_field :role %><br>
+			<% else %>
+				<%= f.label :org_name, "Company Name" %><br>
+				<%= f.text_field :org_name %><br>
+			<% end %>
+				<%= f.label :bio %><br>
+				<%= f.text_field :bio %><br>
+				<%= f.label :city %><br>
+				<%= f.text_field :city %><br>
+				<%= f.label :state %><br>
+				<%= f.text_field :state %><br>
+			<%= f.submit 'Update', class: "update-button update-the-header" %>
+			<a href="#" class="cancel-button">Cancel</a>
+		<% end %>
+	</div>
+
+</div>
+
+<!-- End User Header -->

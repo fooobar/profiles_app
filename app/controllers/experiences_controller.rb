@@ -1,4 +1,5 @@
 class ExperiencesController < ApplicationController
+
 	def new
 		@experience = Experience.new(experience_params)
 		if @experience.save
@@ -8,15 +9,10 @@ class ExperiencesController < ApplicationController
 		end
 	end
 
-	def update
-		experience = Experience.find(params[:id])
-		experience.update(experience_params)
-		render json: experience
-	end
-
 	def create
 		experience = Experience.new(experience_params)
 		experience.user_id = params[:user_id]
+		experience.save
 		if experience.save
 			render json: experience
 		else
@@ -24,10 +20,18 @@ class ExperiencesController < ApplicationController
 		end
 	end
 
+	def update
+		experience = Experience.find(params[:id])
+		experience.update(experience_params)
+		render json: experience
+	end
+
+
 	def destroy
 		Experience.destroy(params[:id])
-		redirect_to :back
+		render json: {message: 'success'}
 	end
+
 
 	private
 		def experience_params

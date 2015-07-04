@@ -1,0 +1,95 @@
+	<!-- MUSTACHE TEMPLATES -->
+
+	<script type="x-mustache" id="new-project-template">
+	<div class="project" data={{id}}>
+		<div class="user-info">
+			<a class="edit-button" href="#">Edit</a>
+			<div class="clear-row"> </div>
+			<img class="project-image" src="{{image_src}}">
+			<div class="project-details">
+				<h3>{{title}}</h3>
+				<p>{{desc}}</p>
+				<a href="{{website}}">See Website</a>
+			</div>
+		</div>
+		<!-- edit form -->
+		<div class="edit-form" id="profile-project-edit">
+			<form class="edit-project" id="edit_project_{{id}}" action="/users/{{user_id}}/projects/{{id}}" method="post">
+				<input type="hidden" name="_method" value="patch">
+				<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
+				<input type="text" value="{{image_src}}" name="project[image_src]" id="project_image_src">
+				<input type="text" value="{{title}}" name="project[title]" id="project_title">
+				<input type="text" value="{{desc}}" name="project[desc]" id="project_desc">
+				<input type="text" value="{{website}}" name="project[website]" id="project_website">
+				<input type="submit" name="commit" value="Update" class="update-button">
+				<a href="#" class="cancel-button">Cancel</a>
+			</form>
+		</div>
+		<div class="clear-row"> </div>
+	</div>
+	</script>
+
+	<script type="x-mustache" id="new-experience-template">
+	<div class="experience" data={{id}}>
+		<a class="edit-button" id="profile-experience-edit-button" href="">Edit</a>
+		<h3>{{role}}</h3>
+		<h4>{{company_name}}</h4>
+		<h5>{{start_date}} &mdash; {{end_date}} | {{city}}, {{state}}</h5>
+		<p>{{blurb}}</p>
+		<!-- edit form -->
+		<div class="edit-form" id="profile-experience-edit">
+			<form class="edit-experience" id="edit_experience_{{id}}" action="/users/{{user_id}}/experiences/{{id}}" method="post">
+				<input type="hidden" name="_method" value="patch">
+				<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
+				<input type="text" value="{{role}}" name="experience[role]" id="project_role">
+				<input type="text" value="{{company_name}}" name="experience[company_name]" id="project_company_name">
+				<input type="date" value="{{start_date}}" name="experience[start_date]" id="project_start_date">
+				<input type="date" value="{{end_date}}" name="experience[end_date]" id="project_end_date">
+				<input type="text" value="{{city}}" name="experience[city]" id="project_city">
+				<input type="text" value="{{state}}" name="experience[state]" id="project_state">
+				<input type="text" value="{{blurb}}" name="experience[blurb]" id="project_blurb">
+				<input type="submit" name="commit" value="Update" class="experience-update-button, update-button">
+			</form>
+		</div>
+	</div>
+	</script>
+
+	
+
+
+<script type="x-mustache" id="new-jobs-template">
+<div class="job">
+	<div class="user-info">
+	<a class="edit-button" href="#">Edit</a>
+	{{#job}}
+		<h3>{{title}}</h3>
+		<h5>Created at: {{created_at}}></h5>
+		<p class="job-desc-preview">{{desc}}</p>
+		{{/job}}
+		{{#skill}}
+			{{#name}}
+			<p>Skills Required:</p>
+			<ul>
+				<li>{{name}}</li>
+			</ul>
+			{{/name}}
+		{{/skill}}
+	</div>		
+	<!-- edit form -->
+	
+	<div class="hidden edit-form">
+	{{#job}}
+		<form class="edit_job" id="edit_job_{{id}}" action="/users/{{user_id}}/jobs/{{id}}" method="post">
+			<input type="hidden" name="_method" value="patch">
+			<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
+			<input type="text" value="{{title}}" name="job[title]" id="job_title">
+			<input type="text" value="{{desc}}" name="job[desc]" id="job_desc">
+			<input type="submit" name="commit" value="Update" class="update-button">
+		</form>
+	</div>		
+	{{/job}}
+</div>
+</script>
+
+
+

@@ -1,0 +1,162 @@
+<!-- START SIDE NAV -->
+
+<div class="side-nav" data="<%=@user.id%>">
+
+	<!-- Image -->
+	<div class="image-div" >
+
+		<div class="user-info">
+			<a class="edit-button" href="#">Edit</a>
+		</div>
+		<div class="edit-form hidden">
+			<p>Change Profile Image</p>
+			<%= form_for @user do |f| %>
+			<%= f.text_field :image_src %>
+			<%= f.submit 'Update', class: "update-button update-image" %>
+			<a href="#" class="cancel-button">Cancel</a>
+			<% end %>
+		</div>
+		<br>
+		<img class="profile-image" src="<%=@user.image_src%>">
+		
+
+	</div>
+
+	<!-- End Image -->
+
+
+	<!-- Contact Links -->
+
+	<div class="user-contact">
+
+		<h4>Your Contact Info </h4>
+
+		<div class="user-info">
+			<a class="edit-button" href="">Edit</a>
+
+			<ul>
+				<li><a href="mailto:<%=@user.email%>">Email Me</a></li>
+
+				<% if @user.phone && @user.phone != "" %>
+					<li>
+						Phone: <span class="phone"><%=@user.phone%></span></p>
+					</li>
+				<%end%>
+
+				<% if @user.website && @user.website != "" %>
+					<li>
+						<a class="website" href="<%=@user.website%>">My Website</a>
+					</li>
+				<%end%>
+
+				<% if @user.twitter && @user.twitter != "" %>
+				<li>
+					<a class="twitter" href="<%=@user.twitter%>">Tweet Me</a>
+				</li>
+				<%end%>
+
+
+				<% if @user.github && @user.github != "" %>
+				<li>
+					<a class="github" href="<%=@user.github%>">GitHub</a>
+				</li>
+				<%end%>
+
+				<% if @user.linkedin && @user.linkedin != "" %>
+				<li>
+					<a class="linkedin" href="<%=@user.linkedin%>">LinkedIn</a>
+				</li>
+				<%end%>
+
+				<% if @user.behance && @user.behance != ""%>
+				<li>
+					<a class="behance" href="<%=@user.behance%>">Behance</a>
+				</li>
+				<%end%>
+			</ul>
+		</div>
+
+		<!-- edit form contact links -->
+		<div class="edit-form hidden">
+			<%= form_for @user do |f| %>
+				<%= label_tag(:password, "Reset Password") %>
+				<br>
+				<%= f.password_field :password %>
+				<br>
+				<%= label_tag(:phone, "Phone") %>
+				<br>
+				<%= f.text_field :phone %>
+				<br>
+				<%= label_tag(:website, "Website") %>
+				<br>
+				<%= f.text_field :website %>
+				<br>
+				<%= label_tag(:twitter, "Twitter") %>
+				<br>
+				<%= f.text_field :twitter %>
+				<br>
+				<%= label_tag(:github, "Github") %>
+				<br>
+				<%= f.text_field :github %>
+				<br>
+				<%= label_tag(:linkedin, "Linkedin") %>
+				<br>
+				<%= f.text_field :linkedin %>
+				<br>
+				<%= label_tag(:behance, "Behance") %>
+				<br>
+				<%= f.text_field :behance %>
+				<br>
+				<%= f.submit 'Update', class: "update-contact update-button" %>
+				<a href="#" class="cancel-button">Cancel</a>
+			<% end %>
+		</div>
+	</div>
+
+	<!-- End User Contact Links -->
+
+
+	<!-- Start User Preferences -->
+
+	<div class="user-preferences">
+		<h4>Your Preferences </h4>
+		<p>Set a backgound image and color for your profile.</p>
+		<div class="user-info">
+			<a class="edit-button" href="">Edit</a>
+				<% if @user.background && @user.background != "" %>
+					<img class="preview-bkg" src="<%=@user.background%>">
+				<%end%>
+				<div class="preview-color" style="background-color:<%=@user.color%>"></div>
+		</div>
+		<div class="edit-form hidden">
+			<%= form_for @user do |f| %>
+				<%= label_tag(:background, "Background Image URL") %>
+				<br>
+				<%= f.text_field :background %>
+				<br>
+				<%= label_tag(:color, "Background Color Hex Value") %>
+				<br>
+				<%= f.text_field :color %>
+				<br>
+				<%= f.submit 'Update', class: "update-button update-prefs" %>
+				<a href="#" class="cancel-button">Cancel</a>
+			<% end %>
+		</div>
+	</div>
+
+	<!-- End User Preferences -->
+
+
+	<!-- Start User Stats -->
+	
+	<% if @user.user_type != "outcomes" %>
+		<div class="user-stats">
+			<h4>Your Page Views</h4>
+			<h1><%= @user.clicked %></h1>
+		</div>
+	<% end %>
+
+		
+</div>
+	
+

@@ -1,0 +1,79 @@
+<!-- MAIN AREA -->
+<div class="user-main-content">
+
+<!-- Start Jobs Posted -->
+	<div class="users-jobs">
+		<a class="add-button" href="#">Add Job</a>
+		<div class="add-form hidden">
+			<%= form_for @job, url: "/users/#{@user.id}/jobs/", html: {method: :post} do |f| %>
+				<%= f.label :title, "Job Title"%>
+				<%= f.text_field :title%><br>
+				<%= f.label :desc, "Job Description"%>
+				<%= f.text_field :desc %><br>
+				<%= f.label :skills, "Add One Skill"%>
+				<%= f.text_field :skills, :value => ""%><br>
+				<%= f.submit 'Create a Job Posting', class: "create-button" %>
+				<a class="cancel-button" href="#">Cancel</a>
+			<% end %>
+		</div>
+	</div>
+			<h3>Jobs you are offering:</h3>
+			<div class="user-new-jobs"></div>
+
+			<% @sorted_jobs.each do |job|%>
+				<div class="job" data="<%=job.id%>">
+					
+					<div class="user-info">
+					<%= form_for job, url: "/users/#{@user.id}/jobs/#{job.id}", html: {method: :delete} do |f| %>
+					<%= f.submit 'Delete', class: "this-delete-button" %>
+						<% end %>
+						<a class="edit-button" href="#">Edit</a>
+						<h3><%=job.title%></h3>
+						<h5>Created at: <%=job.created_at%></h5>
+						<p class="job-desc-preview">
+							<% if job.desc.split.size > 20%>
+								<%=job.desc.truncate_words(20)%><a href="#">More</a></p>
+							<%else%>
+								<%= job.desc%> 
+							<%end%> 
+							
+						<p class="job-desc-all hidden"><%=job.desc%> <a href="">Less</a></p>
+						<div class="job-skills">
+							<p>Skills Required:</p>
+							<ul>
+								<%job.skills.each do |skill|%> 
+								<li><%=skill.name%>
+									</li>
+								<% end%>
+							</ul>	
+						</div>
+					</div>
+				<!-- edit form -->
+					<div class="edit-form hidden">
+						<%= form_for job, url: "/users/#{@user.id}/jobs/#{job.id}", html: {method: :patch} do |f| %>
+							<%= f.label :title, "Job Title"%>
+							<%= f.text_field :title %><br>
+							<%= f.label :desc, "Job Description"%>
+							<%= f.text_field :desc %><br>
+							<p>Skills Required:</p>
+							<ul>
+								<%job.skills.each do |skill|%> 
+								<li><%=skill.name%></li>
+								<% end%>
+							</ul>	
+							<%= f.label :skills, "Add Skill"%>
+							<%= f.text_field :skills, :value => ""%><br>
+							<%= f.submit 'Update', class: "update-button" %>
+							<a class="cancel-button" href="#">Cancel</a>
+						<% end %>
+					</div>
+					<br>
+				</div>
+
+			<%end%>
+		</div>
+		<!-- End Jobs Posted -->
+
+	</div>
+</div>
+<!-- END MAIN AREA -->

@@ -1,0 +1,41 @@
+
+			<ul>
+				<li><a href="mailto:<%=@user.email%>">Email Me</a></li>
+
+				<% if @user.phone && @user.phone != "" %>
+					<li>
+						Phone: <span class="phone"><%=@user.phone%></span>
+					</li>
+				<%end%>
+
+				<% if @user.website && @user.website != "" %>
+					<li>
+						<a class="website" href="<%=@user.website%>">My Website</a>
+					</li>
+				<%end%>
+
+				<% if @user.twitter && @user.twitter != "" %>
+				<li>
+					<a class="twitter" href="<%=@user.twitter%>">Tweet Me</a>
+				</li>
+				<%end%>
+
+
+				<% if @user.github && @user.github != "" %>
+				<li>
+					<a class="github" href="<%=@user.github%>">GitHub</a>
+				</li>
+				<%end%>
+
+				<% if @user.linkedin && @user.linkedin != "" %><li>
+					<a class="linkedin" href="<%=@user.linkedin%>">LinkedIn</a>
+				</li>
+				<%end%>
+
+				<% if @user.behance && @user.behance != ""%>
+				<li>
+					<a class="behance" href="<%=@user.behance%>">Behance</a>
+				</li>
+				<%end%>
+			</ul>
+		</div>
