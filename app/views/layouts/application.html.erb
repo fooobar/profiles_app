@@ -10,15 +10,16 @@
 <div class="current-user-header">
 		<% if @current_user%>
 			<% if @current_user.user_type == "student" || @current_user.user_type == "outcomes"%>
-				<img class="nav-bar-picture" src="/images/logo.png"><a href="/">Home</a> <img class="nav-bar-picture" src="<%=@current_user.image_src%>"><a href="/users/<%=@current_user.id%>">Hello <%= @current_user.f_name%></a>
-				<a href="/jobs">| Job Board</a>
+			
+				<img class="nav-bar-picture" src="<%= asset_path 'logo.png' %>"><a href="/">Generic Constructor</a> <a href="/users/<%=@current_user.id%>"><img class="user-small-pic" src="<%=@current_user.image_src%>">Hello <%= @current_user.f_name%></a>
+				<a href="/jobs">Job Board</a>
 			<% else %>
-				<img class="nav-bar-picture" src="/images/logo.png"><a href="/">Home</a><img class="nav-bar-picture" src="<%=@current_user.image_src%>"><a href="/users/<%=@current_user.id%>">Hello <%=@current_user.org_name%></a></a>
-				<a href="/skills">| Student Board</a>
+				<img class="nav-bar-picture" src="<%= asset_path 'logo.png' %>"><a href="/">Generic Constructor</a><img class="nav-bar-picture" src="<%=@current_user.image_src%>"><a href="/users/<%=@current_user.id%>">Hello <%=@current_user.org_name%></a></a>
+				<a href="/skills">Student Board</a>
 			<% end %>
 		<% else %>
 		<div> 
-			<img class="nav-bar-picture" src="/images/logo.png"><a href="/">Generic Constructor</a>
+			<img class="nav-bar-picture" src="<%= asset_path 'logo.png' %>"><a href="/">Generic Constructor</a>
 			<a id="login" href="/login">Log in</a>
 		</div>
 		<% end %>

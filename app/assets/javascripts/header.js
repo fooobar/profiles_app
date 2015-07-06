@@ -21,3 +21,5 @@ var updateTheHeader = function(e){
 		$(this).parent().parent().hide();		
 	})	
 }
+
+

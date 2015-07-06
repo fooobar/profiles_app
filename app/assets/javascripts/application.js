@@ -25,3 +25,10 @@ var resizeDiv = function(){
 	var vph = $( document ).height();
 	$('.profile-content').css({'height': vph});
 }
+
+window.onresize = function() {
+  resizeDiv();
+};
+
+
+

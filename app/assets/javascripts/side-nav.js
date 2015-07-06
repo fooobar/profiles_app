@@ -71,9 +71,6 @@ var updatePrefs = function(event){
 
 
 
-
-
-
 	// sidenav contact update test - didn't work
 		// update contact with json
 		// $('.phone').text(resp['phone'])

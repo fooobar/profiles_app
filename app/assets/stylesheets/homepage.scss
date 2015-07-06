@@ -1,4 +1,53 @@
-$green-color: #00FF99;
+$main: #66FFCC;
+$dark-grey: #3A3A3A;
+$mid-grey: #474747;
+$light-grey: #E6E6E6;
+$header: #282828;
+$dark-green: #00FF99;
+
+.fade{
+	opacity: 0;
+	animation:fadeIn ease-in 1;
+}
+
+.fade-in-1 {
+	animation-duration:1s;
+		animation-fill-mode:forwards;
+}
+
+.fade-in-2 {
+	animation-duration:1s;
+}
+
+@keyframes fadeIn { 
+	100% { opacity:1; } 
+}
+
+
+@-moz-keyframes spin { 
+	100% { -moz-transform: rotate(360deg); }
+}
+
+@-webkit-keyframes spin {
+ 100% { -webkit-transform: rotate(360deg); } 
+ }
+
+@keyframes spin { 
+	100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } 
+}
+
+.spin-gear {
+	-webkit-animation:spin 10s linear infinite;
+  -moz-animation:spin 10s linear infinite;
+}
+
+.logo-home {
+	position: absolute;
+	width: 40%;
+	top: 25%;
+	left: 30%;
+	
+}
 
 .home-main-content {
 
@@ -28,20 +77,9 @@ $green-color: #00FF99;
 	width: 100%;
 }
 
-.logo-home {
-	position: absolute;
-	width: 40%;
-	top: 25%;
-	left: 30%;
-	
-}
 
-.spin-gear {
-	-webkit-animation:spin 10s linear infinite;
-    -moz-animation:spin 10s linear infinite;
-    animation:spin 10s linear infinite;
-	
-}
+
+
 
 
 .home-bottom-boxes{
@@ -82,16 +120,5 @@ $green-color: #00FF99;
 
 
 
-@-moz-keyframes spin { 
-	100% { -moz-transform: rotate(360deg); }
-}
-
-@-webkit-keyframes spin {
- 100% { -webkit-transform: rotate(360deg); } 
- }
-
-@keyframes spin { 
-	100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } 
-}
 
 

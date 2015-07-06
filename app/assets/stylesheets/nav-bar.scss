@@ -1,0 +1,57 @@
+/* navigation bar*/
+
+$main: #66FFCC;
+$dark-grey: #3A3A3A;
+$mid-grey: #474747;
+$light-grey: #E6E6E6;
+$header: #282828;
+$dark-green: #00FF99;
+
+.nav-bar-picture {
+	width: 25px;
+	float: left;
+	margin-left: 10px;
+	padding-top: 7px;
+}
+
+.user-small-pic{
+	width: 20px;
+	float: left;
+	margin-right: 5px;
+}
+
+.current-user-header{
+	height: 40px;
+	background-color: $header;
+	color: white;
+	border-bottom: solid 2px $main;
+
+	a {
+	dislay:block;
+	margin: 0;
+	padding:0;
+	font-family: helvetica;
+	color: white;
+	margin-left: 10px;
+	padding: 10px 10px 0px 10px;
+	text-decoration: none;
+	vertical-align: bottom;
+	float: left;
+
+	}
+
+	a:hover {
+	color: $dark-green;
+	background-color: $mid-grey;
+	height: 30px;
+	margin-top: 0;
+	transition: .25s ease-in background-color;
+	}
+}
+
+#logout, #login {
+	float: right;
+}
+
+
+
