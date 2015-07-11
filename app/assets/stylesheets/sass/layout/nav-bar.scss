@@ -1,0 +1,56 @@
+/* navigation bar*/
+
+
+
+
+.nav-bar-picture {
+	width: 25px;
+	float: left;
+	margin-right: 8px;
+	margin-top: -2px;
+}
+
+.user-small-pic{
+	width: 20px;
+	float: left;
+	margin-right: 5px;
+}
+
+.current-user-header{
+	height: 40px;
+	background-color: $dark-blue;
+	color: white;
+	border-bottom: solid 2px $main;
+
+	a {
+	display: block;
+	margin: 0;
+	font-family: $font-1;
+	font-size: $base-font-size;
+	color: white;
+	margin-left: 10px;
+	padding: 8px 10px 0px 10px;
+	text-decoration: none;
+	vertical-align: bottom;
+	float: left;
+	text-align: center;
+
+	}
+
+	a:hover {
+	color: white;
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+	background-color: #2a396f;
+	height: 38px;
+	margin-top: 0;
+	transition: .25s ease-in background-color;
+	}
+}
+
+#logout, #login {
+	float: right;
+	margin-right: 15px;
+}
+
+
+

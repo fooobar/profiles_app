@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Profiles</title>
+  <title>Profile App</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <meta charset="UTF-8">
 </head>
 
 <body>
-<div class="current-user-header">
+<div class="container-fluid">
+
+	<div class="current-user-header">
 		<% if @current_user%>
 			<% if @current_user.user_type == "student" || @current_user.user_type == "outcomes"%>
 			
-				<img class="nav-bar-picture" src="<%= asset_path 'logo.png' %>"><a href="/">Generic Constructor</a> <a href="/users/<%=@current_user.id%>"><img class="user-small-pic" src="<%=@current_user.image_src%>">Hello <%= @current_user.f_name%></a>
+				<a href="/"><img class="nav-bar-picture" src="<%= asset_path 'sm-logo.png' %>">Connect You</a> <a href="/users/<%=@current_user.id%>"><img class="user-small-pic" src="<%=@current_user.image_src%>">Hello <%= @current_user.f_name%></a>
 				<a href="/jobs">Job Board</a>
 			<% else %>
-				<img class="nav-bar-picture" src="<%= asset_path 'logo.png' %>"><a href="/">Generic Constructor</a><img class="nav-bar-picture" src="<%=@current_user.image_src%>"><a href="/users/<%=@current_user.id%>">Hello <%=@current_user.org_name%></a></a>
+				<a href="/"><img class="nav-bar-picture" src="<%= asset_path 'sm-logo.png' %>">Connect You</a><img class="nav-bar-picture" src="<%=@current_user.image_src%>"><a href="/users/<%=@current_user.id%>">Hello <%=@current_user.org_name%></a></a>
 				<a href="/skills">Student Board</a>
 			<% end %>
 		<% else %>
 		<div> 
-			<img class="nav-bar-picture" src="<%= asset_path 'logo.png' %>"><a href="/">Generic Constructor</a>
+			<a href="/"><img class="nav-bar-picture" src="<%= asset_path 'sm-logo.png' %>">Connect You</a>
 			<a id="login" href="/login">Log in</a>
 		</div>
 		<% end %>
@@ -31,7 +33,7 @@
 
 <%= yield %>
 
-<div class="bottom-marg"></div>
+</div>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>

@@ -1,0 +1,108 @@
+/* ==========================================================================
+   Animations // fades etc //
+   ========================================================================== */
+
+@-moz-keyframes spin { 
+	100% { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.spin-gear {
+	-webkit-animation:spin 10s linear infinite;
+  -moz-animation:spin 10s linear infinite;
+}
+
+
+/* ==========================================================================
+   Logo positioning responsive
+   ========================================================================== */
+
+
+/* Extra small devices (phones, less than 768px) */
+.logo-home {
+	position: absolute;
+	width: 40%;
+	top: 15%;
+	left: 30%;
+}
+
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.logo-home {
+		position: absolute;
+		width: 40%;
+		top: 20%;
+		left: 30%;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.logo-home {
+		position: absolute;
+		width: 40%;
+		top: 30%;
+		left: 30%;
+	}
+}
+
+
+
+/* ==========================================================================
+   Main Home Style
+   ========================================================================== */
+
+
+
+.home-main-content {
+	.welcomes-text {
+		height: 300px;
+		background-color: $bright-blue;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		padding: 0;
+		text-align: center;
+		padding-top: 40px;
+		
+
+		h2 {
+			padding: 0;
+			color: $dark-blue;
+		}
+		h3 {	
+			padding: 0;
+			margin: 0;
+			color: $dark-blue;
+			margin-top: 10px;
+		}
+	}
+}
+
+.desk-image-home {
+	width: 100%;
+}
+
+
+.home-bottom-box {
+	text-align: center;
+	padding-bottom: 15px;
+
+		img {
+			width: 100%;
+		}
+
+		a {
+			text-transform: uppercase;
+			text-decoration: none;
+			font-weight: bold;
+		}
+}
+
+
+
+
+
+
+
